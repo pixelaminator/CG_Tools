@@ -1,0 +1,38 @@
+D:\CSharp Project\CG_Tools\CG Tools\bin\Debug\CG_Tools\AppUI.xslt
+D:\CSharp Project\CG_Tools\CG Tools\bin\Debug\CG_Tools\UserUI.xslt
+D:\CSharp Project\CG_Tools\CG Tools\bin\Debug\CG_Tools\CorelDrw.addon
+D:\CSharp Project\CG_Tools\CG Tools\obj\Debug\DockerUI.baml
+D:\CSharp Project\CG_Tools\CG Tools\obj\Debug\DockerUI.g.vb
+D:\CSharp Project\CG_Tools\CG Tools\obj\Debug\CG_Tools.Resources.resources
+D:\CSharp Project\CG_Tools\CG Tools\obj\Debug\CG_Tools.PublishDigital.resources
+D:\CSharp Project\CG_Tools\CG Tools\obj\Debug\CGFileManagement.vbproj.GenerateResource.Cache
+D:\CSharp Project\CG_Tools\CG Tools\bin\Debug\CG_Tools\CG_Tools.dll
+D:\CSharp Project\CG_Tools\CG Tools\bin\Debug\CG_Tools\CG_Tools.pdb
+D:\CSharp Project\CG_Tools\CG Tools\obj\Debug\CG_Tools_MarkupCompile.cache
+D:\CSharp Project\CG_Tools\CG Tools\obj\Debug\CG_Tools.g.resources
+D:\CSharp Project\CG_Tools\CG Tools\obj\Debug\CG_Tools.dll
+D:\CSharp Project\CG_Tools\CG Tools\obj\Debug\CG_Tools.pdb
+D:\CSharp Project\CG_Tools\CG Tools\bin\Debug\CG_Tools\CG_Tools.tlb
+D:\CSharp Project\CG_Tools\CG Tools\bin\Debug\CG_Tools\CG_FileManagement.dll
+D:\CSharp Project\CG_Tools\CG Tools\bin\Debug\CG_Tools\CG_FileManagement.pdb
+D:\CSharp Project\CG_Tools\CG Tools\obj\Debug\CG_FileManagement_MarkupCompile.cache
+D:\CSharp Project\CG_Tools\CG Tools\obj\Debug\CG_FileManagement.g.resources
+D:\CSharp Project\CG_Tools\CG Tools\obj\Debug\CG_FileManagement.dll
+D:\CSharp Project\CG_Tools\CG Tools\obj\Debug\CG_FileManagement.pdb
+D:\CSharp Project\CG_Tools\CG_FileManagement\bin\Debug\CG_Tools\AppUI.xslt
+D:\CSharp Project\CG_Tools\CG_FileManagement\bin\Debug\CG_Tools\UserUI.xslt
+D:\CSharp Project\CG_Tools\CG_FileManagement\bin\Debug\CG_Tools\CorelDrw.addon
+D:\CSharp Project\CG_Tools\CG_FileManagement\bin\Debug\CG_Tools\CG_FileManagement.dll
+D:\CSharp Project\CG_Tools\CG_FileManagement\bin\Debug\CG_Tools\CG_FileManagement.pdb
+D:\CSharp Project\CG_Tools\CG_FileManagement\obj\Debug\DockerUI.baml
+D:\CSharp Project\CG_Tools\CG_FileManagement\obj\Debug\DockerUI.g.vb
+D:\CSharp Project\CG_Tools\CG_FileManagement\obj\Debug\CG_FileManagement_MarkupCompile.cache
+D:\CSharp Project\CG_Tools\CG_FileManagement\obj\Debug\CG_FileManagement.g.resources
+D:\CSharp Project\CG_Tools\CG_FileManagement\obj\Debug\CGFileManagement.vbproj.GenerateResource.Cache
+D:\CSharp Project\CG_Tools\CG_FileManagement\obj\Debug\CG_FileManagement.dll
+D:\CSharp Project\CG_Tools\CG_FileManagement\obj\Debug\CG_FileManagement.pdb
+D:\CSharp Project\CG_Tools\CG_FileManagement\obj\Debug\CGFileManagement.vbprojResolveAssemblyReference.cache
+D:\CSharp Project\CG_Tools\CG_FileManagement\bin\Debug\CG_Tools\Newtonsoft.Json.dll
+D:\CSharp Project\CG_Tools\CG_FileManagement\bin\Debug\CG_Tools\Newtonsoft.Json.xml
+D:\CSharp Project\CG_Tools\CG_FileManagement\obj\Debug\CG_FileManagement.Resources.resources
+D:\CSharp Project\CG_Tools\CG_FileManagement\obj\Debug\CG_FileManagement.PublishDigital.resources
