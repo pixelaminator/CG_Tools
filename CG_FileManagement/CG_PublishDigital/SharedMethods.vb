@@ -37,11 +37,11 @@ Partial Class PublishDigital
             cb.Name = cbname
             cb.Text = txt("type")
 
-            'Using g As Graphics = CreateGraphics()
-            '    Dim size As SizeF = g.MeasureString(txt("type"), cb.Font, 10000)
-            '    cb.Height = CInt(Math.Ceiling(size.Height))
-            '    cb.Width = size.Width
-            'End Using
+            Using g As Graphics = CreateGraphics()
+                Dim size As SizeF = g.MeasureString(txt("type"), cb.Font, 10000)
+                cb.Height = CInt(Math.Ceiling(size.Height))
+                cb.Width = size.Width
+            End Using
 
             Dim matches() As Control
             matches = Me.Controls.Find(cbname, True)
