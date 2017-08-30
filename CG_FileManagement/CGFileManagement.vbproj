@@ -109,7 +109,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.vb" />
-    <Compile Include="CG_PublishDigital\CGSaveJsonData.vb" />
     <Compile Include="CG_PublishDigital\SharedMethods.vb">
       <SubType>Form</SubType>
     </Compile>

@@ -3,6 +3,7 @@ Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 Imports System.Collections.Generic
 Imports System.Drawing
+Imports System
 
 Partial Class PublishDigital
     Public Sub fillCBfromJson(ByVal cb As ComboBox, json As Object, Optional ByVal value As String = "", Optional display As String = "")
@@ -28,7 +29,7 @@ Partial Class PublishDigital
 
         For Each cur In cbdata
             Dim cb = New CheckBox()
-            tb_finishinga3.Controls.Add(cb)
+            pn_finishinga3.Controls.Add(cb)
             cb.Location = New Point(XOffset, YOffset)
             Dim txt As JObject = JsonConvert.DeserializeObject(Of JObject)(JsonConvert.SerializeObject(cur))
             loopIndex += 1
@@ -36,25 +37,12 @@ Partial Class PublishDigital
             Dim cbname As String = "cb" + CType(loopIndex, String)
             cb.Name = cbname
             cb.Text = txt("type")
-
-            'Using g As Graphics = CreateGraphics()
-            '    Dim size As SizeF = g.MeasureString(txt("type"), cb.Font, 10000)
-            '    cb.Height = CInt(Math.Ceiling(size.Height))
-            '    cb.Width = size.Width
-            'End Using
+            cb.Margin = New Padding(0)
+            cb.AutoSize = False
 
             Dim matches() As Control
             matches = Me.Controls.Find(cbname, True)
             myCb.Add(DirectCast(matches(0), CheckBox))
-
-            i += 1
-            If i / maxRow = 1 Then
-                XOffset = myCb(loopIndex - 4).Right + 10
-                YOffset = 7
-                i = 0
-            Else
-                YOffset = YOffset + 23
-            End If
         Next
     End Sub
     Public Function parseJsonToDictionary(ByVal json As JToken) As Dictionary(Of String, JArray)

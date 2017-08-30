@@ -68,6 +68,11 @@ Partial Class PublishDigital
         Me.tb_Finishing = New System.Windows.Forms.TabControl()
         Me.tb_finishinga3 = New System.Windows.Forms.TabPage()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.Label14 = New System.Windows.Forms.Label()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
@@ -75,11 +80,7 @@ Partial Class PublishDigital
         Me.t_preview = New System.Windows.Forms.TextBox()
         Me.bt_cancel = New System.Windows.Forms.Button()
         Me.bt_OK = New System.Windows.Forms.Button()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.pn_finishinga3 = New System.Windows.Forms.FlowLayoutPanel()
         Me.gr_basefolder.SuspendLayout()
         Me.gr_datacustomer.SuspendLayout()
         Me.g_datasetting.SuspendLayout()
@@ -89,6 +90,7 @@ Partial Class PublishDigital
         Me.g_pdf.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         Me.tb_Finishing.SuspendLayout()
+        Me.tb_finishinga3.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.g_preview.SuspendLayout()
         Me.SuspendLayout()
@@ -535,6 +537,7 @@ Partial Class PublishDigital
         'tb_finishinga3
         '
         Me.tb_finishinga3.AutoScroll = True
+        Me.tb_finishinga3.Controls.Add(Me.pn_finishinga3)
         Me.tb_finishinga3.Location = New System.Drawing.Point(4, 22)
         Me.tb_finishinga3.Name = "tb_finishinga3"
         Me.tb_finishinga3.Padding = New System.Windows.Forms.Padding(3)
@@ -557,6 +560,49 @@ Partial Class PublishDigital
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Finishing Large Format"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Location = New System.Drawing.Point(327, 3)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(167, 139)
+        Me.GroupBox1.TabIndex = 5
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Estimasi Waktu"
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(60, 85)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(261, 21)
+        Me.ComboBox1.TabIndex = 4
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(7, 88)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(48, 13)
+        Me.Label15.TabIndex = 3
+        Me.Label15.Text = "Laminasi"
+        '
+        'ListBox1
+        '
+        Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.Location = New System.Drawing.Point(60, 9)
+        Me.ListBox1.Name = "ListBox1"
+        Me.ListBox1.Size = New System.Drawing.Size(260, 69)
+        Me.ListBox1.TabIndex = 2
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(6, 9)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(48, 13)
+        Me.Label14.TabIndex = 1
+        Me.Label14.Text = "Finishing"
         '
         'TabPage3
         '
@@ -621,48 +667,14 @@ Partial Class PublishDigital
         Me.bt_OK.Text = "OK"
         Me.bt_OK.UseVisualStyleBackColor = True
         '
-        'Label14
+        'pn_finishinga3
         '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(6, 9)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(48, 13)
-        Me.Label14.TabIndex = 1
-        Me.Label14.Text = "Finishing"
-        '
-        'ListBox1
-        '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(60, 9)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(260, 69)
-        Me.ListBox1.TabIndex = 2
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(7, 88)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(48, 13)
-        Me.Label15.TabIndex = 3
-        Me.Label15.Text = "Laminasi"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(60, 85)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(261, 21)
-        Me.ComboBox1.TabIndex = 4
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Location = New System.Drawing.Point(327, 3)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(167, 139)
-        Me.GroupBox1.TabIndex = 5
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Estimasi Waktu"
+        Me.pn_finishinga3.AutoScroll = True
+        Me.pn_finishinga3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
+        Me.pn_finishinga3.Location = New System.Drawing.Point(3, 3)
+        Me.pn_finishinga3.Name = "pn_finishinga3"
+        Me.pn_finishinga3.Size = New System.Drawing.Size(494, 142)
+        Me.pn_finishinga3.TabIndex = 0
         '
         'PublishDigital
         '
@@ -699,6 +711,7 @@ Partial Class PublishDigital
         Me.GroupBox6.ResumeLayout(False)
         Me.GroupBox6.PerformLayout()
         Me.tb_Finishing.ResumeLayout(False)
+        Me.tb_finishinga3.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         Me.g_preview.ResumeLayout(False)
@@ -764,4 +777,5 @@ Partial Class PublishDigital
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
     Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents pn_finishinga3 As System.Windows.Forms.FlowLayoutPanel
 End Class
