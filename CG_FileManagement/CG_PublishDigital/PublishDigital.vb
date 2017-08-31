@@ -18,7 +18,10 @@ Public Class PublishDigital
             Close()
         End If
         jsonTxt = File.ReadAllText(jsonPath)
-        jsonObj = JObject.Parse(jsonTxt)
+        'Using r As New StreamReader(jsonPath)
+        '    Dim jsonTxt As String = r.ReadToEnd()
+            jsonObj = JObject.Parse(jsonTxt)
+        'End Using
         initSetter()
         initJenisOrder()
         initfinishingA3()

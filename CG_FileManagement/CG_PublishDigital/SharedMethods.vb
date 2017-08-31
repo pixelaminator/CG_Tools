@@ -6,6 +6,7 @@ Imports System.Drawing
 Imports System
 
 Partial Class PublishDigital
+    Dim loopIndex As Integer
     Public Sub fillCBfromJson(ByVal cb As ComboBox, json As Object, Optional ByVal value As String = "", Optional display As String = "")
         cb.ValueMember = value
         cb.DisplayMember = display
@@ -22,7 +23,6 @@ Partial Class PublishDigital
         End If
     End Sub
     Public Sub fillTabwithCB(ByVal cbdata As JArray, XOffset As Integer, YOffset As Integer, maxRow As Integer)
-        Dim loopIndex As Integer
         Dim i As Integer = 0
 
         Dim myCb As New List(Of CheckBox)
@@ -43,9 +43,19 @@ Partial Class PublishDigital
             Dim matches() As Control
             matches = Me.Controls.Find(cbname, True)
             myCb.Add(DirectCast(matches(0), CheckBox))
+
+            AddHandler cb.CheckedChanged, AddressOf dynCheckboxChangeHandler
         Next
     End Sub
     Public Function parseJsonToDictionary(ByVal json As JToken) As Dictionary(Of String, JArray)
         parseJsonToDictionary = JsonConvert.DeserializeObject(Of Dictionary(Of String, JArray))(JsonConvert.SerializeObject(json))
     End Function
+    Private Sub dynCheckboxChangeHandler(ByVal sender As Object, ByVal e As System.EventArgs)
+        For i As Integer = 1 To loopIndex Step 1
+            Dim cbchk As CheckBox = CType(pn_finishinga3.Controls("cb" + CType(i, String)), CheckBox)
+            If cbchk.Checked = True Then
+                t_preview.Text = jsonObj("cgFinishing")("a3colorfn")(CInt(cbchk.Name.Substring(cbchk.Name.Length - 1, 1) - 1))("kode")
+            End If
+        Next
+    End Sub
 End Class
