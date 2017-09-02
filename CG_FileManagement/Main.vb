@@ -3,16 +3,22 @@ Imports System.Runtime.InteropServices
 Imports RGiesecke.DllExport
 Imports Corel.Interop.VGCore
 Module Main
-    Public WithEvents appDraw As New Corel.Interop.VGCore.Application
+    Dim cdraw As Corel.Interop.VGCore.Application = NewCDRApp.appDraw
+
     <DllExport("CGToolsNET")>
     Public Sub CG_Publish()
         Dim count As Integer
-        count = appDraw.Documents.Count
+        count = cdraw.Documents.Count
         If count = 0 Then
             MessageBox.Show("Tidak ada dokumen yang terbuka.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
         Dim publish As New PublishDigital
         publish.ShowDialog()
+    End Sub
+    <DllExport("CGToolsNET2")>
+    Public Sub CG_TestSaving()
+        Dim testSave As New SavingTest
+        testSave.Show()
     End Sub
 End Module

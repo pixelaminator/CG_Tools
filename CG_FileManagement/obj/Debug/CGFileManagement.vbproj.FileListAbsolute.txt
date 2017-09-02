@@ -36,3 +36,4 @@ D:\CSharp Project\CG_Tools\CG_FileManagement\bin\Debug\CG_Tools\Newtonsoft.Json.
 D:\CSharp Project\CG_Tools\CG_FileManagement\bin\Debug\CG_Tools\Newtonsoft.Json.xml
 D:\CSharp Project\CG_Tools\CG_FileManagement\obj\Debug\CG_FileManagement.Resources.resources
 D:\CSharp Project\CG_Tools\CG_FileManagement\obj\Debug\CG_FileManagement.PublishDigital.resources
+D:\CSharp Project\CG_Tools\CG_FileManagement\obj\Debug\CG_FileManagement.SavingTest.resources
