@@ -1,0 +1,7 @@
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\CG_SettingTools.dll
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\CG_SettingTools.pdb
+D:\CSharp Project\CG_Tools\CG_SettingTools\obj\Debug\CGSettingTools.vbprojResolveAssemblyReference.cache
+D:\CSharp Project\CG_Tools\CG_SettingTools\obj\Debug\CG_SettingTools.Resources.resources
+D:\CSharp Project\CG_Tools\CG_SettingTools\obj\Debug\CGSettingTools.vbproj.GenerateResource.Cache
+D:\CSharp Project\CG_Tools\CG_SettingTools\obj\Debug\CG_SettingTools.dll
+D:\CSharp Project\CG_Tools\CG_SettingTools\obj\Debug\CG_SettingTools.pdb
