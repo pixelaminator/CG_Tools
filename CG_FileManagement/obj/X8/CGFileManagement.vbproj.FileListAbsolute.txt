@@ -15,3 +15,5 @@ D:\CSharp Project\CG_Tools\CG_FileManagement\obj\X8\CG_FileManagement.PublishDig
 D:\CSharp Project\CG_Tools\CG_FileManagement\obj\X8\CGFileManagement.vbproj.GenerateResource.Cache
 D:\CSharp Project\CG_Tools\CG_FileManagement\obj\X8\CG_FileManagement.dll
 D:\CSharp Project\CG_Tools\CG_FileManagement\obj\X8\CG_FileManagement.pdb
+D:\CSharp Project\CG_Tools\CG_FileManagement\obj\X8\CGFileManagement.vbprojResolveAssemblyReference.cache
+D:\CSharp Project\CG_Tools\CG_FileManagement\obj\X8\CGFileManagement.vbproj.CoreCompileInputs.cache
