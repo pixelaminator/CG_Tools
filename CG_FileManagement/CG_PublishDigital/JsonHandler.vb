@@ -20,7 +20,7 @@ Public Class JsonHandler
 
             Dim cbname As String = "cb" + CType(loopIndex, String)
             cb.Name = cbname
-            cb.Text = txt("type")
+            cb.Text = CType(txt("type"), String)
             cb.Margin = New Padding(0)
             cb.AutoSize = False
 
@@ -28,7 +28,7 @@ Public Class JsonHandler
             matches = frm.Controls.Find(cbname, True)
             myCb.Add(DirectCast(matches(0), CheckBox))
 
-            AddHandler cb.CheckedChanged, AddressOf DynCheckboxChangeHandler
+            'AddHandler cb.CheckedChanged, AddressOf DynCheckboxChangeHandler
         Next
     End Sub
     Public Shared Function ParseJsonToDictionary(ByVal json As JToken) As Dictionary(Of String, JArray)
@@ -42,21 +42,14 @@ Public Class JsonHandler
     Public Shared Sub CekDuaMuka(frm As PublishDigital)
         Dim bahan2muka As Boolean
         Dim parsed = ParseJsonToDictionary(Globals.JsonObj("cgJenisOrder")("dataJenisOrder"))
-        bahan2muka = parsed(frm.cb_jenisorder.SelectedValue)(frm.cb_bahan.SelectedIndex)("duamuka")
+        bahan2muka = CType(parsed(CType(frm.cb_jenisorder.SelectedValue, String))(frm.cb_bahan.SelectedIndex)("duamuka"), Boolean)
         If bahan2muka = False Then
             frm.cb_sisimuka.Enabled = False
         Else
             frm.cb_sisimuka.Enabled = True
         End If
     End Sub
-    Private Shared Sub DynCheckboxChangeHandler(ByVal sender As Object, ByVal e As System.EventArgs)
-        Dim loopindex As Integer
-        Dim frm As New PublishDigital
-        For i As Integer = 1 To loopindex Step 1
-            Dim cbchk As CheckBox = CType(frm.pn_finishinga3.Controls("cb" + CType(i, String)), CheckBox)
-            If cbchk.Checked = True Then
-                frm.t_preview.Text = Globals.JsonObj("cgFinishing")("a3colorfn")(CInt(cbchk.Name.Substring(cbchk.Name.Length - 1, 1) - 1))("kode")
-            End If
-        Next
-    End Sub
+    'Public Shared Sub DynCheckboxChangeHandler(ByVal sender As Object, ByVal e As System.EventArgs)
+    '    FinishingCBChecked()
+    'End Sub
 End Class

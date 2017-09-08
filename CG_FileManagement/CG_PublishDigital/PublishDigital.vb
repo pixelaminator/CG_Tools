@@ -5,7 +5,7 @@ Imports Newtonsoft.Json.Linq
 Imports System.Collections.Generic
 
 Public Class PublishDigital
-    Dim init = New InitForm
+    Dim init As New InitForm
     Dim jsonPath As String
     Dim jsonTxt As String
 
@@ -52,5 +52,15 @@ Public Class PublishDigital
         If c_bahan.Checked = False Then
             JsonHandler.CekDuaMuka(Me)
         End If
+    End Sub
+
+    Public Sub FinishingCBChecked()
+        Dim loopindex As Integer
+        For i As Integer = 1 To loopindex Step 1
+            Dim cbchk As CheckBox = DirectCast(pn_finishinga3.Controls("cb" + CStr(i)), CheckBox)
+            If cbchk.Checked = True Then
+                't_preview.Text = DirectCast(Globals.JsonObj("cgFinishing")("a3colorfn")(CInt(DirectCast(cbchk.Name.Substring(cbchk.Name.Length - 1, 1)), Double) - 1))("kode"), String)
+            End If
+        Next
     End Sub
 End Class

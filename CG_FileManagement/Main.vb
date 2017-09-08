@@ -1,7 +1,5 @@
 ﻿Imports System.Windows.Forms
-Imports System.Runtime.InteropServices
 Imports RGiesecke.DllExport
-Imports Corel.Interop.VGCore
 Module Main
     Dim cdraw As Corel.Interop.VGCore.Application = NewCDRApp.appDraw
 
