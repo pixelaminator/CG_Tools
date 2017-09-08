@@ -157,20 +157,17 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CG_PublishDigital\Globals.vb" />
+    <Compile Include="CG_PublishDigital\JsonHandler.vb" />
     <Compile Include="CG_PublishDigital\SavingTest.Designer.vb">
       <DependentUpon>SavingTest.vb</DependentUpon>
     </Compile>
-    <Compile Include="CG_PublishDigital\SavingTest.vb">
+    <None Include="CG_PublishDigital\SavingTest.vb">
       <SubType>Form</SubType>
-    </Compile>
+    </None>
     <Compile Include="NewCDRApp.vb" />
     <Compile Include="Main.vb" />
-    <Compile Include="CG_PublishDigital\SharedMethods.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CG_PublishDigital\InitForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="CG_PublishDigital\InitForm.vb" />
     <Compile Include="CG_PublishDigital\PublishDigital.Designer.vb">
       <DependentUpon>PublishDigital.vb</DependentUpon>
     </Compile>

@@ -3,6 +3,7 @@ Imports Doc = Corel.Interop.VGCore.Document
 Imports Corel.Interop.VGCore
 
 Public Class SavingTest
+
     'Public WithEvents appDraw As Corel.Interop.VGCore.Application
     Dim filename As String
     'Dim stat As New vgApp.AppStatus
@@ -28,7 +29,7 @@ Public Class SavingTest
     End Sub
 
     Private Sub bWorker_DoWork() Handles bWorker.DoWork
-        cdraw.ActiveDocument.SaveAs(filename)
+        'cdraw.ActiveDocument.SaveAs(filename)
         'bWorker.ReportProgress(stat.Progress)
     End Sub
     Private Sub bWorker_ProgressChanged() Handles bWorker.ProgressChanged

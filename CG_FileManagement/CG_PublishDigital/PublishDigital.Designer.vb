@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class PublishDigital
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class PublishDigital
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.gr_basefolder = New System.Windows.Forms.GroupBox()
         Me.bt_bukafolder = New System.Windows.Forms.Button()
@@ -67,6 +67,7 @@ Partial Class PublishDigital
         Me.Label10 = New System.Windows.Forms.Label()
         Me.tb_Finishing = New System.Windows.Forms.TabControl()
         Me.tb_finishinga3 = New System.Windows.Forms.TabPage()
+        Me.pn_finishinga3 = New System.Windows.Forms.FlowLayoutPanel()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
@@ -80,7 +81,9 @@ Partial Class PublishDigital
         Me.t_preview = New System.Windows.Forms.TextBox()
         Me.bt_cancel = New System.Windows.Forms.Button()
         Me.bt_OK = New System.Windows.Forms.Button()
-        Me.pn_finishinga3 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.statuslabel = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.StatusStrip = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
         Me.gr_basefolder.SuspendLayout()
         Me.gr_datacustomer.SuspendLayout()
         Me.g_datasetting.SuspendLayout()
@@ -93,6 +96,7 @@ Partial Class PublishDigital
         Me.tb_finishinga3.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.g_preview.SuspendLayout()
+        Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'gr_basefolder
@@ -374,7 +378,6 @@ Partial Class PublishDigital
         Me.rb_noconv.Name = "rb_noconv"
         Me.rb_noconv.Size = New System.Drawing.Size(100, 17)
         Me.rb_noconv.TabIndex = 2
-        Me.rb_noconv.TabStop = True
         Me.rb_noconv.Text = "Jangan Convert"
         Me.rb_noconv.UseVisualStyleBackColor = True
         '
@@ -385,13 +388,13 @@ Partial Class PublishDigital
         Me.rb_convbitmap.Name = "rb_convbitmap"
         Me.rb_convbitmap.Size = New System.Drawing.Size(112, 17)
         Me.rb_convbitmap.TabIndex = 1
-        Me.rb_convbitmap.TabStop = True
         Me.rb_convbitmap.Text = "Convert ke Bitmap"
         Me.rb_convbitmap.UseVisualStyleBackColor = True
         '
         'rb_convcurve
         '
         Me.rb_convcurve.AutoSize = True
+        Me.rb_convcurve.Checked = True
         Me.rb_convcurve.Location = New System.Drawing.Point(7, 21)
         Me.rb_convcurve.Name = "rb_convcurve"
         Me.rb_convcurve.Size = New System.Drawing.Size(108, 17)
@@ -427,7 +430,6 @@ Partial Class PublishDigital
         Me.rb_setpage.Name = "rb_setpage"
         Me.rb_setpage.Size = New System.Drawing.Size(53, 17)
         Me.rb_setpage.TabIndex = 2
-        Me.rb_setpage.TabStop = True
         Me.rb_setpage.Text = "Page:"
         Me.rb_setpage.UseVisualStyleBackColor = True
         '
@@ -438,13 +440,13 @@ Partial Class PublishDigital
         Me.rb_currpage.Name = "rb_currpage"
         Me.rb_currpage.Size = New System.Drawing.Size(74, 17)
         Me.rb_currpage.TabIndex = 1
-        Me.rb_currpage.TabStop = True
         Me.rb_currpage.Text = "Page Aktif"
         Me.rb_currpage.UseVisualStyleBackColor = True
         '
         'rb_allpage
         '
         Me.rb_allpage.AutoSize = True
+        Me.rb_allpage.Checked = True
         Me.rb_allpage.Location = New System.Drawing.Point(6, 19)
         Me.rb_allpage.Name = "rb_allpage"
         Me.rb_allpage.Size = New System.Drawing.Size(86, 17)
@@ -545,6 +547,15 @@ Partial Class PublishDigital
         Me.tb_finishinga3.TabIndex = 0
         Me.tb_finishinga3.Text = "Finishing A3"
         Me.tb_finishinga3.UseVisualStyleBackColor = True
+        '
+        'pn_finishinga3
+        '
+        Me.pn_finishinga3.AutoScroll = True
+        Me.pn_finishinga3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
+        Me.pn_finishinga3.Location = New System.Drawing.Point(3, 3)
+        Me.pn_finishinga3.Name = "pn_finishinga3"
+        Me.pn_finishinga3.Size = New System.Drawing.Size(494, 142)
+        Me.pn_finishinga3.TabIndex = 0
         '
         'TabPage2
         '
@@ -667,20 +678,33 @@ Partial Class PublishDigital
         Me.bt_OK.Text = "OK"
         Me.bt_OK.UseVisualStyleBackColor = True
         '
-        'pn_finishinga3
+        'statuslabel
         '
-        Me.pn_finishinga3.AutoScroll = True
-        Me.pn_finishinga3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-        Me.pn_finishinga3.Location = New System.Drawing.Point(3, 3)
-        Me.pn_finishinga3.Name = "pn_finishinga3"
-        Me.pn_finishinga3.Size = New System.Drawing.Size(494, 142)
-        Me.pn_finishinga3.TabIndex = 0
+        Me.statuslabel.Name = "statuslabel"
+        Me.statuslabel.Size = New System.Drawing.Size(39, 17)
+        Me.statuslabel.Text = "Ready"
+        '
+        'StatusStrip
+        '
+        Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripProgressBar1, Me.statuslabel})
+        Me.StatusStrip.Location = New System.Drawing.Point(0, 642)
+        Me.StatusStrip.Name = "StatusStrip"
+        Me.StatusStrip.Size = New System.Drawing.Size(532, 22)
+        Me.StatusStrip.SizingGrip = False
+        Me.StatusStrip.TabIndex = 11
+        Me.StatusStrip.Text = "StatusStrip1"
+        '
+        'ToolStripProgressBar1
+        '
+        Me.ToolStripProgressBar1.Name = "ToolStripProgressBar1"
+        Me.ToolStripProgressBar1.Size = New System.Drawing.Size(200, 16)
         '
         'PublishDigital
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(532, 642)
+        Me.ClientSize = New System.Drawing.Size(532, 664)
+        Me.Controls.Add(Me.StatusStrip)
         Me.Controls.Add(Me.bt_OK)
         Me.Controls.Add(Me.bt_cancel)
         Me.Controls.Add(Me.g_preview)
@@ -716,7 +740,10 @@ Partial Class PublishDigital
         Me.TabPage2.PerformLayout()
         Me.g_preview.ResumeLayout(False)
         Me.g_preview.PerformLayout()
+        Me.StatusStrip.ResumeLayout(False)
+        Me.StatusStrip.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents gr_basefolder As System.Windows.Forms.GroupBox
@@ -778,4 +805,7 @@ Partial Class PublishDigital
     Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents pn_finishinga3 As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents statuslabel As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents StatusStrip As System.Windows.Forms.StatusStrip
+    Friend WithEvents ToolStripProgressBar1 As System.Windows.Forms.ToolStripProgressBar
 End Class
