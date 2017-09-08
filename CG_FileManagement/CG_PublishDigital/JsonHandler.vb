@@ -59,7 +59,4 @@ Public Class JsonHandler
             End If
         Next
     End Sub
-
-    'Private Shared Sub CheckboxChanged(frm As PublishDigital)
-
 End Class
