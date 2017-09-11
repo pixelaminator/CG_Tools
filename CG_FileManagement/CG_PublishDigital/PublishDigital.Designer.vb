@@ -84,6 +84,9 @@ Partial Class PublishDigital
         Me.statuslabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
+        Me.pn_finishingkn = New System.Windows.Forms.FlowLayoutPanel()
+        Me.pn_finishingbr = New System.Windows.Forms.FlowLayoutPanel()
+        Me.pn_finishingbw = New System.Windows.Forms.FlowLayoutPanel()
         Me.gr_basefolder.SuspendLayout()
         Me.gr_datacustomer.SuspendLayout()
         Me.g_datasetting.SuspendLayout()
@@ -95,6 +98,9 @@ Partial Class PublishDigital
         Me.tb_Finishing.SuspendLayout()
         Me.tb_finishinga3.SuspendLayout()
         Me.TabPage2.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
+        Me.TabPage4.SuspendLayout()
+        Me.TabPage5.SuspendLayout()
         Me.g_preview.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -617,6 +623,7 @@ Partial Class PublishDigital
         '
         'TabPage3
         '
+        Me.TabPage3.Controls.Add(Me.pn_finishingkn)
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Size = New System.Drawing.Size(500, 148)
@@ -626,6 +633,7 @@ Partial Class PublishDigital
         '
         'TabPage4
         '
+        Me.TabPage4.Controls.Add(Me.pn_finishingbr)
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Size = New System.Drawing.Size(500, 148)
@@ -635,6 +643,7 @@ Partial Class PublishDigital
         '
         'TabPage5
         '
+        Me.TabPage5.Controls.Add(Me.pn_finishingbw)
         Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Size = New System.Drawing.Size(500, 148)
@@ -699,6 +708,27 @@ Partial Class PublishDigital
         Me.ToolStripProgressBar1.Name = "ToolStripProgressBar1"
         Me.ToolStripProgressBar1.Size = New System.Drawing.Size(200, 16)
         '
+        'pn_finishingkn
+        '
+        Me.pn_finishingkn.Location = New System.Drawing.Point(5, 3)
+        Me.pn_finishingkn.Name = "pn_finishingkn"
+        Me.pn_finishingkn.Size = New System.Drawing.Size(492, 142)
+        Me.pn_finishingkn.TabIndex = 0
+        '
+        'pn_finishingbr
+        '
+        Me.pn_finishingbr.Location = New System.Drawing.Point(5, 4)
+        Me.pn_finishingbr.Name = "pn_finishingbr"
+        Me.pn_finishingbr.Size = New System.Drawing.Size(492, 141)
+        Me.pn_finishingbr.TabIndex = 0
+        '
+        'pn_finishingbw
+        '
+        Me.pn_finishingbw.Location = New System.Drawing.Point(5, 4)
+        Me.pn_finishingbw.Name = "pn_finishingbw"
+        Me.pn_finishingbw.Size = New System.Drawing.Size(492, 141)
+        Me.pn_finishingbw.TabIndex = 0
+        '
         'PublishDigital
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -738,6 +768,9 @@ Partial Class PublishDigital
         Me.tb_finishinga3.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
+        Me.TabPage3.ResumeLayout(False)
+        Me.TabPage4.ResumeLayout(False)
+        Me.TabPage5.ResumeLayout(False)
         Me.g_preview.ResumeLayout(False)
         Me.g_preview.PerformLayout()
         Me.StatusStrip.ResumeLayout(False)
@@ -808,4 +841,7 @@ Partial Class PublishDigital
     Friend WithEvents statuslabel As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents StatusStrip As System.Windows.Forms.StatusStrip
     Friend WithEvents ToolStripProgressBar1 As System.Windows.Forms.ToolStripProgressBar
+    Friend WithEvents pn_finishingkn As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents pn_finishingbr As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents pn_finishingbw As System.Windows.Forms.FlowLayoutPanel
 End Class

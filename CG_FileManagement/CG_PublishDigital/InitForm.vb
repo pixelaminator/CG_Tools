@@ -1,36 +1,41 @@
 ﻿Imports Newtonsoft.Json.Linq
 
-Class InitForm
-    Private frm As PublishDigital
-    Public Sub New(ByVal parentform As PublishDigital)
-        frm = parentform
+Partial Class PublishDigital
+    Public Sub InitSetter()
+        jhandler.FillCBfromJson(cb_operator, Globals.JsonObj("cgSetter"), "kode", "nama")
     End Sub
-    Public Sub Setter()
-        JsonHandler.FillCBfromJson(frm.cb_operator, Globals.JsonObj("cgSetter"), "kode", "nama")
+    Public Sub InitJenisOrder()
+        jhandler.FillCBfromJson(cb_jenisorder, Globals.JsonObj("cgJenisOrder")("katJenisOrder"), "id", "nama")
     End Sub
-    Public Sub JenisOrder()
-        JsonHandler.FillCBfromJson(frm.cb_jenisorder, Globals.JsonObj("cgJenisOrder")("katJenisOrder"), "id", "nama")
+    Public Sub InitBahanUkuran()
+        Dim parsedJenis = jhandler.ParseJsonToDictionary(Globals.JsonObj("cgJenisOrder")("dataJenisOrder"))
+        jhandler.FillCBfromJson(cb_bahan, parsedJenis(cb_jenisorder.SelectedValue.ToString).Root, "kode", "bahan")
     End Sub
-    Public Sub BahanUkuran()
-        Dim parsedJenis = JsonHandler.ParseJsonToDictionary(Globals.JsonObj("cgJenisOrder")("dataJenisOrder"))
-        JsonHandler.FillCBfromJson(frm.cb_bahan, parsedJenis(CType(frm.cb_jenisorder.SelectedValue, String)).Root, "kode", "bahan")
+    Public Sub InitFinishingA3()
+        jhandler.FillTabwithCB(Me, DirectCast(Globals.JsonObj("cgFinishing")("a3color"), JArray), 7, 7, 5, pn_finishinga3)
     End Sub
-    Public Sub FinishingA3()
-        JsonHandler.FillTabwithCB(frm, DirectCast(Globals.JsonObj("cgFinishing")("a3colorfn"), JArray), 7, 7, 5)
+    Public Sub InitFinishingKN()
+        jhandler.FillTabwithCB(Me, DirectCast(Globals.JsonObj("cgFinishing")("kartunama"), JArray), 7, 7, 5, pn_finishingkn)
     End Sub
-    Public Sub SisiMuka()
-        JsonHandler.FillCBfromJson(frm.cb_sisimuka, Globals.JsonObj("cgLayout")("sisimuka"), "kode", "type")
+    Public Sub InitFinishingBR()
+        jhandler.FillTabwithCB(Me, DirectCast(Globals.JsonObj("cgFinishing")("brosur"), JArray), 7, 7, 5, pn_finishingbr)
     End Sub
-    Public Sub LayoutList()
-        Dim parsedJenis = JsonHandler.ParseJsonToDictionary(Globals.JsonObj("cgLayout"))
-        JsonHandler.FillCBfromJson(frm.cb_layout, parsedJenis(CType(frm.cb_jenisorder.SelectedValue, String)).Root, "kode", "type")
+    Public Sub InitFinishingA3bw()
+        jhandler.FillTabwithCB(Me, DirectCast(Globals.JsonObj("cgFinishing")("a3bw"), JArray), 7, 7, 5, pn_finishingbw)
     End Sub
-    Public Sub Imposition()
-        JsonHandler.FillCBfromJson(frm.cb_imposition, Globals.JsonObj("cgLayout")("imposition"), "kode", "type")
+    Public Sub InitSisiMuka()
+        jhandler.FillCBfromJson(cb_sisimuka, Globals.JsonObj("cgLayout")("sisimuka"), "kode", "type")
     End Sub
-    Public Sub Folder()
-        frm.cb_folder.Items.AddRange(Globals.TypeFolder.ToArray)
-        frm.cb_folder.SelectedIndex = 0
-        JsonHandler.FillCBfromJson(frm.cb_grouporder, Globals.JsonObj("cgPermanent")("kategori"))
+    Public Sub InitLayoutList()
+        Dim parsedJenis = jhandler.ParseJsonToDictionary(Globals.JsonObj("cgLayout"))
+        jhandler.FillCBfromJson(cb_layout, parsedJenis(cb_jenisorder.SelectedValue.ToString).Root, "kode", "type")
+    End Sub
+    Public Sub InitImposition()
+        jhandler.FillCBfromJson(cb_imposition, Globals.JsonObj("cgLayout")("imposition"), "kode", "type")
+    End Sub
+    Public Sub InitFolder()
+        cb_folder.Items.AddRange(Globals.TypeFolder.ToArray)
+        cb_folder.SelectedIndex = 0
+        jhandler.FillCBfromJson(cb_grouporder, Globals.JsonObj("cgPermanent")("kategori"))
     End Sub
 End Class
