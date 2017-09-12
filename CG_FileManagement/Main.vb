@@ -11,7 +11,7 @@ Module Main
             MessageBox.Show("Tidak ada dokumen yang terbuka.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
-        Dim publish As New PublishDigital
+        Dim publish As New MainForm
         publish.ShowDialog()
     End Sub
     <DllExport("CGToolsNET2")>

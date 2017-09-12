@@ -3,7 +3,7 @@ Imports Newtonsoft.Json
 Imports Newtonsoft.Json.Linq
 Imports System.Collections.Generic
 
-Public Class JsonHandler
+Public Class ClsJsonManager
     Public Sub FillTabwithCB(ByVal frm As Control, cbdata As JArray, XOffset As Integer, YOffset As Integer, maxRow As Integer, tab As FlowLayoutPanel)
         Dim i As Integer = 0
         Dim CBTotal As Integer

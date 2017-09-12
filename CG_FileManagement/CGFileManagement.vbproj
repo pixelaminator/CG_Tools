@@ -168,20 +168,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CG_PublishDigital\Globals.vb" />
-    <Compile Include="CG_PublishDigital\JsonHandler.vb" />
+    <Compile Include="CG_PublishDigital\ClsJsonManager.vb" />
     <Compile Include="CG_PublishDigital\SavingTest.Designer.vb">
       <DependentUpon>SavingTest.vb</DependentUpon>
     </Compile>
     <None Include="CG_PublishDigital\SavingTest.vb">
       <SubType>Form</SubType>
     </None>
+    <Compile Include="CG_PublishDigital\ClsTabManager.vb" />
     <Compile Include="NewCDRApp.vb" />
     <Compile Include="Main.vb" />
-    <Compile Include="CG_PublishDigital\InitForm.vb" />
-    <Compile Include="CG_PublishDigital\PublishDigital.Designer.vb">
-      <DependentUpon>PublishDigital.vb</DependentUpon>
+    <Compile Include="CG_PublishDigital\MainForm.Init.vb">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CG_PublishDigital\PublishDigital.vb">
+    <Compile Include="CG_PublishDigital\MainForm.Designer.vb">
+      <DependentUpon>MainForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CG_PublishDigital\MainForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Page Include="DockerUI.xaml">
@@ -238,8 +241,8 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
     </EmbeddedResource>
-    <EmbeddedResource Include="CG_PublishDigital\PublishDigital.resx">
-      <DependentUpon>PublishDigital.vb</DependentUpon>
+    <EmbeddedResource Include="CG_PublishDigital\MainForm.resx">
+      <DependentUpon>MainForm.vb</DependentUpon>
     </EmbeddedResource>
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

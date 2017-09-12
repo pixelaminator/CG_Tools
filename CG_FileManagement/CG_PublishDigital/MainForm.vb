@@ -1,46 +1,22 @@
 ﻿Imports System
-Imports System.IO
-Imports System.Windows.Forms
-Imports Newtonsoft.Json.Linq
 Imports System.Collections.Generic
+Imports System.Windows.Forms
 Imports System.Linq
+Imports System.Diagnostics
 
-Public Class PublishDigital
-    Dim jhandler As New JsonHandler
+Public Class MainForm
+    Dim jhandler As New ClsJsonManager
+    Dim ClsTabMgr As New ClsTabManager
     Dim jsonPath As String
     Dim jsonTxt As String
+    Dim TabFinishing As New List(Of TabPage)
 
     Private Sub PublishDigital_Load(sender As Object, e As System.EventArgs) Handles MyBase.Load
-        jsonPath = Application.StartupPath + "\Addons\CG_Tools\cgSave.json"
-        If File.Exists(jsonPath) = False Then
-            MessageBox.Show("File cgSaveLocal.json tidak ditemukan! Hubungi IT untuk install ulang Tools.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Close()
-        End If
-        jsonTxt = File.ReadAllText(jsonPath)
-        'Using r As New StreamReader(jsonPath)
-        '    Dim jsonTxt As String = r.ReadToEnd()
-        Globals.JsonObj = JObject.Parse(jsonTxt)
-        'End Using
-        InitSetter()
-        InitJenisOrder()
-        InitFinishingA3()
-        InitFinishingA3bw()
-        InitFinishingBR()
-        InitFinishingKN()
-        InitLayoutList()
-        InitSisiMuka()
-        InitImposition()
-        InitFolder()
-        AddChkHandler(pn_finishinga3)
-        AddChkHandler(pn_finishingbw)
-        AddChkHandler(pn_finishingkn)
-        AddChkHandler(pn_finishingbr)
+        InitForm()
     End Sub
     Private Sub Cb_jenisorder_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_jenisorder.SelectedIndexChanged
         InitBahanUkuran()
-    End Sub
-    Private Sub Bt_cancel_Click(sender As Object, e As EventArgs) Handles bt_cancel.Click
-        Close()
+        DisplayTabFinishing()
     End Sub
     Private Sub C_bahan_CheckedChanged(sender As Object, e As EventArgs) Handles c_bahan.CheckedChanged
         If cb_bahan.DropDownStyle = ComboBoxStyle.DropDownList Then
@@ -57,7 +33,7 @@ Public Class PublishDigital
             CekDuaMuka()
         End If
     End Sub
-    Public Sub CekDuaMuka()
+    Private Sub CekDuaMuka()
         Dim bahan2muka As Boolean
         Dim parsed = jhandler.ParseJsonToDictionary(Globals.JsonObj("cgJenisOrder")("dataJenisOrder"))
         bahan2muka = CType(parsed(cb_jenisorder.SelectedValue.ToString)(cb_bahan.SelectedIndex)("duamuka"), Boolean)
@@ -67,12 +43,12 @@ Public Class PublishDigital
             cb_sisimuka.Enabled = True
         End If
     End Sub
-    Public Sub AddChkHandler(ByVal panel As FlowLayoutPanel)
+    Private Sub AddChkHandler(ByVal panel As FlowLayoutPanel)
         For Each ctrl As CheckBox In panel.Controls
             AddHandler ctrl.CheckedChanged, AddressOf DynCheckboxChangeHandler
         Next
     End Sub
-    Public Sub DynCheckboxChangeHandler(ByVal sender As Object, ByVal e As EventArgs)
+    Private Sub DynCheckboxChangeHandler(ByVal sender As Object, ByVal e As EventArgs)
         Dim i As Integer
         Dim cbx = DirectCast(sender, CheckBox)
         Dim p = cbx.Parent
@@ -88,5 +64,20 @@ Public Class PublishDigital
                 MessageBox.Show(chkdata)
             End If
         Next
+    End Sub
+    Private Sub DisplayTabFinishing()
+        For Each i As TabPage In TabFinishing
+            ClsTabMgr.SetInvisible(i)
+        Next
+        Dim items As List(Of Integer) = Enumerable.Range(0, cb_jenisorder.Items.Count).ToList
+        Dim selecteditem As Integer = cb_jenisorder.SelectedIndex
+        Dim hiddentabindex As List(Of Integer) = items.Where(Function(number, index) index <> selecteditem).ToList
+        ClsTabMgr.SetVisible(TabFinishing(cb_jenisorder.SelectedIndex).Name, tb_Finishing)
+    End Sub
+    Private Sub Bt_cancel_Click(sender As Object, e As EventArgs) Handles bt_cancel.Click
+        Close()
+    End Sub
+    Private Sub FrmClose_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        Globals.JsonObj = Nothing
     End Sub
 End Class

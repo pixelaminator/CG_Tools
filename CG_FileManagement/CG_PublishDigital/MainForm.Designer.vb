@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class PublishDigital
+Partial Class MainForm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -68,15 +68,18 @@ Partial Class PublishDigital
         Me.tb_Finishing = New System.Windows.Forms.TabControl()
         Me.tb_finishinga3 = New System.Windows.Forms.TabPage()
         Me.pn_finishinga3 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.tb_finishingkn = New System.Windows.Forms.TabPage()
+        Me.pn_finishingkn = New System.Windows.Forms.FlowLayoutPanel()
+        Me.tb_finishingbr = New System.Windows.Forms.TabPage()
+        Me.pn_finishingbr = New System.Windows.Forms.FlowLayoutPanel()
+        Me.tb_finishinglf = New System.Windows.Forms.TabPage()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.TabPage4 = New System.Windows.Forms.TabPage()
-        Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.tb_finishingbw = New System.Windows.Forms.TabPage()
+        Me.pn_finishingbw = New System.Windows.Forms.FlowLayoutPanel()
         Me.g_preview = New System.Windows.Forms.GroupBox()
         Me.t_preview = New System.Windows.Forms.TextBox()
         Me.bt_cancel = New System.Windows.Forms.Button()
@@ -84,9 +87,6 @@ Partial Class PublishDigital
         Me.statuslabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
-        Me.pn_finishingkn = New System.Windows.Forms.FlowLayoutPanel()
-        Me.pn_finishingbr = New System.Windows.Forms.FlowLayoutPanel()
-        Me.pn_finishingbw = New System.Windows.Forms.FlowLayoutPanel()
         Me.gr_basefolder.SuspendLayout()
         Me.gr_datacustomer.SuspendLayout()
         Me.g_datasetting.SuspendLayout()
@@ -97,10 +97,10 @@ Partial Class PublishDigital
         Me.GroupBox6.SuspendLayout()
         Me.tb_Finishing.SuspendLayout()
         Me.tb_finishinga3.SuspendLayout()
-        Me.TabPage2.SuspendLayout()
-        Me.TabPage3.SuspendLayout()
-        Me.TabPage4.SuspendLayout()
-        Me.TabPage5.SuspendLayout()
+        Me.tb_finishingkn.SuspendLayout()
+        Me.tb_finishingbr.SuspendLayout()
+        Me.tb_finishinglf.SuspendLayout()
+        Me.tb_finishingbw.SuspendLayout()
         Me.g_preview.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -114,16 +114,16 @@ Partial Class PublishDigital
         Me.gr_basefolder.Controls.Add(Me.Label1)
         Me.gr_basefolder.Location = New System.Drawing.Point(12, 12)
         Me.gr_basefolder.Name = "gr_basefolder"
-        Me.gr_basefolder.Size = New System.Drawing.Size(509, 55)
+        Me.gr_basefolder.Size = New System.Drawing.Size(549, 55)
         Me.gr_basefolder.TabIndex = 0
         Me.gr_basefolder.TabStop = False
         Me.gr_basefolder.Text = "Base Folder"
         '
         'bt_bukafolder
         '
-        Me.bt_bukafolder.Location = New System.Drawing.Point(402, 21)
+        Me.bt_bukafolder.Location = New System.Drawing.Point(434, 21)
         Me.bt_bukafolder.Name = "bt_bukafolder"
-        Me.bt_bukafolder.Size = New System.Drawing.Size(100, 23)
+        Me.bt_bukafolder.Size = New System.Drawing.Size(108, 23)
         Me.bt_bukafolder.TabIndex = 3
         Me.bt_bukafolder.Text = "Buka folder >>"
         Me.bt_bukafolder.UseVisualStyleBackColor = True
@@ -134,7 +134,7 @@ Partial Class PublishDigital
         Me.cb_grouporder.FormattingEnabled = True
         Me.cb_grouporder.Location = New System.Drawing.Point(266, 23)
         Me.cb_grouporder.Name = "cb_grouporder"
-        Me.cb_grouporder.Size = New System.Drawing.Size(130, 21)
+        Me.cb_grouporder.Size = New System.Drawing.Size(162, 21)
         Me.cb_grouporder.TabIndex = 2
         '
         'cb_folder
@@ -173,7 +173,7 @@ Partial Class PublishDigital
         Me.gr_datacustomer.Controls.Add(Me.Label3)
         Me.gr_datacustomer.Location = New System.Drawing.Point(12, 73)
         Me.gr_datacustomer.Name = "gr_datacustomer"
-        Me.gr_datacustomer.Size = New System.Drawing.Size(509, 86)
+        Me.gr_datacustomer.Size = New System.Drawing.Size(549, 86)
         Me.gr_datacustomer.TabIndex = 1
         Me.gr_datacustomer.TabStop = False
         Me.gr_datacustomer.Text = "Data Customer"
@@ -182,7 +182,7 @@ Partial Class PublishDigital
         '
         Me.cb_presetcustomer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cb_presetcustomer.FormattingEnabled = True
-        Me.cb_presetcustomer.Location = New System.Drawing.Point(371, 23)
+        Me.cb_presetcustomer.Location = New System.Drawing.Point(411, 23)
         Me.cb_presetcustomer.Name = "cb_presetcustomer"
         Me.cb_presetcustomer.Size = New System.Drawing.Size(131, 21)
         Me.cb_presetcustomer.TabIndex = 2
@@ -192,14 +192,14 @@ Partial Class PublishDigital
         '
         Me.t_judulfile.Location = New System.Drawing.Point(95, 54)
         Me.t_judulfile.Name = "t_judulfile"
-        Me.t_judulfile.Size = New System.Drawing.Size(407, 20)
+        Me.t_judulfile.Size = New System.Drawing.Size(447, 20)
         Me.t_judulfile.TabIndex = 3
         '
         't_customer
         '
         Me.t_customer.Location = New System.Drawing.Point(95, 24)
         Me.t_customer.Name = "t_customer"
-        Me.t_customer.Size = New System.Drawing.Size(270, 20)
+        Me.t_customer.Size = New System.Drawing.Size(310, 20)
         Me.t_customer.TabIndex = 1
         '
         'Label4
@@ -238,7 +238,7 @@ Partial Class PublishDigital
         Me.g_datasetting.Controls.Add(Me.Label5)
         Me.g_datasetting.Location = New System.Drawing.Point(12, 166)
         Me.g_datasetting.Name = "g_datasetting"
-        Me.g_datasetting.Size = New System.Drawing.Size(260, 206)
+        Me.g_datasetting.Size = New System.Drawing.Size(299, 206)
         Me.g_datasetting.TabIndex = 2
         Me.g_datasetting.TabStop = False
         Me.g_datasetting.Text = "Data Setting"
@@ -299,7 +299,7 @@ Partial Class PublishDigital
         '
         Me.t_harga.Location = New System.Drawing.Point(97, 48)
         Me.t_harga.Name = "t_harga"
-        Me.t_harga.Size = New System.Drawing.Size(150, 20)
+        Me.t_harga.Size = New System.Drawing.Size(196, 20)
         Me.t_harga.TabIndex = 2
         '
         'cb_bahan
@@ -308,7 +308,7 @@ Partial Class PublishDigital
         Me.cb_bahan.FormattingEnabled = True
         Me.cb_bahan.Location = New System.Drawing.Point(97, 125)
         Me.cb_bahan.Name = "cb_bahan"
-        Me.cb_bahan.Size = New System.Drawing.Size(150, 21)
+        Me.cb_bahan.Size = New System.Drawing.Size(196, 21)
         Me.cb_bahan.TabIndex = 5
         '
         'cb_jenisorder
@@ -317,7 +317,7 @@ Partial Class PublishDigital
         Me.cb_jenisorder.FormattingEnabled = True
         Me.cb_jenisorder.Location = New System.Drawing.Point(97, 73)
         Me.cb_jenisorder.Name = "cb_jenisorder"
-        Me.cb_jenisorder.Size = New System.Drawing.Size(150, 21)
+        Me.cb_jenisorder.Size = New System.Drawing.Size(196, 21)
         Me.cb_jenisorder.TabIndex = 3
         '
         'cb_operator
@@ -326,7 +326,7 @@ Partial Class PublishDigital
         Me.cb_operator.FormattingEnabled = True
         Me.cb_operator.Location = New System.Drawing.Point(97, 22)
         Me.cb_operator.Name = "cb_operator"
-        Me.cb_operator.Size = New System.Drawing.Size(150, 21)
+        Me.cb_operator.Size = New System.Drawing.Size(196, 21)
         Me.cb_operator.TabIndex = 1
         '
         'Label8
@@ -370,7 +370,7 @@ Partial Class PublishDigital
         Me.g_cdr.Controls.Add(Me.rb_noconv)
         Me.g_cdr.Controls.Add(Me.rb_convbitmap)
         Me.g_cdr.Controls.Add(Me.rb_convcurve)
-        Me.g_cdr.Location = New System.Drawing.Point(277, 166)
+        Me.g_cdr.Location = New System.Drawing.Point(317, 166)
         Me.g_cdr.Name = "g_cdr"
         Me.g_cdr.Size = New System.Drawing.Size(123, 97)
         Me.g_cdr.TabIndex = 3
@@ -415,7 +415,7 @@ Partial Class PublishDigital
         Me.g_pdf.Controls.Add(Me.rb_setpage)
         Me.g_pdf.Controls.Add(Me.rb_currpage)
         Me.g_pdf.Controls.Add(Me.rb_allpage)
-        Me.g_pdf.Location = New System.Drawing.Point(406, 167)
+        Me.g_pdf.Location = New System.Drawing.Point(446, 167)
         Me.g_pdf.Name = "g_pdf"
         Me.g_pdf.Size = New System.Drawing.Size(115, 97)
         Me.g_pdf.TabIndex = 4
@@ -469,7 +469,7 @@ Partial Class PublishDigital
         Me.GroupBox6.Controls.Add(Me.Label11)
         Me.GroupBox6.Controls.Add(Me.cb_layout)
         Me.GroupBox6.Controls.Add(Me.Label10)
-        Me.GroupBox6.Location = New System.Drawing.Point(278, 269)
+        Me.GroupBox6.Location = New System.Drawing.Point(318, 269)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Size = New System.Drawing.Size(243, 104)
         Me.GroupBox6.TabIndex = 5
@@ -532,14 +532,14 @@ Partial Class PublishDigital
         'tb_Finishing
         '
         Me.tb_Finishing.Controls.Add(Me.tb_finishinga3)
-        Me.tb_Finishing.Controls.Add(Me.TabPage2)
-        Me.tb_Finishing.Controls.Add(Me.TabPage3)
-        Me.tb_Finishing.Controls.Add(Me.TabPage4)
-        Me.tb_Finishing.Controls.Add(Me.TabPage5)
+        Me.tb_Finishing.Controls.Add(Me.tb_finishingkn)
+        Me.tb_Finishing.Controls.Add(Me.tb_finishingbr)
+        Me.tb_Finishing.Controls.Add(Me.tb_finishinglf)
+        Me.tb_Finishing.Controls.Add(Me.tb_finishingbw)
         Me.tb_Finishing.Location = New System.Drawing.Point(13, 379)
         Me.tb_Finishing.Name = "tb_Finishing"
         Me.tb_Finishing.SelectedIndex = 0
-        Me.tb_Finishing.Size = New System.Drawing.Size(508, 174)
+        Me.tb_Finishing.Size = New System.Drawing.Size(548, 174)
         Me.tb_Finishing.TabIndex = 6
         '
         'tb_finishinga3
@@ -549,7 +549,7 @@ Partial Class PublishDigital
         Me.tb_finishinga3.Location = New System.Drawing.Point(4, 22)
         Me.tb_finishinga3.Name = "tb_finishinga3"
         Me.tb_finishinga3.Padding = New System.Windows.Forms.Padding(3)
-        Me.tb_finishinga3.Size = New System.Drawing.Size(500, 148)
+        Me.tb_finishinga3.Size = New System.Drawing.Size(540, 148)
         Me.tb_finishinga3.TabIndex = 0
         Me.tb_finishinga3.Text = "Finishing A3"
         Me.tb_finishinga3.UseVisualStyleBackColor = True
@@ -560,23 +560,57 @@ Partial Class PublishDigital
         Me.pn_finishinga3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.pn_finishinga3.Location = New System.Drawing.Point(3, 3)
         Me.pn_finishinga3.Name = "pn_finishinga3"
-        Me.pn_finishinga3.Size = New System.Drawing.Size(494, 142)
+        Me.pn_finishinga3.Size = New System.Drawing.Size(531, 142)
         Me.pn_finishinga3.TabIndex = 0
         '
-        'TabPage2
+        'tb_finishingkn
         '
-        Me.TabPage2.Controls.Add(Me.GroupBox1)
-        Me.TabPage2.Controls.Add(Me.ComboBox1)
-        Me.TabPage2.Controls.Add(Me.Label15)
-        Me.TabPage2.Controls.Add(Me.ListBox1)
-        Me.TabPage2.Controls.Add(Me.Label14)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(500, 148)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Finishing Large Format"
-        Me.TabPage2.UseVisualStyleBackColor = True
+        Me.tb_finishingkn.Controls.Add(Me.pn_finishingkn)
+        Me.tb_finishingkn.Location = New System.Drawing.Point(4, 22)
+        Me.tb_finishingkn.Name = "tb_finishingkn"
+        Me.tb_finishingkn.Size = New System.Drawing.Size(540, 148)
+        Me.tb_finishingkn.TabIndex = 2
+        Me.tb_finishingkn.Text = "Finishing KN"
+        Me.tb_finishingkn.UseVisualStyleBackColor = True
+        '
+        'pn_finishingkn
+        '
+        Me.pn_finishingkn.Location = New System.Drawing.Point(3, 3)
+        Me.pn_finishingkn.Name = "pn_finishingkn"
+        Me.pn_finishingkn.Size = New System.Drawing.Size(534, 142)
+        Me.pn_finishingkn.TabIndex = 0
+        '
+        'tb_finishingbr
+        '
+        Me.tb_finishingbr.Controls.Add(Me.pn_finishingbr)
+        Me.tb_finishingbr.Location = New System.Drawing.Point(4, 22)
+        Me.tb_finishingbr.Name = "tb_finishingbr"
+        Me.tb_finishingbr.Size = New System.Drawing.Size(540, 148)
+        Me.tb_finishingbr.TabIndex = 3
+        Me.tb_finishingbr.Text = "Finishing Brosur"
+        Me.tb_finishingbr.UseVisualStyleBackColor = True
+        '
+        'pn_finishingbr
+        '
+        Me.pn_finishingbr.Location = New System.Drawing.Point(3, 4)
+        Me.pn_finishingbr.Name = "pn_finishingbr"
+        Me.pn_finishingbr.Size = New System.Drawing.Size(534, 141)
+        Me.pn_finishingbr.TabIndex = 0
+        '
+        'tb_finishinglf
+        '
+        Me.tb_finishinglf.Controls.Add(Me.GroupBox1)
+        Me.tb_finishinglf.Controls.Add(Me.ComboBox1)
+        Me.tb_finishinglf.Controls.Add(Me.Label15)
+        Me.tb_finishinglf.Controls.Add(Me.ListBox1)
+        Me.tb_finishinglf.Controls.Add(Me.Label14)
+        Me.tb_finishinglf.Location = New System.Drawing.Point(4, 22)
+        Me.tb_finishinglf.Name = "tb_finishinglf"
+        Me.tb_finishinglf.Padding = New System.Windows.Forms.Padding(3)
+        Me.tb_finishinglf.Size = New System.Drawing.Size(540, 148)
+        Me.tb_finishinglf.TabIndex = 1
+        Me.tb_finishinglf.Text = "Finishing Large Format"
+        Me.tb_finishinglf.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
@@ -621,42 +655,29 @@ Partial Class PublishDigital
         Me.Label14.TabIndex = 1
         Me.Label14.Text = "Finishing"
         '
-        'TabPage3
+        'tb_finishingbw
         '
-        Me.TabPage3.Controls.Add(Me.pn_finishingkn)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(500, 148)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Finishing KN"
-        Me.TabPage3.UseVisualStyleBackColor = True
+        Me.tb_finishingbw.Controls.Add(Me.pn_finishingbw)
+        Me.tb_finishingbw.Location = New System.Drawing.Point(4, 22)
+        Me.tb_finishingbw.Name = "tb_finishingbw"
+        Me.tb_finishingbw.Size = New System.Drawing.Size(540, 148)
+        Me.tb_finishingbw.TabIndex = 4
+        Me.tb_finishingbw.Text = "Finishing BW"
+        Me.tb_finishingbw.UseVisualStyleBackColor = True
         '
-        'TabPage4
+        'pn_finishingbw
         '
-        Me.TabPage4.Controls.Add(Me.pn_finishingbr)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Size = New System.Drawing.Size(500, 148)
-        Me.TabPage4.TabIndex = 3
-        Me.TabPage4.Text = "Finishing Brosur"
-        Me.TabPage4.UseVisualStyleBackColor = True
-        '
-        'TabPage5
-        '
-        Me.TabPage5.Controls.Add(Me.pn_finishingbw)
-        Me.TabPage5.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Size = New System.Drawing.Size(500, 148)
-        Me.TabPage5.TabIndex = 4
-        Me.TabPage5.Text = "Finishing BW"
-        Me.TabPage5.UseVisualStyleBackColor = True
+        Me.pn_finishingbw.Location = New System.Drawing.Point(3, 4)
+        Me.pn_finishingbw.Name = "pn_finishingbw"
+        Me.pn_finishingbw.Size = New System.Drawing.Size(534, 141)
+        Me.pn_finishingbw.TabIndex = 0
         '
         'g_preview
         '
         Me.g_preview.Controls.Add(Me.t_preview)
         Me.g_preview.Location = New System.Drawing.Point(13, 555)
         Me.g_preview.Name = "g_preview"
-        Me.g_preview.Size = New System.Drawing.Size(508, 42)
+        Me.g_preview.Size = New System.Drawing.Size(548, 42)
         Me.g_preview.TabIndex = 7
         Me.g_preview.TabStop = False
         Me.g_preview.Text = "Preview"
@@ -666,12 +687,12 @@ Partial Class PublishDigital
         Me.t_preview.Location = New System.Drawing.Point(9, 16)
         Me.t_preview.Name = "t_preview"
         Me.t_preview.ReadOnly = True
-        Me.t_preview.Size = New System.Drawing.Size(492, 20)
+        Me.t_preview.Size = New System.Drawing.Size(532, 20)
         Me.t_preview.TabIndex = 0
         '
         'bt_cancel
         '
-        Me.bt_cancel.Location = New System.Drawing.Point(446, 607)
+        Me.bt_cancel.Location = New System.Drawing.Point(486, 603)
         Me.bt_cancel.Name = "bt_cancel"
         Me.bt_cancel.Size = New System.Drawing.Size(75, 23)
         Me.bt_cancel.TabIndex = 0
@@ -680,7 +701,7 @@ Partial Class PublishDigital
         '
         'bt_OK
         '
-        Me.bt_OK.Location = New System.Drawing.Point(365, 607)
+        Me.bt_OK.Location = New System.Drawing.Point(405, 603)
         Me.bt_OK.Name = "bt_OK"
         Me.bt_OK.Size = New System.Drawing.Size(75, 23)
         Me.bt_OK.TabIndex = 9
@@ -696,9 +717,9 @@ Partial Class PublishDigital
         'StatusStrip
         '
         Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripProgressBar1, Me.statuslabel})
-        Me.StatusStrip.Location = New System.Drawing.Point(0, 642)
+        Me.StatusStrip.Location = New System.Drawing.Point(0, 635)
         Me.StatusStrip.Name = "StatusStrip"
-        Me.StatusStrip.Size = New System.Drawing.Size(532, 22)
+        Me.StatusStrip.Size = New System.Drawing.Size(570, 22)
         Me.StatusStrip.SizingGrip = False
         Me.StatusStrip.TabIndex = 11
         Me.StatusStrip.Text = "StatusStrip1"
@@ -708,32 +729,11 @@ Partial Class PublishDigital
         Me.ToolStripProgressBar1.Name = "ToolStripProgressBar1"
         Me.ToolStripProgressBar1.Size = New System.Drawing.Size(200, 16)
         '
-        'pn_finishingkn
-        '
-        Me.pn_finishingkn.Location = New System.Drawing.Point(5, 3)
-        Me.pn_finishingkn.Name = "pn_finishingkn"
-        Me.pn_finishingkn.Size = New System.Drawing.Size(492, 142)
-        Me.pn_finishingkn.TabIndex = 0
-        '
-        'pn_finishingbr
-        '
-        Me.pn_finishingbr.Location = New System.Drawing.Point(5, 4)
-        Me.pn_finishingbr.Name = "pn_finishingbr"
-        Me.pn_finishingbr.Size = New System.Drawing.Size(492, 141)
-        Me.pn_finishingbr.TabIndex = 0
-        '
-        'pn_finishingbw
-        '
-        Me.pn_finishingbw.Location = New System.Drawing.Point(5, 4)
-        Me.pn_finishingbw.Name = "pn_finishingbw"
-        Me.pn_finishingbw.Size = New System.Drawing.Size(492, 141)
-        Me.pn_finishingbw.TabIndex = 0
-        '
-        'PublishDigital
+        'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(532, 664)
+        Me.ClientSize = New System.Drawing.Size(570, 657)
         Me.Controls.Add(Me.StatusStrip)
         Me.Controls.Add(Me.bt_OK)
         Me.Controls.Add(Me.bt_cancel)
@@ -746,7 +746,7 @@ Partial Class PublishDigital
         Me.Controls.Add(Me.gr_datacustomer)
         Me.Controls.Add(Me.gr_basefolder)
         Me.MaximizeBox = False
-        Me.Name = "PublishDigital"
+        Me.Name = "MainForm"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Publish CG Digital"
@@ -766,11 +766,11 @@ Partial Class PublishDigital
         Me.GroupBox6.PerformLayout()
         Me.tb_Finishing.ResumeLayout(False)
         Me.tb_finishinga3.ResumeLayout(False)
-        Me.TabPage2.ResumeLayout(False)
-        Me.TabPage2.PerformLayout()
-        Me.TabPage3.ResumeLayout(False)
-        Me.TabPage4.ResumeLayout(False)
-        Me.TabPage5.ResumeLayout(False)
+        Me.tb_finishingkn.ResumeLayout(False)
+        Me.tb_finishingbr.ResumeLayout(False)
+        Me.tb_finishinglf.ResumeLayout(False)
+        Me.tb_finishinglf.PerformLayout()
+        Me.tb_finishingbw.ResumeLayout(False)
         Me.g_preview.ResumeLayout(False)
         Me.g_preview.PerformLayout()
         Me.StatusStrip.ResumeLayout(False)
@@ -821,15 +821,15 @@ Partial Class PublishDigital
     Friend WithEvents n_noorder As System.Windows.Forms.NumericUpDown
     Friend WithEvents tb_Finishing As System.Windows.Forms.TabControl
     Friend WithEvents tb_finishinga3 As System.Windows.Forms.TabPage
-    Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
+    Friend WithEvents tb_finishinglf As System.Windows.Forms.TabPage
     Friend WithEvents g_preview As System.Windows.Forms.GroupBox
     Friend WithEvents t_preview As System.Windows.Forms.TextBox
     Friend WithEvents bt_cancel As System.Windows.Forms.Button
     Friend WithEvents n_qtycetak As System.Windows.Forms.NumericUpDown
     Friend WithEvents Label13 As System.Windows.Forms.Label
-    Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
-    Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
-    Friend WithEvents TabPage5 As System.Windows.Forms.TabPage
+    Friend WithEvents tb_finishingkn As System.Windows.Forms.TabPage
+    Friend WithEvents tb_finishingbr As System.Windows.Forms.TabPage
+    Friend WithEvents tb_finishingbw As System.Windows.Forms.TabPage
     Friend WithEvents bt_OK As System.Windows.Forms.Button
     Friend WithEvents t_satuanqty As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
