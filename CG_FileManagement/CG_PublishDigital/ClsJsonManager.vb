@@ -26,9 +26,11 @@ Public Class ClsJsonManager
             myCb.Add(DirectCast(matches(0), CheckBox))
         Next
     End Sub
+
     Public Function ParseJsonToDictionary(ByVal json As JToken) As Dictionary(Of String, JArray)
         ParseJsonToDictionary = JsonConvert.DeserializeObject(Of Dictionary(Of String, JArray))(JsonConvert.SerializeObject(json))
     End Function
+
     Public Sub FillCBfromJson(ByVal cb As ComboBox, json As Object, Optional ByVal value As String = "", Optional display As String = "")
         cb.ValueMember = value
         cb.DisplayMember = display

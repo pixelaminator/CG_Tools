@@ -616,7 +616,7 @@ Partial Class MainForm
         '
         Me.GroupBox1.Location = New System.Drawing.Point(327, 3)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(167, 139)
+        Me.GroupBox1.Size = New System.Drawing.Size(207, 139)
         Me.GroupBox1.TabIndex = 5
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Estimasi Waktu"
@@ -689,6 +689,7 @@ Partial Class MainForm
         Me.t_preview.ReadOnly = True
         Me.t_preview.Size = New System.Drawing.Size(532, 20)
         Me.t_preview.TabIndex = 0
+        Me.t_preview.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'bt_cancel
         '

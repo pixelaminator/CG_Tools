@@ -1,7 +1,10 @@
-﻿Imports System.Windows.Forms
+﻿Imports System
+Imports System.Reflection
+Imports Newtonsoft.Json
+Imports System.Windows.Forms
 Imports RGiesecke.DllExport
 Module Main
-    Dim cdraw As Corel.Interop.VGCore.Application = NewCDRApp.appDraw
+    Dim cdraw As Corel.Interop.VGCore.Application = NewCDRApp.AppDraw
 
     <DllExport("CGToolsNET")>
     Public Sub CG_Publish()
