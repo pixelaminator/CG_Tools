@@ -6,14 +6,19 @@ Imports System.Diagnostics
 Imports System.Reflection
 
 Public Class MainForm
+    Dim init As Boolean
     Dim AssemblyLoadError As Boolean
+    Dim CodeFinishing() As String
     Dim jhandler As New ClsJsonManager
     Dim ClsTabMgr As New ClsTabManager
     Dim ClsFileName As New ClsFileNaming
     Dim jsonPath As String
     Dim jsonTxt As String
     Dim TabFinishing As New List(Of TabPage)
+    Dim ActivePanelFinishing As Control
+    'Dim _ActivePanelFinishing As Control
 
+#Region "Form Load"
     Private Sub PublishDigital_Load(sender As Object, e As System.EventArgs) Handles MyBase.Load
         'Loads 3rd party assembly from addon folder
         AddHandler AppDomain.CurrentDomain.AssemblyResolve, AddressOf AssemblyLoadHandler
@@ -21,15 +26,52 @@ Public Class MainForm
         Try
             InitForm()
         Catch ex As Exception
-            MessageBox.Show("Ada kesalahan dalam loading program. Hubungi IT untuk install ulang CG Tools.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Ada kesalahan dalam loading program. Hubungi IT untuk install ulang CG Tools." + Environment.NewLine + "Pesan error: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Close()
         End Try
     End Sub
 
+    Function AssemblyLoadHandler(ByVal sender As Object,
+                       ByVal args As ResolveEventArgs) As [Assembly]
+        'This handler is called only when the common language runtime tries to bind to the assembly and fails.        
+
+        'Retrieve the list of referenced assemblies in an array of AssemblyName.
+        Dim objExecutingAssemblies As [Assembly]
+        objExecutingAssemblies = [Assembly].GetExecutingAssembly()
+        Dim arrReferencedAssmbNames() As AssemblyName
+        arrReferencedAssmbNames = objExecutingAssemblies.GetReferencedAssemblies()
+
+        'Loop through the array of referenced assembly names.
+        Dim strAssmbName As AssemblyName
+        For Each strAssmbName In arrReferencedAssmbNames
+            Dim MyAssembly As [Assembly]
+            'Look for the assembly names that have raised the "AssemblyResolve" event.
+            If (strAssmbName.FullName.Substring(0, strAssmbName.FullName.IndexOf(",")) = args.Name.Substring(0, args.Name.IndexOf(","))) Then
+
+                'Build the path of the assembly from where it has to be loaded.
+                Dim strTempAssmbPath As String
+                strTempAssmbPath = Application.StartupPath + "\Addons\CG_Tools\" & args.Name.Substring(0, args.Name.IndexOf(",")) & ".dll"
+
+                'Load the assembly from the specified path. 
+                Try
+                    MyAssembly = [Assembly].LoadFrom(strTempAssmbPath)
+                    'Return the loaded assembly.
+                    Return MyAssembly
+                Catch ex As Exception
+                    AssemblyLoadError = True
+                    Exit Function
+                End Try
+            End If
+        Next
+    End Function
+#End Region
+
+#Region "GUI Event Handler"
     Private Sub Cb_jenisorder_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_jenisorder.SelectedIndexChanged
         InitBahanUkuran()
         DisplayTabFinishing()
         KodeJenisOrder()
+        If init = True Then GenerateCodeFinishing()
         GeneratePreview()
     End Sub
 
@@ -57,56 +99,6 @@ Public Class MainForm
         GeneratePreview()
     End Sub
 
-    Private Sub CekDuaMuka()
-        Dim bahan2muka As Boolean
-        Dim parsed = jhandler.ParseJsonToDictionary(Globals.JsonObj("cgJenisOrder")("dataJenisOrder"))
-        bahan2muka = CType(parsed(cb_jenisorder.SelectedValue.ToString)(cb_bahan.SelectedIndex)("duamuka"), Boolean)
-        If bahan2muka = False Then
-            cb_sisimuka.Enabled = False
-        Else
-            cb_sisimuka.Enabled = True
-        End If
-    End Sub
-
-    Private Sub KodeJenisOrder()
-        ClsFileName.JenisOrder = Globals.JsonObj("cgKodeOrder")(cb_jenisorder.SelectedIndex).ToString
-        GeneratePreview()
-    End Sub
-
-    Private Sub AddChkHandler(ByVal panel As FlowLayoutPanel)
-        For Each ctrl As CheckBox In panel.Controls
-            AddHandler ctrl.CheckedChanged, AddressOf DynCheckboxChangeHandler
-        Next
-    End Sub
-
-    Private Sub DynCheckboxChangeHandler(ByVal sender As Object, ByVal e As EventArgs)
-        Dim i As Integer
-        Dim cbx = DirectCast(sender, CheckBox)
-        Dim p = cbx.Parent
-        For Each ctrl As CheckBox In p.Controls
-            i += 1
-            Dim cbchk As CheckBox = DirectCast(p.Controls("cb" + CStr(i)), CheckBox)
-            If cbchk.Checked = True Then
-                Dim chk As String = cbchk.Name
-                'Gets an integer from a string (in this case "cb10" will return "10")
-                Dim chkname = System.Text.RegularExpressions.Regex.Match(chk, "\d+").Value
-                'TODO: Try not to get dependent on jenisorder.
-                Dim chkdata As String = Globals.JsonObj("cgFinishing")(cb_jenisorder.SelectedValue.ToString)(CInt(chkname) - 1)("kode").ToString
-                MessageBox.Show(chkdata)
-            End If
-        Next
-    End Sub
-
-    Private Sub DisplayTabFinishing()
-        For Each i As TabPage In TabFinishing
-            ClsTabMgr.SetInvisible(i)
-        Next
-        Dim items As List(Of Integer) = Enumerable.Range(0, cb_jenisorder.Items.Count).ToList
-        Dim selecteditem As Integer = cb_jenisorder.SelectedIndex
-        Dim hiddentabindex As List(Of Integer) = items.Where(Function(number, index) index <> selecteditem).ToList
-        ClsTabMgr.SetVisible(TabFinishing(cb_jenisorder.SelectedIndex).Name, tb_Finishing)
-    End Sub
-
     Private Sub Bt_cancel_Click(sender As Object, e As EventArgs) Handles bt_cancel.Click
         Close()
     End Sub
@@ -118,10 +110,6 @@ Public Class MainForm
     Private Sub Cb_operator_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_operator.SelectedIndexChanged
         ClsFileName.NamaSetter = cb_operator.SelectedValue.ToString
         GeneratePreview()
-    End Sub
-
-    Private Sub GeneratePreview()
-        t_preview.Text = ClsFileName.DoFileName()
     End Sub
 
     Private Sub t_harga_TextChanged(sender As Object, e As EventArgs) Handles t_harga.TextChanged
@@ -162,37 +150,81 @@ Public Class MainForm
         t_customer.Text = cb_presetcustomer.SelectedValue.ToString
     End Sub
 
-    Function AssemblyLoadHandler(ByVal sender As Object,
-                       ByVal args As ResolveEventArgs) As [Assembly]
-        'This handler is called only when the common language runtime tries to bind to the assembly and fails.        
+    Private Sub cb_layout_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_layout.SelectedIndexChanged
 
-        'Retrieve the list of referenced assemblies in an array of AssemblyName.
-        Dim objExecutingAssemblies As [Assembly]
-        objExecutingAssemblies = [Assembly].GetExecutingAssembly()
-        Dim arrReferencedAssmbNames() As AssemblyName
-        arrReferencedAssmbNames = objExecutingAssemblies.GetReferencedAssemblies()
+    End Sub
+#End Region
 
-        'Loop through the array of referenced assembly names.
-        Dim strAssmbName As AssemblyName
-        For Each strAssmbName In arrReferencedAssmbNames
-            Dim MyAssembly As [Assembly]
-            'Look for the assembly names that have raised the "AssemblyResolve" event.
-            If (strAssmbName.FullName.Substring(0, strAssmbName.FullName.IndexOf(",")) = args.Name.Substring(0, args.Name.IndexOf(","))) Then
+    Private Sub CekDuaMuka()
+        Dim bahan2muka As Boolean
+        Dim parsed = jhandler.ParseJsonToDictionary(Globals.JsonObj("cgJenisOrder")("dataJenisOrder"))
+        bahan2muka = CType(parsed(cb_jenisorder.SelectedValue.ToString)(cb_bahan.SelectedIndex)("duamuka"), Boolean)
+        If bahan2muka = False Then
+            cb_sisimuka.Enabled = False
+        Else
+            cb_sisimuka.Enabled = True
+        End If
+    End Sub
 
-                'Build the path of the assembly from where it has to be loaded.
-                Dim strTempAssmbPath As String
-                strTempAssmbPath = Application.StartupPath + "\Addons\CG_Tools\" & args.Name.Substring(0, args.Name.IndexOf(",")) & ".dll"
+    Private Sub KodeJenisOrder()
+        ClsFileName.JenisOrder = Globals.JsonObj("cgKodeOrder")(cb_jenisorder.SelectedIndex).ToString
+        GeneratePreview()
+    End Sub
 
-                'Load the assembly from the specified path. 
-                Try
-                    MyAssembly = [Assembly].LoadFrom(strTempAssmbPath)
-                    'Return the loaded assembly.
-                    Return MyAssembly
-                Catch ex As Exception
-                    AssemblyLoadError = True
-                    Exit Function
-                End Try
-            End If
+    Private Sub AddChkHandler(ByVal panel As FlowLayoutPanel)
+        For Each ctrl As CheckBox In panel.Controls
+            AddHandler ctrl.CheckedChanged, AddressOf DynCheckboxChangeHandler
         Next
-    End Function
+    End Sub
+
+    Private Sub DynCheckboxChangeHandler(ByVal sender As Object, ByVal e As EventArgs)
+        GenerateCodeFinishing()
+    End Sub
+
+    Private Sub GenerateCodeFinishing()
+        Dim i As Integer
+        ReDim CodeFinishing(ActivePanelFinishing.Controls.Count - 1)
+        For Each ctrl As CheckBox In ActivePanelFinishing.Controls
+            Dim cbchk As CheckBox = DirectCast(ActivePanelFinishing.Controls("cb" + CStr(i)), CheckBox)
+            If cbchk.Checked = True Then
+                Dim chk As String = cbchk.Name
+                'Gets an integer from a string (in this case "cb10" will return "10")
+                Dim chkname As Integer = CInt(System.Text.RegularExpressions.Regex.Match(chk, "\d+").Value)
+                'TODO: Try not to get dependent on jenisorder.
+                Dim chkdata As String = Globals.JsonObj("cgFinishing")(cb_jenisorder.SelectedValue.ToString)(chkname)("kode").ToString
+                CodeFinishing(chkname) = chkdata
+            End If
+            i += 1
+        Next
+        Dim FilteredNamaFile = From ar In CodeFinishing Where ar <> "" Select ar
+        Dim result As String = String.Join(",", FilteredNamaFile.ToArray)
+        ClsFileName.KodeFinishing = result
+        GeneratePreview()
+    End Sub
+
+    'Private Property ActivePanelFinishing As Control
+    '    Get
+    '        Return _ActivePanelFinishing
+    '    End Get
+    '    Set(value As Control)
+    '        _ActivePanelFinishing = value
+    '    End Set
+    'End Property
+
+    Private Sub DisplayTabFinishing()
+        For Each i As TabPage In TabFinishing
+            ClsTabMgr.SetInvisible(i)
+        Next
+        Dim items As List(Of Integer) = Enumerable.Range(0, cb_jenisorder.Items.Count).ToList
+        Dim selecteditem As Integer = cb_jenisorder.SelectedIndex
+        Dim hiddentabindex As List(Of Integer) = items.Where(Function(number, index) index <> selecteditem).ToList
+
+        Dim ActiveTabPage As Control = TabFinishing(cb_jenisorder.SelectedIndex)
+        ClsTabMgr.SetVisible(ActiveTabPage.Name, tb_Finishing)
+        ActivePanelFinishing = ActiveTabPage.Controls(0)
+    End Sub
+
+    Private Sub GeneratePreview()
+        t_preview.Text = ClsFileName.DoFileName()
+    End Sub
 End Class

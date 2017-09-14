@@ -25,7 +25,56 @@
     <OutDir>bin\Debug\$(SolutionName)</OutDir>
     <DocumentationFile>
     </DocumentationFile>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <NoWarn>
+    </NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X7|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\X7\</OutputPath>
+    <OutDir>bin\X7\$(SolutionName)</OutDir>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <PlatformTarget>x64</PlatformTarget>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X8|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\X8\</OutputPath>
+    <OutDir>bin\X8\$(SolutionName)</OutDir>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <PlatformTarget>x64</PlatformTarget>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == '2017|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\2017\</OutputPath>
+    <OutDir>bin\2017\$(SolutionName)</OutDir>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <PlatformTarget>x64</PlatformTarget>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,7 +84,8 @@
     <OutputPath>bin\Release\</OutputPath>
     <OutDir>bin\Release\$(SolutionName)</OutDir>
     <DocumentationFile>CG_SettingTools.xml</DocumentationFile>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <NoWarn>
+    </NoWarn>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -44,7 +94,7 @@
     <OptionCompare>Binary</OptionCompare>
   </PropertyGroup>
   <PropertyGroup>
-    <OptionStrict>Off</OptionStrict>
+    <OptionStrict>On</OptionStrict>
   </PropertyGroup>
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
@@ -78,8 +128,14 @@
    
   </ItemGroup>-->
   <ItemGroup>
+    <Reference Include="RGiesecke.DllExport.Metadata, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8f52d83c1a22df51, processorArchitecture=MSIL">
+      <HintPath>..\packages\UnmanagedExports.1.2.7\lib\net\RGiesecke.DllExport.Metadata.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -88,9 +144,20 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="WindowsBase" />
-    <Reference Include="c:\program files\corel\coreldraw graphics suite x7\programs64\Assemblies\Corel.Interop.VGCore.dll">
-      <Name>Corel.Interop.VGCore</Name>
-      <Private>False</Private>
+    <Reference Include="Corel.Interop.VGCore, Version=17.6.0.1021, Culture=neutral, PublicKeyToken=e4835428e22ad6f9, processorArchitecture=MSIL" Condition="'$(Configuration)'=='X7'">
+      <HintPath>C:\Program Files\Corel\CorelDRAW Graphics Suite X7\Programs64\Assemblies\Corel.Interop.VGCore.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Corel.Interop.VGCore, Version=18.1.0.661, Culture=neutral, PublicKeyToken=e4835428e22ad6f9, processorArchitecture=MSIL" Condition="'$(Configuration)'=='X8'">
+      <HintPath>C:\Program Files\Corel\CorelDRAW Graphics Suite X8\Programs64\Assemblies\Corel.Interop.VGCore.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Corel.Interop.VGCore, Version=19.1.0.419, Culture=neutral, PublicKeyToken=e4835428e22ad6f9, processorArchitecture=MSIL" Condition="'$(Configuration)'=='2017'">
+      <HintPath>C:\Program Files\Corel\CorelDRAW Graphics Suite 2017\Programs64\Assemblies\Corel.Interop.VGCore.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
   </ItemGroup>
   <!--<ItemGroup>
@@ -117,6 +184,13 @@
     <Import Include="System.Windows.Navigation" />
   </ItemGroup>-->
   <ItemGroup>
+    <Compile Include="CG_SpellChecker\MainForm.Designer.vb">
+      <DependentUpon>MainForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CG_SpellChecker\MainForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.vb" />
     <Compile Include="My Project\AssemblyInfo.vb">
       <SubType>Code</SubType>
     </Compile>
@@ -130,6 +204,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="CG_SpellChecker\MainForm.resx">
+      <DependentUpon>MainForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -140,6 +217,13 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <AppDesigner Include="My Project\" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\i00_SpellCheck_20140111\i00SpellCheck\i00SpellCheck.vbproj">
+      <Project>{27d0d9b3-719c-46b7-9f03-3f91e82e7436}</Project>
+      <Name>i00SpellCheck</Name>
+    </ProjectReference>
   </ItemGroup>
   <!--<ItemGroup>
    
@@ -201,4 +285,5 @@
     <StartAction>Program</StartAction>
     <StartProgram>c:\program files\corel\coreldraw graphics suite x7\programs64\CorelDRW.exe</StartProgram>
   </PropertyGroup>
+  <Import Project="../packages/UnmanagedExports.1.2.7/tools/RGiesecke.DllExport.targets" Condition="Exists('../packages/UnmanagedExports.1.2.7/tools/RGiesecke.DllExport.targets')" />
 </Project>

@@ -34,6 +34,7 @@ Partial Class MainForm
         AddChkHandler(pn_finishingbw)
         AddChkHandler(pn_finishingkn)
         AddChkHandler(pn_finishingbr)
+        init = True
     End Sub
 
     Private Sub InitPresetCustomer()

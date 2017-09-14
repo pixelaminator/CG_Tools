@@ -11,9 +11,11 @@ D:\CSharp Project\CG_Tools\CG_FileManagement\obj\X8\CG_FileManagement_MarkupComp
 D:\CSharp Project\CG_Tools\CG_FileManagement\obj\X8\CG_FileManagement.g.resources
 D:\CSharp Project\CG_Tools\CG_FileManagement\obj\X8\CG_FileManagement.SavingTest.resources
 D:\CSharp Project\CG_Tools\CG_FileManagement\obj\X8\CG_FileManagement.Resources.resources
-D:\CSharp Project\CG_Tools\CG_FileManagement\obj\X8\CG_FileManagement.PublishDigital.resources
 D:\CSharp Project\CG_Tools\CG_FileManagement\obj\X8\CGFileManagement.vbproj.GenerateResource.Cache
 D:\CSharp Project\CG_Tools\CG_FileManagement\obj\X8\CG_FileManagement.dll
 D:\CSharp Project\CG_Tools\CG_FileManagement\obj\X8\CG_FileManagement.pdb
 D:\CSharp Project\CG_Tools\CG_FileManagement\obj\X8\CGFileManagement.vbprojResolveAssemblyReference.cache
 D:\CSharp Project\CG_Tools\CG_FileManagement\obj\X8\CGFileManagement.vbproj.CoreCompileInputs.cache
+D:\CSharp Project\CG_Tools\CG_FileManagement\bin\X8\CG_Tools\cgSave.json
+D:\CSharp Project\CG_Tools\CG_FileManagement\bin\X8\CG_Tools\CG_Tools.gms
+D:\CSharp Project\CG_Tools\CG_FileManagement\obj\X8\CG_FileManagement.MainForm.resources

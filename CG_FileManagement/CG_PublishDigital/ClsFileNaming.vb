@@ -33,7 +33,7 @@ Public Class ClsFileNaming
         NamaFile(10) = TypeImposition
         NamaFile(11) = KodeFinishing
         NamaFile(12) = Harga
-        'LINQ Command to filter out empty elements from array
+        'LINQ syntax to filter out empty elements from array
         Dim FilteredNamaFile = From ar In NamaFile Where ar <> "" Select ar
         Dim result As String = String.Join("_", FilteredNamaFile.ToArray)
         Return result

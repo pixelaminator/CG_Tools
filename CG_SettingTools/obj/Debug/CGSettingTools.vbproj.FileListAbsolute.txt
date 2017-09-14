@@ -5,3 +5,241 @@ D:\CSharp Project\CG_Tools\CG_SettingTools\obj\Debug\CG_SettingTools.Resources.r
 D:\CSharp Project\CG_Tools\CG_SettingTools\obj\Debug\CGSettingTools.vbproj.GenerateResource.Cache
 D:\CSharp Project\CG_Tools\CG_SettingTools\obj\Debug\CG_SettingTools.dll
 D:\CSharp Project\CG_Tools\CG_SettingTools\obj\Debug\CG_SettingTools.pdb
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\a ball.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\a body part.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\a bone.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\a golf ball.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\a hole.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\a horse.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\a liquid.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\a metal.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\a musical instrument.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\a person.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\a place.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\a shoe.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\a string instrument.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\a substance.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\a target.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\accounting.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\alcohol.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\american football.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\an animal.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\an image.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\an organ.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\ancient greece.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\and coins in particular.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\animals.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\architecture.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\art.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\as a bomb.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\as a judge.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\as a piece of machinery.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\as in a meeting.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\as on a ship.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\as property.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\as water.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\astrology.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\baseball.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\basketball.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\bible.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\biology.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\board games.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\born in america.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\born in austria.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\born in canada.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\born in england.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\born in france.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\born in germany.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\born in hungary.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\born in ireland.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\born in new zealand.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\born in poland.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\born in russia.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\born in scotland.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\born in the united states.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\botany.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\boxing.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\bridge.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\british.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\business.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\card games.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\cattle.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\chemistry.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\chess.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\christian theology.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\christianity.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\civil law.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\clothes.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\color.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\computer science.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\computing.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\cricket.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\criminal law.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\data.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\dna or rna.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\documents.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\eggs.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\electronic data.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\electronics.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\especially a bacterium.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\especially a molar tooth.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\especially a piano duet.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\especially alcohol.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\especially blood.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\especially by nuclear weapons.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\especially cattle.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\especially dinner.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\especially in a private home.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\especially in religion.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\especially language.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\especially money.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\especially of promises or contracts.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\especially of the bible.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\especially of wood.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\especially water.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\fencing.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\film.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\food.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\football.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\game.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\games.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\genetics.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\golf.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\great britain.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\greek mythology.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\heraldry.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\hinduism and buddhism.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\hinduism.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\horseshoes.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\ice hockey.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\images or sounds.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\in india.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\independent of sex differences.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\information.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\islam.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\jewish folklore.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\judaism.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\law.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\light or sound.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\literary.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\mathematics.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\meat.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\mechanics.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\medicine.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\metals.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\microbiology.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\military personnel.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\military.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\money.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\music.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\nautical.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\neuroscience.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\new testament.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\norse mythology.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of a baseball.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of a bed.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of a liquid.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of a musical instrument.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of a nuclear reaction.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of a person.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of a sailing vessel.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of a ship or plane.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of a specimen for study under a microscope.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of a substance.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of an organ or body part.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of animals.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of birds.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of champagne.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of clothing.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of coffee.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of color.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of drugs.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of flora or fauna.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of fluids.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of hair or clothing.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of language.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of light.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of limbs and feet.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of meat.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of motor vehicles.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of pages of a book.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of persons.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of plant or animal.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of plants and shrubs.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of plants.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of real estate.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of securities.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of sleep.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of soil.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of sound.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of sounds.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of speech sounds.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of speech.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of the moon.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of time.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of weapons.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of weather or climate.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of weather.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of winds.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of wine.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\of wood.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\old testament.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\or animal.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\or any sound resembling this.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\or other liquid.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\or sexual relations with.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\people.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\person or animal.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\photography.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\physics and chemistry.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\physics.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\plants and animals.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\printing.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\property.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\radiology.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\religion.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\roman catholic church.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\roman mythology.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\rugby.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\sound.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\spoken or written.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\sport.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\sports.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\statistics.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\substances.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\surgery.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\technology.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\tennis.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\the lips.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\united kingdom.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\used especially of machinery.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\used especially of persons.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\used of color.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\used of grass or vegetation.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\used of metals.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\used of persons or behaviors.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\used of persons or the military.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\used of persons.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\used of soil.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\used of the military.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\used of timepieces.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\usually a bell.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\usually alcoholic.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\usually cylindrical.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\usually in water.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\usually made of wood.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\usually metal.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\usually red.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\usually white.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\usually written.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\water.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\weapons.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\wood or metal.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def\wood.png
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\dic.dic
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\def.def
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\syn.syn
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\i00SpellCheck.dll
+D:\CSharp Project\CG_Tools\CG_SettingTools\bin\Debug\CG_Tools\i00SpellCheck.dll.config
+D:\CSharp Project\CG_Tools\CG_SettingTools\obj\Debug\CG_SettingTools.MainForm.resources
+D:\CSharp Project\CG_Tools\CG_SettingTools\obj\Debug\CGSettingTools.vbproj.CoreCompileInputs.cache

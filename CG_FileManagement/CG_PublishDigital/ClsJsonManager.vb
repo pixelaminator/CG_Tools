@@ -7,11 +7,10 @@ Public Class ClsJsonManager
     Public Sub FillTabwithCB(ByVal frm As Control, cbdata As JArray, XOffset As Integer, YOffset As Integer, maxRow As Integer, tab As FlowLayoutPanel)
         Dim i As Integer = 0
         Dim CBTotal As Integer
-        Dim myCb As New List(Of CheckBox)
+        'Dim myCb As New List(Of CheckBox)
         For Each cur In cbdata
             Dim cb = New CheckBox()
             Dim txt As JObject = JsonConvert.DeserializeObject(Of JObject)(JsonConvert.SerializeObject(cur))
-            CBTotal += 1
 
             Dim cbname As String = "cb" + CBTotal.ToString
             cb.Name = cbname
@@ -21,9 +20,11 @@ Public Class ClsJsonManager
 
             tab.Controls.Add(cb)
 
-            Dim matches() As Control
-            matches = frm.Controls.Find(cbname, True)
-            myCb.Add(DirectCast(matches(0), CheckBox))
+            'Dim matches() As Control
+            'matches = frm.Controls.Find(cbname, True)
+            'myCb.Add(DirectCast(matches(0), CheckBox))
+
+            CBTotal += 1
         Next
     End Sub
 

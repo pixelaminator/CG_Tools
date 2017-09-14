@@ -1,0 +1,840 @@
+{
+  "cgConfig": {
+    "PDFExport": true,
+    "BaseURL": "\\\\10.10.0.10\\cgdigital",
+    "BaseURLOutsourcing": "\\\\10.10.0.10\\graha\\Setting\\Outsourching",
+    "BaseURLLocalNonPermanent": "D:\\NON PERMANENT",
+    "BaseURLFileKonsumen": "D:\\FILE KONSUMEN",
+    "folderGraha": false
+  },
+  "cgPreset": {
+    "customer": [
+      "CG GALUH",
+      "CG GRAHA",
+      "CG ONLINE",
+      "CG PURWAKARTA",
+      "CG CIANJUR"
+    ]
+  },
+  "cgSetter": [
+    {
+      "nama": "Aditya Nugraha",
+      "kode": "Ad"
+    },
+    {
+      "nama": "Tubagus Maulana Dzikri",
+      "kode": "T"
+    },
+    {
+      "nama": "Alan Fajri Irhami",
+      "kode": "Al"
+    },
+    {
+      "nama": "Benny Fernando",
+      "kode": "B"
+    },
+    {
+      "nama": "Andrian Nugraha",
+      "kode": "An"
+    },
+    {
+      "nama": "Ika Adhityaning Saputri",
+      "kode": "I"
+    },
+    {
+      "nama": "Muhammad Vico Irsandi",
+      "kode": "V"
+    },
+    {
+      "nama": "Kasir",
+      "kode": "CS"
+    }
+  ],
+  "cgJenisOrder": {
+    "katJenisOrder": [
+      {
+        "nama": "A3 Color",
+        "id": "a3color"
+      },
+      {
+        "nama": "Kartu Nama",
+        "id": "kartunama"
+      },
+      {
+        "nama": "Brosur",
+        "id": "brosur"
+      },
+      {
+        "nama": "Large Format (Banner)",
+        "id": "largeformat"
+      },
+      {
+        "nama": "A3 Black & White",
+        "id": "a3bw"
+      }
+    ],
+    "dataJenisOrder": {
+      "a3color": [
+        {
+          "bahan": "ART PAPER 120",
+          "kode": "AP120",
+          "duamuka": true
+        },
+        {
+          "bahan": "ART PAPER 150",
+          "kode": "AP150",
+          "duamuka": true
+        },
+        {
+          "bahan": "ART CARTON 210",
+          "kode": "AC210",
+          "duamuka": true
+        },
+        {
+          "bahan": "ART CARTON 230",
+          "kode": "AC230",
+          "duamuka": true
+        },
+        {
+          "bahan": "ART CARTON 260",
+          "kode": "AC260",
+          "duamuka": true
+        },
+        {
+          "bahan": "ART CARTON 310",
+          "kode": "AC310",
+          "duamuka": true
+        },
+        {
+          "bahan": "ART CARTON 360",
+          "kode": "AC360",
+          "duamuka": true
+        },
+        {
+          "bahan": "STIKER HVS",
+          "duamuka": false,
+          "kode": "ST-HVS"
+        },
+        {
+          "bahan": "STIKER CHROMO",
+          "kode": "ST-CR",
+          "duamuka": false
+        },
+        {
+          "bahan": "STIKER VINYL GLOSSY",
+          "kode": "ST-VG",
+          "duamuka": true
+        },
+        {
+          "bahan": "STIKER VINYL MATTE",
+          "kode": "ST-MT",
+          "duamuka": true
+        },
+        {
+          "bahan": "STIKER VINYL TRANSPARAN",
+          "kode": "ST-TP",
+          "duamuka": true
+        },
+        {
+          "bahan": "STIKER METALLIZE",
+          "kode": "ST-MT",
+          "duamuka": true
+        },
+        {
+          "bahan": "HVS A4",
+          "kode": "HVSA4",
+          "duamuka": true
+        },
+        {
+          "bahan": "HVS A3 80",
+          "kode": "HVSA380",
+          "duamuka": true
+        },
+        {
+          "bahan": "HVS A3+",
+          "kode": "HVSA3+",
+          "duamuka": true
+        },
+        {
+          "bahan": "PVC A4",
+          "kode": "PVCA4",
+          "duamuka": false
+        },
+        {
+          "bahan": "PVC A3+",
+          "kode": "PVCA3+",
+          "duamuka": false
+        },
+        {
+          "bahan": "KANVAS A3",
+          "kode": "KNVS",
+          "duamuka": true
+        },
+        {
+          "bahan": "AKASIA",
+          "kode": "AKS",
+          "duamuka": true
+        },
+        {
+          "bahan": "JASMIN",
+          "kode": "JSMN",
+          "duamuka": true
+        },
+        {
+          "bahan": "TULIP",
+          "kode": "TLP",
+          "duamuka": true
+        },
+        {
+          "bahan": "IVORY",
+          "kode": "IVRY",
+          "duamuka": true
+        },
+        {
+          "bahan": "SUPER PUTIH",
+          "kode": "SPT",
+          "duamuka": true
+        },
+        {
+          "bahan": "KARTON TIK",
+          "kode": "TIK",
+          "duamuka": true
+        },
+        {
+          "bahan": "BLUES WHITE",
+          "kode": "BLW",
+          "duamuka": true
+        },
+        {
+          "bahan": "CONCORDE PUTIH",
+          "kode": "CNCRDP",
+          "duamuka": true
+        },
+        {
+          "bahan": "CONCORDE KREM",
+          "kode": "CNCRDK",
+          "duamuka": true
+        },
+        {
+          "bahan": "LINEN",
+          "kode": "LN",
+          "duamuka": true
+        },
+        {
+          "bahan": "NEW TOP",
+          "kode": "NTP",
+          "duamuka": true
+        },
+        {
+          "bahan": "PRIERI",
+          "kode": "PRR",
+          "duamuka": true
+        },
+        {
+          "bahan": "PINDO PUTIH",
+          "kode": "PNDP",
+          "duamuka": true
+        },
+        {
+          "bahan": "PHOTO PAPER",
+          "kode": "PHTP",
+          "duamuka": true
+        },
+        {
+          "bahan": "PVC TULANG",
+          "kode": "PVCT",
+          "duamuka": true
+        },
+        {
+          "bahan": "MATTE PEARL",
+          "kode": "MTP",
+          "duamuka": true
+        },
+        {
+          "bahan": "MAGNETIC PAPER",
+          "kode": "MGNT",
+          "duamuka": false
+        },
+        {
+          "bahan": "TRANSPARENT CLEAR",
+          "kode": "TRNS",
+          "duamuka": false
+        },
+        {
+          "bahan": "TRANSLUCENT",
+          "kode": "TLCN",
+          "duamuka": false
+        },
+        {
+          "bahan": "KALKIR A3",
+          "kode": "KLKA3",
+          "duamuka": false
+        },
+        {
+          "bahan": "KALKIR A3+",
+          "kode": "KLKA3+",
+          "duamuka": false
+        },
+        {
+          "bahan": "BAHAN SENDIRI",
+          "kode": "BHN",
+          "duamuka": true
+        }
+      ],
+      "kartunama": [
+        {
+          "bahan": "ART CARTON 230",
+          "kode": "A230",
+          "duamuka": true
+        },
+        {
+          "bahan": "ART CARTON 260",
+          "kode": "AC260",
+          "duamuka": true
+        },
+        {
+          "bahan": "ART CARTON 360",
+          "kode": "AC360",
+          "duamuka": true
+        },
+        {
+          "bahan": "BLUES WHITE",
+          "kode": "BLW",
+          "duamuka": true
+        },
+        {
+          "bahan": "CONCORDE PUTIH",
+          "kode": "CNCRDP",
+          "duamuka": true
+        },
+        {
+          "bahan": "LINEN",
+          "kode": "LN",
+          "duamuka": true
+        },
+        {
+          "bahan": "NEW TOP",
+          "kode": "NTP",
+          "duamuka": true
+        },
+        {
+          "bahan": "PRIERI",
+          "kode": "PR",
+          "duamuka": true
+        }
+      ],
+      "brosur": [
+        {
+          "bahan": "ART PAPER 120",
+          "kode": "AP120",
+          "duamuka": true
+        },
+        {
+          "bahan": "ART PAPER 150",
+          "kode": "AP150",
+          "duamuka": true
+        },
+        {
+          "bahan": "HVS A3 80gr",
+          "kode": "HVSA380",
+          "duamuka": true
+        },
+        {
+          "bahan": "HVS A3+",
+          "kode": "HVSA3P",
+          "duamuka": true
+        }
+      ],
+      "largeformat": [
+        {
+          "bahan": "FLEXY FRONTLITE 280 GR INDOOR",
+          "kode": "F280IN",
+          "duamuka": false,
+          "laminasi_lf": false
+        },
+        {
+          "bahan": "FLEXY FRONTLITE 340 GR INDOOR",
+          "kode": "F340IN",
+          "duamuka": false,
+          "laminasi_lf": false
+        },
+        {
+          "bahan": "FLEXY FRONTLITE 440 GR GLOSSY INDOOR",
+          "kode": "F440IN",
+          "duamuka": false,
+          "laminasi_lf": false
+        },
+        {
+          "bahan": "FLEXY FRONTLITE 440 GR KORCIN INDOOR",
+          "kode": "F440KCIN",
+          "duamuka": false,
+          "laminasi_lf": false
+        },
+        {
+          "bahan": "FLEXY FRONTLITE 510 GR JERMAN INDOOR",
+          "kode": "F510IN",
+          "duamuka": false,
+          "laminasi_lf": false
+        },
+        {
+          "bahan": "FLEXY FRONTLITE 550 GR BACKLITE INDOOR",
+          "kode": "F550IN",
+          "duamuka": false,
+          "laminasi_lf": false
+        },
+        {
+          "bahan": "FLEXY FRONTLITE 280 GR OUTDOOR",
+          "kode": "F280OUT",
+          "duamuka": false,
+          "laminasi_lf": false
+        },
+        {
+          "bahan": "FLEXY FRONTLITE 340 GR OUTDOOR",
+          "kode": "F340OUT",
+          "duamuka": false,
+          "laminasi_lf": false
+        },
+        {
+          "bahan": "FLEXY FRONTLITE 440 GR OUTDOOR",
+          "kode": "F440OUT",
+          "duamuka": false,
+          "laminasi_lf": false
+        },
+        {
+          "bahan": "ALBATROS",
+          "kode": "ALB",
+          "duamuka": false,
+          "laminasi_lf": true
+        },
+        {
+          "bahan": "LUSHTER",
+          "kode": "LTR",
+          "duamuka": false,
+          "laminasi_lf": true
+        },
+        {
+          "bahan": "STIKER VYNIL GLOSSY METER",
+          "kode": "VG",
+          "duamuka": false,
+          "laminasi_lf": true
+        },
+        {
+          "bahan": "STIKER VYNIL MATTE METER",
+          "kode": "VM",
+          "duamuka": false,
+          "laminasi_lf": true
+        },
+        {
+          "bahan": "STIKER VYNIL TRANSPARANT METER",
+          "kode": "VTP",
+          "duamuka": false,
+          "laminasi_lf": true
+        },
+        {
+          "bahan": "STIKER ONE WAY VISION",
+          "kode": "OW",
+          "duamuka": false,
+          "laminasi_lf": true
+        },
+        {
+          "bahan": "KAIN SATEN",
+          "kode": "STN",
+          "duamuka": false,
+          "laminasi_lf": false
+        },
+        {
+          "bahan": "KANVAS LF",
+          "kode": "KNVSLF",
+          "duamuka": false,
+          "laminasi_lf": false
+        }
+      ],
+      "a3bw": [
+        {
+          "bahan": "HVS A4",
+          "kode": "HVSA4",
+          "duamuka": true
+        },
+        {
+          "bahan": "HVS A3+",
+          "kode": "HVSA3P",
+          "duamuka": true
+        },
+        {
+          "bahan": "KALKIR A3",
+          "kode": "KLKRA3",
+          "duamuka": true
+        }
+      ]
+    }
+  },
+  "cgKodeOrder": [
+    "X8",
+    "KN",
+    "BR",
+    "LF",
+    "X0"
+  ],
+  "cgFinishing": {
+    "kategori": [
+      {
+        "nama": "LARGE FORMAT",
+        "id": "largeformatfn"
+      },
+      {
+        "nama": "A3 COLOR",
+        "id": "A3color"
+      }
+    ],
+    "a3color": [
+      {
+        "type": "Cacah",
+        "kode": "CCH"
+      },
+      {
+        "type": "Cutting",
+        "kode": "CUT"
+      },
+      {
+        "type": "Finishing Graha",
+        "kode": "FG"
+      },
+      {
+        "type": "Hard Cover",
+        "kode": "HC"
+      },
+      {
+        "type": "Lem Panas",
+        "kode": "LP"
+      },
+      {
+        "type": "Glossy",
+        "kode": "LG"
+      },
+      {
+        "type": "Glossy 2 Muka",
+        "kode": "LG2"
+      },
+      {
+        "type": "Doff",
+        "kode": "LD"
+      },
+      {
+        "type": "Doff 2 Muka",
+        "kode": "LD2"
+      },
+      {
+        "type": "Nomorator",
+        "kode": "NMR"
+      },
+      {
+        "type": "Non Finishing",
+        "kode": "NF"
+      },
+      {
+        "type": "Potong Graha",
+        "kode": "PG"
+      },
+      {
+        "type": "Spiral",
+        "kode": "SPR"
+      },
+      {
+        "type": "Staples",
+        "kode": "STP"
+      },
+      {
+        "type": "Jepit Kaleng",
+        "kode": "JPT"
+      },
+      {
+        "type": "Kalender",
+        "kode": "PCAL"
+      },
+      {
+        "type": "Press Mug",
+        "kode": "PMUG"
+      },
+      {
+        "type": "Gant. Kunci",
+        "kode": "PGTKUC"
+      },
+      {
+        "type": "Press Pin",
+        "kode": "PPIN"
+      },
+      {
+        "type": "Press ID Card",
+        "kode": "PIDC"
+      },
+      {
+        "type": "Rell",
+        "kode": "REL"
+      },
+      {
+        "type": "Poly",
+        "kode": "PLY"
+      },
+      {
+        "type": "Emboss",
+        "kode": "EMBS"
+      },
+      {
+        "type": "Paud",
+        "kode": "PAUD"
+      },
+      {
+        "type": "Mata Itik",
+        "kode": "MTIK"
+      }
+    ],
+    "largeformat": [
+      {
+        "type": "MATA ITIK STANDAR",
+        "kode": "MIS"
+      },
+      {
+        "type": "MATA ITIK PER METER",
+        "kode": "MIK"
+      },
+      {
+        "type": "MATA ITIK PER 1/2 METER",
+        "kode": "MIP5M"
+      },
+      {
+        "type": "SELONGSONG ATAS BAWAH",
+        "kode": "SAB"
+      },
+      {
+        "type": "SELONGSONG KIRI KANAN",
+        "kode": "SKK"
+      },
+      {
+        "type": "SELONGSONG KIRI KANAN MATA ITIK ATAS BAWAH",
+        "kode": "SKKMIAB"
+      },
+      {
+        "type": "SELONGSONG ATAS BAWAH MATA ITIK KIRI KANAN",
+        "kode": "SABMIKK"
+      },
+      {
+        "type": "LIPAT PAS GAMBAR",
+        "kode": "LPG"
+      },
+      {
+        "type": "LIPAT LIST PUTIH 5 CM",
+        "kode": "LLP5"
+      },
+      {
+        "type": "POTONG PAS GAMBAR",
+        "kode": "PPG"
+      },
+      {
+        "type": "JAHIT",
+        "kode": "JHT"
+      },
+      {
+        "type": "NON FINISHING",
+        "kode": "NF"
+      },
+      {
+        "type": "X-BANNER MINI",
+        "kode": "XBM"
+      },
+      {
+        "type": "X-BANNER 160x60",
+        "kode": "XB"
+      },
+      {
+        "type": "Y-BANNER 160x60",
+        "kode": "YB"
+      },
+      {
+        "type": "ROLL BANNER 160x60",
+        "kode": "RB"
+      },
+      {
+        "type": "ROLL BANNER 200x80",
+        "kode": "RB200"
+      }
+    ],
+    "kartunama": [
+      {
+        "type": "Glossy",
+        "kode": "LG"
+      },
+      {
+        "type": "Glossy 2 Muka",
+        "kode": "LG2"
+      },
+      {
+        "type": "Doff",
+        "kode": "LD"
+      },
+      {
+        "type": "Doff 2 Muka",
+        "kode": "LD2"
+      },
+      {
+        "type": "Non Finishing",
+        "kode": "NF"
+      },
+      {
+        "type": "Potong Graha",
+        "kode": "PG"
+      },
+      {
+        "type": "Potong KN",
+        "kode": "PKN"
+      }
+    ],
+    "brosur": [
+      {
+        "type": "Non Finishing",
+        "kode": "NF"
+      },
+      {
+        "type": "Potong Graha",
+        "kode": "PG"
+      }
+    ],
+    "a3bw": [
+      {
+        "type": "Finishing Graha",
+        "kode": "FG"
+      },
+      {
+        "type": "Non Finishing",
+        "kode": "NF"
+      },
+      {
+        "type": "Potong Graha",
+        "kode": "PG"
+      }
+    ]
+  },
+  "cgPermanent": {
+    "kategori": [
+      "Promotional Item",
+      "Form Administrasi",
+      "Calendar",
+      "Corporate ID",
+      "Invitation Card"
+    ],
+    "promoitem": [
+      "A3 COLOR",
+      "BROSUR",
+      "LARGE FORMAT (BANNER)",
+      "A3 BLACK WHITE"
+    ],
+    "formadmin": [
+      "A3 COLOR",
+      "A3 BLACK WHITE"
+    ],
+    "calendar": [
+      "A3 COLOR",
+      "A3 BLACK WHITE"
+    ],
+    "corporateid": [
+      "A3 COLOR",
+      "KARTU NAMA",
+      "LARGE FORMAT (BANNER)"
+    ],
+    "invitationcard": [
+      "A3 COLOR",
+      "A3 BLACK WHITE"
+    ]
+  },
+  "cgLayout": {
+    "a3color": [
+      {
+        "type": "1 UP (1 A3+)",
+        "kode": "1UP"
+      },
+      {
+        "type": "2 UP (1/2 A3+)",
+        "kode": "2UP"
+      },
+      {
+        "type": "4 UP (1/4 A3+)",
+        "kode": "4UP"
+      },
+      {
+        "type": "8 UP (1/8 A3+)",
+        "kode": "8UP"
+      },
+      {
+        "type": "16 UP (1/16 A3+)",
+        "kode": "16UP"
+      },
+      {
+        "type": "MULTIPLE UP",
+        "kode": "MUP"
+      }
+    ],
+    "kartunama": [
+      {
+        "type": "1 UP",
+        "kode": "1UP"
+      },
+      {
+        "type": "Uk. KN 9x5,5 cm",
+        "kode": "KN9x5"
+      },
+      {
+        "type": "Uk. KN 9.3x6.1 cm",
+        "kode": "KN9x6"
+      }
+    ],
+    "brosur": [
+      {
+        "type": "1 UP (1 A3+)",
+        "kode": "1UP"
+      },
+      {
+        "type": "2 UP (1/2 A3+)",
+        "kode": "2UP"
+      },
+      {
+        "type": "4 UP (1/4 A3+)",
+        "kode": "4UP"
+      },
+      {
+        "type": "8 UP (1/8 A3+)",
+        "kode": "8UP"
+      }
+    ],
+    "sisimuka": [
+      {
+        "type": "1 Muka",
+        "kode": "LBR"
+      },
+      {
+        "type": "2 Muka Page Sama",
+        "kode": "LBR_BB1-1"
+      },
+      {
+        "type": "2 Muka Page Beda",
+        "kode": "LBR_BB1-2"
+      }
+    ],
+    "imposition": [
+      {
+        "type": "Repeating",
+        "kode": "RPT"
+      },
+      {
+        "type": "Sequential",
+        "kode": "SQT"
+      },
+      {
+        "type": "Alternating",
+        "kode": "ALT"
+      },
+      {
+        "type": "Cut & Stack",
+        "kode": "CST"
+      }
+    ]
+  }
+}

@@ -1,12 +1,9 @@
-﻿Imports System
-Imports System.Reflection
-Imports Newtonsoft.Json
-Imports System.Windows.Forms
+﻿Imports System.Windows.Forms
 Imports RGiesecke.DllExport
 Module Main
     Dim cdraw As Corel.Interop.VGCore.Application = NewCDRApp.AppDraw
 
-    <DllExport("CGToolsNET")>
+    <DllExport("CGPublish")>
     Public Sub CG_Publish()
         Dim count As Integer
         count = cdraw.Documents.Count
@@ -17,7 +14,7 @@ Module Main
         Dim publish As New MainForm
         publish.ShowDialog()
     End Sub
-    <DllExport("CGToolsNET2")>
+    <DllExport("CGTestSaving")>
     Public Sub CG_TestSaving()
         Dim testSave As New SavingTest
         testSave.Show()
