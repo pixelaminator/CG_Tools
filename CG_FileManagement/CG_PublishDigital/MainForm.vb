@@ -75,6 +75,7 @@ Public Class MainForm
         If init = True Then GenerateCodeFinishing()
         If init = True Then CekBahanSendiri()
         If init = True Then CekLayoutSize()
+        If init = True Then CekImposition()
         If init = True Then InitLayoutList()
         GeneratePreview()
     End Sub
@@ -188,6 +189,17 @@ Public Class MainForm
             cb_layout.DropDownStyle = ComboBoxStyle.DropDown
         Else
             cb_layout.DropDownStyle = ComboBoxStyle.DropDownList
+        End If
+    End Sub
+
+    Private Sub CekImposition()
+        If CType(Globals.JsonObj("cgJenisOrder")("katJenisOrder")(cb_jenisorder.SelectedIndex)("useimposition"), Boolean) = True Then
+            cb_imposition.Enabled = True
+            cb_imposition_SelectedIndexChanged(cb_imposition, New EventArgs)
+        Else
+            cb_imposition.Enabled = False
+            ClsFileName.TypeImposition = ""
+            GeneratePreview()
         End If
     End Sub
 

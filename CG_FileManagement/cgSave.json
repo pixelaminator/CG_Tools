@@ -56,30 +56,35 @@
         "nama": "A3 Color",
         "id": "a3color",
         "bahaneditable": true,
+        "useimposition": true,
         "layouteditable": false
       },
       {
         "nama": "Kartu Nama",
         "id": "kartunama",
         "bahaneditable": false,
+        "useimposition": true,
         "layouteditable": false
       },
       {
         "nama": "Brosur",
         "id": "brosur",
         "bahaneditable": false,
+        "useimposition": true,
         "layouteditable": false
       },
       {
         "nama": "Large Format (Banner)",
         "id": "largeformat",
         "bahaneditable": false,
+        "useimposition": false,
         "layouteditable": true
       },
       {
         "nama": "A3 Black & White",
         "id": "a3bw",
         "bahaneditable": true,
+        "useimposition": true,
         "layouteditable": false
       }
     ],
