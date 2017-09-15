@@ -30,6 +30,7 @@ Partial Class MainForm
         InitSisiMuka()
         InitImposition()
         InitFolder()
+        InitQtyPages()
         AddChkHandler(pn_finishinga3)
         AddChkHandler(pn_finishingbw)
         AddChkHandler(pn_finishingkn)
@@ -93,5 +94,13 @@ Partial Class MainForm
         For i As Integer = 0 To tb_Finishing.TabPages.Count - 1
             TabFinishing.Add(tb_Finishing.TabPages(i))
         Next
+    End Sub
+
+    Private Sub InitQtyPages()
+        Dim JmlPage = cdraw.ActiveDocument.Pages.Count.ToString
+        t_jmlpage.Text = "Jumlah Page: " + JmlPage
+        t_satuanqty.Text = Globals.JsonObj("cgJenisOrder")("katJenisOrder")(cb_jenisorder.SelectedIndex)("satuan").ToString
+        ClsFileName.JmlPageQty = JmlPage + "pg@" + n_qtycetak.Value.ToString + t_satuanqty.Text
+        GeneratePreview()
     End Sub
 End Class

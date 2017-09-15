@@ -72,11 +72,14 @@ Public Class MainForm
         If cb_bahan.DropDownStyle = ComboBoxStyle.DropDownList Then InitBahanUkuran()
         DisplayTabFinishing()
         KodeJenisOrder()
-        If init = True Then GenerateCodeFinishing()
-        If init = True Then CekBahanSendiri()
-        If init = True Then CekLayoutSize()
-        If init = True Then CekImposition()
-        If init = True Then InitLayoutList()
+        If init = True Then
+            GenerateCodeFinishing()
+            CekBahanSendiri()
+            CekLayoutSize()
+            CekImposition()
+            InitQtyPages()
+            InitLayoutList()
+        End If
         GeneratePreview()
     End Sub
 
@@ -133,7 +136,8 @@ Public Class MainForm
     End Sub
 
     Private Sub n_qtycetak_ValueChanged(sender As Object, e As EventArgs) Handles n_qtycetak.ValueChanged
-
+        'Somehow triggered before all assemblies fully loaded, therefore init check.
+        If init = True Then InitQtyPages()
     End Sub
 
     Private Sub cb_sisimuka_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_sisimuka.SelectedIndexChanged
@@ -157,7 +161,7 @@ Public Class MainForm
     End Sub
 
     Private Sub cb_presetcustomer_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_presetcustomer.SelectedIndexChanged
-        t_customer.Text = cb_presetcustomer.SelectedValue.ToString
+        If init = True Then t_customer.Text = cb_presetcustomer.SelectedValue.ToString
     End Sub
 
     Private Sub cb_layout_TextChanged(sender As Object, e As EventArgs) Handles cb_layout.TextChanged

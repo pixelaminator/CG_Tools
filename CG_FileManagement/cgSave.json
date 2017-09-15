@@ -55,6 +55,7 @@
       {
         "nama": "A3 Color",
         "id": "a3color",
+        "satuan": "LBR",
         "bahaneditable": true,
         "useimposition": true,
         "layouteditable": false
@@ -62,6 +63,7 @@
       {
         "nama": "Kartu Nama",
         "id": "kartunama",
+        "satuan": "BOX",
         "bahaneditable": false,
         "useimposition": true,
         "layouteditable": false
@@ -69,6 +71,7 @@
       {
         "nama": "Brosur",
         "id": "brosur",
+        "satuan": "RIM",
         "bahaneditable": false,
         "useimposition": true,
         "layouteditable": false
@@ -76,6 +79,7 @@
       {
         "nama": "Large Format (Banner)",
         "id": "largeformat",
+        "satuan": "PCS",
         "bahaneditable": false,
         "useimposition": false,
         "layouteditable": true
@@ -83,6 +87,7 @@
       {
         "nama": "A3 Black & White",
         "id": "a3bw",
+        "satuan": "LBR",
         "bahaneditable": true,
         "useimposition": true,
         "layouteditable": false
@@ -860,15 +865,15 @@
     "sisimuka": [
       {
         "type": "1 Muka",
-        "kode": "LBR"
+        "kode": ""
       },
       {
         "type": "2 Muka Page Sama",
-        "kode": "LBR_BB1-1"
+        "kode": "BB1-1"
       },
       {
         "type": "2 Muka Page Beda",
-        "kode": "LBR_BB1-2"
+        "kode": "BB1-2"
       }
     ],
     "imposition": [

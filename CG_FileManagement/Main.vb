@@ -1,7 +1,7 @@
 ﻿Imports System.Windows.Forms
 Imports RGiesecke.DllExport
 Module Main
-    Dim cdraw As Corel.Interop.VGCore.Application = NewCDRApp.AppDraw
+    Public WithEvents cdraw As Corel.Interop.VGCore.Application = NewCDRApp.AppDraw
 
     <DllExport("CGPublish")>
     Public Sub CG_Publish()

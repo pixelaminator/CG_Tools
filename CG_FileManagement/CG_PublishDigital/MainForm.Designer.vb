@@ -35,6 +35,7 @@ Partial Class MainForm
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.g_datasetting = New System.Windows.Forms.GroupBox()
+        Me.t_jmlpage = New System.Windows.Forms.Label()
         Me.t_satuanqty = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.n_qtycetak = New System.Windows.Forms.NumericUpDown()
@@ -222,6 +223,7 @@ Partial Class MainForm
         '
         'g_datasetting
         '
+        Me.g_datasetting.Controls.Add(Me.t_jmlpage)
         Me.g_datasetting.Controls.Add(Me.t_satuanqty)
         Me.g_datasetting.Controls.Add(Me.Label13)
         Me.g_datasetting.Controls.Add(Me.n_qtycetak)
@@ -243,14 +245,24 @@ Partial Class MainForm
         Me.g_datasetting.TabStop = False
         Me.g_datasetting.Text = "Data Setting"
         '
+        't_jmlpage
+        '
+        Me.t_jmlpage.Location = New System.Drawing.Point(201, 179)
+        Me.t_jmlpage.Name = "t_jmlpage"
+        Me.t_jmlpage.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.t_jmlpage.Size = New System.Drawing.Size(92, 16)
+        Me.t_jmlpage.TabIndex = 19
+        Me.t_jmlpage.Text = "Jumlah Page: 1"
+        Me.t_jmlpage.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         't_satuanqty
         '
         Me.t_satuanqty.AutoSize = True
-        Me.t_satuanqty.Location = New System.Drawing.Point(155, 181)
+        Me.t_satuanqty.Location = New System.Drawing.Point(150, 181)
         Me.t_satuanqty.Name = "t_satuanqty"
-        Me.t_satuanqty.Size = New System.Drawing.Size(18, 13)
+        Me.t_satuanqty.Size = New System.Drawing.Size(28, 13)
         Me.t_satuanqty.TabIndex = 18
-        Me.t_satuanqty.Text = "lbr"
+        Me.t_satuanqty.Text = "LBR"
         '
         'Label13
         '
@@ -265,16 +277,20 @@ Partial Class MainForm
         '
         Me.n_qtycetak.Location = New System.Drawing.Point(97, 177)
         Me.n_qtycetak.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
+        Me.n_qtycetak.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.n_qtycetak.Name = "n_qtycetak"
         Me.n_qtycetak.Size = New System.Drawing.Size(52, 20)
         Me.n_qtycetak.TabIndex = 7
+        Me.n_qtycetak.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'n_noorder
         '
         Me.n_noorder.Location = New System.Drawing.Point(97, 101)
+        Me.n_noorder.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.n_noorder.Name = "n_noorder"
         Me.n_noorder.Size = New System.Drawing.Size(52, 20)
         Me.n_noorder.TabIndex = 4
+        Me.n_noorder.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'c_bahan
         '
@@ -846,4 +862,5 @@ Partial Class MainForm
     Friend WithEvents pn_finishingkn As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents pn_finishingbr As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents pn_finishingbw As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents t_jmlpage As System.Windows.Forms.Label
 End Class
