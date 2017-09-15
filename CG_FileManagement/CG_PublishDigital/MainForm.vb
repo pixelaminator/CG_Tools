@@ -16,6 +16,7 @@ Public Class MainForm
     Dim jsonTxt As String
     Dim TabFinishing As New List(Of TabPage)
     Dim ActivePanelFinishing As Control
+    Dim _SelectedJenisOrderIndex As Integer = -1
     'Dim _ActivePanelFinishing As Control
 
 #Region "Form Load"
@@ -68,22 +69,28 @@ Public Class MainForm
 
 #Region "GUI Event Handler"
     Private Sub Cb_jenisorder_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_jenisorder.SelectedIndexChanged
-        InitBahanUkuran()
+        If cb_bahan.DropDownStyle = ComboBoxStyle.DropDownList Then InitBahanUkuran()
         DisplayTabFinishing()
         KodeJenisOrder()
         If init = True Then GenerateCodeFinishing()
+        If init = True Then CekBahanSendiri()
         GeneratePreview()
     End Sub
 
     Private Sub C_bahan_CheckedChanged(sender As Object, e As EventArgs) Handles c_bahan.CheckedChanged
-        If cb_bahan.DropDownStyle = ComboBoxStyle.DropDownList Then
-            cb_bahan.SelectedValue = ""
-            cb_bahan.DropDownStyle = ComboBoxStyle.Simple
-            cb_sisimuka.Enabled = True
-        Else
-            cb_bahan.DropDownStyle = ComboBoxStyle.DropDownList
-            cb_bahan.SelectedIndex = 0
+        'Kalau jenis order tidak berganti tidak usah jalanin code
+        If cb_jenisorder.SelectedIndex > -1 AndAlso Not cb_jenisorder.Equals(_SelectedJenisOrderIndex) Then
+            If cb_bahan.DropDownStyle = ComboBoxStyle.DropDownList Then
+                cb_bahan.SelectedValue = ""
+                cb_bahan.DropDownStyle = ComboBoxStyle.Simple
+                cb_sisimuka.Enabled = True
+            Else
+                cb_bahan.DropDownStyle = ComboBoxStyle.DropDownList
+                cb_bahan.SelectedIndex = 0
+            End If
+            _SelectedJenisOrderIndex = cb_jenisorder.SelectedIndex
         End If
+
     End Sub
 
     Private Sub Cb_bahan_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_bahan.SelectedIndexChanged
@@ -161,8 +168,21 @@ Public Class MainForm
         bahan2muka = CType(parsed(cb_jenisorder.SelectedValue.ToString)(cb_bahan.SelectedIndex)("duamuka"), Boolean)
         If bahan2muka = False Then
             cb_sisimuka.Enabled = False
+            ClsFileName.SisiMuka = ""
+            GeneratePreview()
         Else
             cb_sisimuka.Enabled = True
+            If init = True Then cb_sisimuka_SelectedIndexChanged(cb_sisimuka, New EventArgs)
+        End If
+    End Sub
+
+    Private Sub CekBahanSendiri()
+        If CType(Globals.JsonObj("cgJenisOrder")("katJenisOrder")(cb_jenisorder.SelectedIndex)("bahansendiri"), Boolean) = True Then
+            c_bahan.Enabled = True
+            'C_bahan_CheckedChanged(c_bahan, New EventArgs)
+        Else
+            c_bahan.Checked = False
+            c_bahan.Enabled = False
         End If
     End Sub
 

@@ -54,23 +54,28 @@
     "katJenisOrder": [
       {
         "nama": "A3 Color",
-        "id": "a3color"
+        "id": "a3color",
+        "bahansendiri": true
       },
       {
         "nama": "Kartu Nama",
-        "id": "kartunama"
+        "id": "kartunama",
+        "bahansendiri": false
       },
       {
         "nama": "Brosur",
-        "id": "brosur"
+        "id": "brosur",
+        "bahansendiri": false
       },
       {
         "nama": "Large Format (Banner)",
-        "id": "largeformat"
+        "id": "largeformat",
+        "bahansendiri": false
       },
       {
         "nama": "A3 Black & White",
-        "id": "a3bw"
+        "id": "a3bw",
+        "bahansendiri": true
       }
     ],
     "dataJenisOrder": {
