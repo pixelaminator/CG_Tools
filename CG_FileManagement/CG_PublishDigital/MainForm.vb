@@ -74,6 +74,8 @@ Public Class MainForm
         KodeJenisOrder()
         If init = True Then GenerateCodeFinishing()
         If init = True Then CekBahanSendiri()
+        If init = True Then CekLayoutSize()
+        If init = True Then InitLayoutList()
         GeneratePreview()
     End Sub
 
@@ -157,8 +159,13 @@ Public Class MainForm
         t_customer.Text = cb_presetcustomer.SelectedValue.ToString
     End Sub
 
-    Private Sub cb_layout_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_layout.SelectedIndexChanged
-
+    Private Sub cb_layout_TextChanged(sender As Object, e As EventArgs) Handles cb_layout.TextChanged
+        If cb_layout.DropDownStyle = ComboBoxStyle.DropDownList Then
+            ClsFileName.LayoutSize = cb_layout.SelectedValue.ToString
+        Else
+            ClsFileName.LayoutSize = cb_layout.Text
+        End If
+        GeneratePreview()
     End Sub
 #End Region
 
@@ -176,8 +183,16 @@ Public Class MainForm
         End If
     End Sub
 
+    Private Sub CekLayoutSize()
+        If CType(Globals.JsonObj("cgJenisOrder")("katJenisOrder")(cb_jenisorder.SelectedIndex)("layouteditable"), Boolean) = True Then
+            cb_layout.DropDownStyle = ComboBoxStyle.DropDown
+        Else
+            cb_layout.DropDownStyle = ComboBoxStyle.DropDownList
+        End If
+    End Sub
+
     Private Sub CekBahanSendiri()
-        If CType(Globals.JsonObj("cgJenisOrder")("katJenisOrder")(cb_jenisorder.SelectedIndex)("bahansendiri"), Boolean) = True Then
+        If CType(Globals.JsonObj("cgJenisOrder")("katJenisOrder")(cb_jenisorder.SelectedIndex)("bahaneditable"), Boolean) = True Then
             c_bahan.Enabled = True
             'C_bahan_CheckedChanged(c_bahan, New EventArgs)
         Else

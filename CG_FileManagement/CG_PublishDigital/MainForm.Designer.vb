@@ -514,6 +514,7 @@ Partial Class MainForm
         '
         'cb_layout
         '
+        Me.cb_layout.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cb_layout.FormattingEnabled = True
         Me.cb_layout.Location = New System.Drawing.Point(97, 19)
         Me.cb_layout.Name = "cb_layout"

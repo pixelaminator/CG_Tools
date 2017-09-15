@@ -55,27 +55,32 @@
       {
         "nama": "A3 Color",
         "id": "a3color",
-        "bahansendiri": true
+        "bahaneditable": true,
+        "layouteditable": false
       },
       {
         "nama": "Kartu Nama",
         "id": "kartunama",
-        "bahansendiri": false
+        "bahaneditable": false,
+        "layouteditable": false
       },
       {
         "nama": "Brosur",
         "id": "brosur",
-        "bahansendiri": false
+        "bahaneditable": false,
+        "layouteditable": false
       },
       {
         "nama": "Large Format (Banner)",
         "id": "largeformat",
-        "bahansendiri": false
+        "bahaneditable": false,
+        "layouteditable": true
       },
       {
         "nama": "A3 Black & White",
         "id": "a3bw",
-        "bahansendiri": true
+        "bahaneditable": true,
+        "layouteditable": false
       }
     ],
     "dataJenisOrder": {
@@ -751,64 +756,102 @@
     ]
   },
   "cgLayout": {
-    "a3color": [
-      {
-        "type": "1 UP (1 A3+)",
-        "kode": "1UP"
-      },
-      {
-        "type": "2 UP (1/2 A3+)",
-        "kode": "2UP"
-      },
-      {
-        "type": "4 UP (1/4 A3+)",
-        "kode": "4UP"
-      },
-      {
-        "type": "8 UP (1/8 A3+)",
-        "kode": "8UP"
-      },
-      {
-        "type": "16 UP (1/16 A3+)",
-        "kode": "16UP"
-      },
-      {
-        "type": "MULTIPLE UP",
-        "kode": "MUP"
-      }
-    ],
-    "kartunama": [
-      {
-        "type": "1 UP",
-        "kode": "1UP"
-      },
-      {
-        "type": "Uk. KN 9x5,5 cm",
-        "kode": "KN9x5"
-      },
-      {
-        "type": "Uk. KN 9.3x6.1 cm",
-        "kode": "KN9x6"
-      }
-    ],
-    "brosur": [
-      {
-        "type": "1 UP (1 A3+)",
-        "kode": "1UP"
-      },
-      {
-        "type": "2 UP (1/2 A3+)",
-        "kode": "2UP"
-      },
-      {
-        "type": "4 UP (1/4 A3+)",
-        "kode": "4UP"
-      },
-      {
-        "type": "8 UP (1/8 A3+)",
-        "kode": "8UP"
-      }
-    ],
+    "layoutsize": {
+      "a3color": [
+        {
+          "type": "1 UP (1 A3+)",
+          "kode": "1UP"
+        },
+        {
+          "type": "2 UP (1/2 A3+)",
+          "kode": "2UP"
+        },
+        {
+          "type": "4 UP (1/4 A3+)",
+          "kode": "4UP"
+        },
+        {
+          "type": "8 UP (1/8 A3+)",
+          "kode": "8UP"
+        },
+        {
+          "type": "16 UP (1/16 A3+)",
+          "kode": "16UP"
+        },
+        {
+          "type": "MULTIPLE UP",
+          "kode": "MUP"
+        }
+      ],
+      "kartunama": [
+        {
+          "type": "1 UP",
+          "kode": "1UP"
+        },
+        {
+          "type": "Uk. KN 9x5,5 cm",
+          "kode": "KN9x5"
+        },
+        {
+          "type": "Uk. KN 9.3x6.1 cm",
+          "kode": "KN9x6"
+        }
+      ],
+      "brosur": [
+        {
+          "type": "1 UP (1 A3+)",
+          "kode": "1UP"
+        },
+        {
+          "type": "2 UP (1/2 A3+)",
+          "kode": "2UP"
+        },
+        {
+          "type": "4 UP (1/4 A3+)",
+          "kode": "4UP"
+        },
+        {
+          "type": "8 UP (1/8 A3+)",
+          "kode": "8UP"
+        }
+      ],
+      "largeformat": [
+        {
+          "type": "1x1 METER",
+          "kode": "1x1"
+        },
+        {
+          "type": "2x2 METER",
+          "kode": "2x2"
+        }
+      ],
+      "a3bw": [
+        {
+          "type": "1 UP (1 A3+)",
+          "kode": "1UP"
+        },
+        {
+          "type": "2 UP (1/2 A3+)",
+          "kode": "2UP"
+        },
+        {
+          "type": "4 UP (1/4 A3+)",
+          "kode": "4UP"
+        },
+        {
+          "type": "8 UP (1/8 A3+)",
+          "kode": "8UP"
+        },
+        {
+          "type": "16 UP (1/16 A3+)",
+          "kode": "16UP"
+        },
+        {
+          "type": "MULTIPLE UP",
+          "kode": "MUP"
+        }
+      ]
+    },
     "sisimuka": [
       {
         "type": "1 Muka",

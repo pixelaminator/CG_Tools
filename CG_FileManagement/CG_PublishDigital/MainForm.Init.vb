@@ -75,7 +75,7 @@ Partial Class MainForm
     End Sub
 
     Private Sub InitLayoutList()
-        Dim parsedJenis = jhandler.ParseJsonToDictionary(Globals.JsonObj("cgLayout"))
+        Dim parsedJenis = jhandler.ParseJsonToDictionary(Globals.JsonObj("cgLayout")("layoutsize"))
         jhandler.FillCBfromJson(cb_layout, parsedJenis(cb_jenisorder.SelectedValue.ToString).Root, "kode", "type")
     End Sub
 
