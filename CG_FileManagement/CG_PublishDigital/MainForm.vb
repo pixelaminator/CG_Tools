@@ -2,18 +2,13 @@
 Imports System.Collections.Generic
 Imports System.Windows.Forms
 Imports System.Linq
-Imports System.Diagnostics
-Imports System.Reflection
 
 Public Class MainForm
-    Dim init As Boolean
-    Dim AssemblyLoadError As Boolean
+    Dim IsFormInitialized As Boolean
     Dim CodeFinishing() As String
     Dim jhandler As New ClsJsonManager
     Dim ClsTabMgr As New ClsTabManager
     Dim ClsFileName As New ClsFileNaming
-    Dim jsonPath As String
-    Dim jsonTxt As String
     Dim TabFinishing As New List(Of TabPage)
     Dim ActivePanelFinishing As Control
     Dim _SelectedJenisOrderIndex As Integer = -1
@@ -22,9 +17,6 @@ Public Class MainForm
 
 #Region "Form Load"
     Private Sub PublishDigital_Load(sender As Object, e As System.EventArgs) Handles MyBase.Load
-        'Loads 3rd party assembly from addon folder
-        AddHandler AppDomain.CurrentDomain.AssemblyResolve, AddressOf AssemblyLoadHandler
-        'If ANY exceptions happens, close the form.
         Try
             InitForm()
         Catch ex As Exception
@@ -32,40 +24,6 @@ Public Class MainForm
             Close()
         End Try
     End Sub
-
-    Function AssemblyLoadHandler(ByVal sender As Object,
-                       ByVal args As ResolveEventArgs) As [Assembly]
-        'This handler is called only when the common language runtime tries to bind to the assembly and fails.        
-
-        'Retrieve the list of referenced assemblies in an array of AssemblyName.
-        Dim objExecutingAssemblies As [Assembly]
-        objExecutingAssemblies = [Assembly].GetExecutingAssembly()
-        Dim arrReferencedAssmbNames() As AssemblyName
-        arrReferencedAssmbNames = objExecutingAssemblies.GetReferencedAssemblies()
-
-        'Loop through the array of referenced assembly names.
-        Dim strAssmbName As AssemblyName
-        For Each strAssmbName In arrReferencedAssmbNames
-            Dim MyAssembly As [Assembly]
-            'Look for the assembly names that have raised the "AssemblyResolve" event.
-            If (strAssmbName.FullName.Substring(0, strAssmbName.FullName.IndexOf(",")) = args.Name.Substring(0, args.Name.IndexOf(","))) Then
-
-                'Build the path of the assembly from where it has to be loaded.
-                Dim strTempAssmbPath As String
-                strTempAssmbPath = Application.StartupPath + "\Addons\CG_Tools\" & args.Name.Substring(0, args.Name.IndexOf(",")) & ".dll"
-
-                'Load the assembly from the specified path. 
-                Try
-                    MyAssembly = [Assembly].LoadFrom(strTempAssmbPath)
-                    'Return the loaded assembly.
-                    Return MyAssembly
-                Catch ex As Exception
-                    AssemblyLoadError = True
-                    Exit Function
-                End Try
-            End If
-        Next
-    End Function
 #End Region
 
 #Region "GUI Event Handler"
@@ -73,7 +31,7 @@ Public Class MainForm
         If cb_bahan.DropDownStyle = ComboBoxStyle.DropDownList Then InitBahanUkuran()
         DisplayTabFinishing()
         KodeJenisOrder()
-        If init = True Then
+        If IsFormInitialized = True Then
             GenerateCodeFinishing()
             CekBahanSendiri()
             CekLayoutSize()
@@ -97,7 +55,6 @@ Public Class MainForm
             End If
             _SelectedJenisOrderIndex = cb_jenisorder.SelectedIndex
         End If
-
     End Sub
 
     Private Sub Cb_bahan_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_bahan.SelectedIndexChanged
@@ -137,8 +94,7 @@ Public Class MainForm
     End Sub
 
     Private Sub n_qtycetak_ValueChanged(sender As Object, e As EventArgs) Handles n_qtycetak.ValueChanged
-        'Somehow triggered before all assemblies fully loaded, therefore init check.
-        If init = True Then InitQtyPages()
+        InitQtyPages()
     End Sub
 
     Private Sub cb_sisimuka_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_sisimuka.SelectedIndexChanged
@@ -162,7 +118,7 @@ Public Class MainForm
     End Sub
 
     Private Sub cb_presetcustomer_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_presetcustomer.SelectedIndexChanged
-        If init = True Then t_customer.Text = cb_presetcustomer.SelectedValue.ToString
+        t_customer.Text = cb_presetcustomer.SelectedValue.ToString
     End Sub
 
     Private Sub cb_layout_TextChanged(sender As Object, e As EventArgs) Handles cb_layout.TextChanged
@@ -173,6 +129,32 @@ Public Class MainForm
         End If
         GeneratePreview()
     End Sub
+
+#Region "Dirty Finishing LF Code"
+    'TODO: These finishing LF code should be improved someday.
+    Private Sub lst_finishingfn_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lst_finishingfn.SelectedIndexChanged
+        GenerateCodeFinishing()
+    End Sub
+
+    Private Sub rb_glossy_CheckedChanged(sender As Object, e As EventArgs) Handles rb_glossy.CheckedChanged
+        _LaminasiLF = "LG"
+        GenerateCodeFinishing()
+    End Sub
+
+    Private Sub rb_doff_CheckedChanged(sender As Object, e As EventArgs) Handles rb_doff.CheckedChanged
+        _LaminasiLF = "LD"
+        GenerateCodeFinishing()
+    End Sub
+
+    Private Sub rb_nonelf_CheckedChanged(sender As Object, e As EventArgs) Handles rb_nonelf.CheckedChanged
+        _LaminasiLF = ""
+        GenerateCodeFinishing()
+    End Sub
+
+    Private Sub cb_fnframe_CheckedChanged(sender As Object, e As EventArgs) Handles cb_fnframe.CheckedChanged
+        GenerateCodeFinishing()
+    End Sub
+#End Region
 #End Region
 
     Private Sub CekDuaMuka()
@@ -185,7 +167,7 @@ Public Class MainForm
             GeneratePreview()
         Else
             cb_sisimuka.Enabled = True
-            If init = True Then cb_sisimuka_SelectedIndexChanged(cb_sisimuka, New EventArgs)
+            If IsFormInitialized = True Then cb_sisimuka_SelectedIndexChanged(cb_sisimuka, New EventArgs)
         End If
     End Sub
 
@@ -289,30 +271,4 @@ Public Class MainForm
     Private Sub GeneratePreview()
         t_preview.Text = ClsFileName.DoFileName()
     End Sub
-
-#Region "Dirty Finishing LF Code"
-    'TODO: These finishing LF code should be improved someday.
-    Private Sub lst_finishingfn_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lst_finishingfn.SelectedIndexChanged
-        GenerateCodeFinishing()
-    End Sub
-
-    Private Sub rb_glossy_CheckedChanged(sender As Object, e As EventArgs) Handles rb_glossy.CheckedChanged
-        _LaminasiLF = "LG"
-        GenerateCodeFinishing()
-    End Sub
-
-    Private Sub rb_doff_CheckedChanged(sender As Object, e As EventArgs) Handles rb_doff.CheckedChanged
-        _LaminasiLF = "LD"
-        GenerateCodeFinishing()
-    End Sub
-
-    Private Sub rb_nonelf_CheckedChanged(sender As Object, e As EventArgs) Handles rb_nonelf.CheckedChanged
-        _LaminasiLF = ""
-        If init = True Then GenerateCodeFinishing()
-    End Sub
-
-    Private Sub cb_fnframe_CheckedChanged(sender As Object, e As EventArgs) Handles cb_fnframe.CheckedChanged
-        GenerateCodeFinishing()
-    End Sub
-#End Region
 End Class

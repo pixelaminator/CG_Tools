@@ -169,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CG_PublishDigital\ClsFileNaming.vb" />
+    <Compile Include="CG_PublishDigital\ClsFileIO.vb" />
     <Compile Include="CG_PublishDigital\Globals.vb" />
     <Compile Include="CG_PublishDigital\ClsJsonManager.vb" />
     <Compile Include="CG_PublishDigital\SavingTest.Designer.vb">

@@ -1,23 +1,8 @@
-﻿Imports System
-Imports System.IO
-Imports System.Windows.Forms
-Imports Newtonsoft.Json.Linq
+﻿Imports Newtonsoft.Json.Linq
 
 Partial Class MainForm
+    Dim FileIO As New ClsFileIO
     Private Sub InitForm()
-        jsonPath = Application.StartupPath + "\Addons\CG_Tools\cgSave.json"
-        Try
-            jsonTxt = File.ReadAllText(jsonPath)
-        Catch ex As FileNotFoundException
-            MessageBox.Show("File cgSaveLocal.json tidak ditemukan! Hubungi IT untuk install ulang Tools." + Environment.NewLine + Environment.NewLine + "Pesan Error: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Close()
-            Exit Sub
-        End Try
-        Try
-            Globals.JsonObj = JObject.Parse(jsonTxt)
-        Catch ex As Exception
-            MessageBox.Show("Ada kesalahan dalam loading data. Hubungi IT untuk install ulang Tools." + Environment.NewLine + Environment.NewLine + "Pesan Error: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
         InitTabFinishing() '<== Harus paling dulu!
         InitSetter()
         InitPresetCustomer()
@@ -36,7 +21,8 @@ Partial Class MainForm
         AddChkHandler(pn_finishingbw)
         AddChkHandler(pn_finishingkn)
         AddChkHandler(pn_finishingbr)
-        init = True
+        IsFormInitialized = True
+        InitControlState()
     End Sub
 
     Private Sub InitPresetCustomer()
@@ -107,5 +93,15 @@ Partial Class MainForm
         t_satuanqty.Text = Globals.JsonObj("cgJenisOrder")("katJenisOrder")(cb_jenisorder.SelectedIndex)("satuan").ToString
         ClsFileName.JmlPageQty = JmlPage + "pg@" + n_qtycetak.Value.ToString + t_satuanqty.Text
         GeneratePreview()
+    End Sub
+
+    Private Sub InitControlState()
+        rb_nonelf.Checked = True
+        rb_convcurve.Checked = True
+        rb_allpage.Checked = True
+        n_qtycetak.Value = 1
+        n_qtycetak.Minimum = 1
+        n_noorder.Value = 1
+        n_noorder.Minimum = 1
     End Sub
 End Class

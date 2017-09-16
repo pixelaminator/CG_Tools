@@ -283,20 +283,16 @@ Partial Class MainForm
         '
         Me.n_qtycetak.Location = New System.Drawing.Point(97, 177)
         Me.n_qtycetak.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
-        Me.n_qtycetak.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.n_qtycetak.Name = "n_qtycetak"
         Me.n_qtycetak.Size = New System.Drawing.Size(52, 20)
         Me.n_qtycetak.TabIndex = 7
-        Me.n_qtycetak.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'n_noorder
         '
         Me.n_noorder.Location = New System.Drawing.Point(97, 101)
-        Me.n_noorder.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.n_noorder.Name = "n_noorder"
         Me.n_noorder.Size = New System.Drawing.Size(52, 20)
         Me.n_noorder.TabIndex = 4
-        Me.n_noorder.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'c_bahan
         '
@@ -422,12 +418,10 @@ Partial Class MainForm
         'rb_convcurve
         '
         Me.rb_convcurve.AutoSize = True
-        Me.rb_convcurve.Checked = True
         Me.rb_convcurve.Location = New System.Drawing.Point(7, 21)
         Me.rb_convcurve.Name = "rb_convcurve"
         Me.rb_convcurve.Size = New System.Drawing.Size(108, 17)
         Me.rb_convcurve.TabIndex = 0
-        Me.rb_convcurve.TabStop = True
         Me.rb_convcurve.Text = "Convert ke Curve"
         Me.rb_convcurve.UseVisualStyleBackColor = True
         '
@@ -474,12 +468,10 @@ Partial Class MainForm
         'rb_allpage
         '
         Me.rb_allpage.AutoSize = True
-        Me.rb_allpage.Checked = True
         Me.rb_allpage.Location = New System.Drawing.Point(6, 19)
         Me.rb_allpage.Name = "rb_allpage"
         Me.rb_allpage.Size = New System.Drawing.Size(86, 17)
         Me.rb_allpage.TabIndex = 0
-        Me.rb_allpage.TabStop = True
         Me.rb_allpage.Text = "Semua Page"
         Me.rb_allpage.UseVisualStyleBackColor = True
         '
@@ -687,12 +679,10 @@ Partial Class MainForm
         'rb_nonelf
         '
         Me.rb_nonelf.AutoSize = True
-        Me.rb_nonelf.Checked = True
         Me.rb_nonelf.Location = New System.Drawing.Point(140, 19)
         Me.rb_nonelf.Name = "rb_nonelf"
         Me.rb_nonelf.Size = New System.Drawing.Size(96, 17)
         Me.rb_nonelf.TabIndex = 2
-        Me.rb_nonelf.TabStop = True
         Me.rb_nonelf.Text = "Tidak Laminasi"
         Me.rb_nonelf.UseVisualStyleBackColor = True
         '
