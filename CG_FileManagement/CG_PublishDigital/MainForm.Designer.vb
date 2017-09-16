@@ -74,11 +74,14 @@ Partial Class MainForm
         Me.tb_finishingbr = New System.Windows.Forms.TabPage()
         Me.pn_finishingbr = New System.Windows.Forms.FlowLayoutPanel()
         Me.tb_finishinglf = New System.Windows.Forms.TabPage()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.Label14 = New System.Windows.Forms.Label()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.lst_finishingfn = New System.Windows.Forms.ListBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.cb_fnframe = New System.Windows.Forms.CheckBox()
+        Me.grp_laminasilf = New System.Windows.Forms.GroupBox()
+        Me.rb_nonelf = New System.Windows.Forms.RadioButton()
+        Me.rb_doff = New System.Windows.Forms.RadioButton()
+        Me.rb_glossy = New System.Windows.Forms.RadioButton()
         Me.tb_finishingbw = New System.Windows.Forms.TabPage()
         Me.pn_finishingbw = New System.Windows.Forms.FlowLayoutPanel()
         Me.g_preview = New System.Windows.Forms.GroupBox()
@@ -101,6 +104,9 @@ Partial Class MainForm
         Me.tb_finishingkn.SuspendLayout()
         Me.tb_finishingbr.SuspendLayout()
         Me.tb_finishinglf.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        Me.grp_laminasilf.SuspendLayout()
         Me.tb_finishingbw.SuspendLayout()
         Me.g_preview.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -616,11 +622,9 @@ Partial Class MainForm
         '
         'tb_finishinglf
         '
-        Me.tb_finishinglf.Controls.Add(Me.GroupBox1)
-        Me.tb_finishinglf.Controls.Add(Me.ComboBox1)
-        Me.tb_finishinglf.Controls.Add(Me.Label15)
-        Me.tb_finishinglf.Controls.Add(Me.ListBox1)
-        Me.tb_finishinglf.Controls.Add(Me.Label14)
+        Me.tb_finishinglf.Controls.Add(Me.GroupBox3)
+        Me.tb_finishinglf.Controls.Add(Me.GroupBox2)
+        Me.tb_finishinglf.Controls.Add(Me.grp_laminasilf)
         Me.tb_finishinglf.Location = New System.Drawing.Point(4, 22)
         Me.tb_finishinglf.Name = "tb_finishinglf"
         Me.tb_finishinglf.Padding = New System.Windows.Forms.Padding(3)
@@ -629,48 +633,90 @@ Partial Class MainForm
         Me.tb_finishinglf.Text = "Finishing Large Format"
         Me.tb_finishinglf.UseVisualStyleBackColor = True
         '
-        'GroupBox1
+        'GroupBox3
         '
-        Me.GroupBox1.Location = New System.Drawing.Point(327, 3)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(207, 139)
-        Me.GroupBox1.TabIndex = 5
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Estimasi Waktu"
+        Me.GroupBox3.Controls.Add(Me.lst_finishingfn)
+        Me.GroupBox3.Location = New System.Drawing.Point(7, 7)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(282, 134)
+        Me.GroupBox3.TabIndex = 3
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Tipe Finishing"
         '
-        'ComboBox1
+        'lst_finishingfn
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(60, 85)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(261, 21)
-        Me.ComboBox1.TabIndex = 4
+        Me.lst_finishingfn.FormattingEnabled = True
+        Me.lst_finishingfn.Location = New System.Drawing.Point(7, 19)
+        Me.lst_finishingfn.Name = "lst_finishingfn"
+        Me.lst_finishingfn.Size = New System.Drawing.Size(269, 108)
+        Me.lst_finishingfn.TabIndex = 0
         '
-        'Label15
+        'GroupBox2
         '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(7, 88)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(48, 13)
-        Me.Label15.TabIndex = 3
-        Me.Label15.Text = "Laminasi"
+        Me.GroupBox2.Controls.Add(Me.cb_fnframe)
+        Me.GroupBox2.Location = New System.Drawing.Point(295, 59)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(236, 82)
+        Me.GroupBox2.TabIndex = 2
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Lainnya"
         '
-        'ListBox1
+        'cb_fnframe
         '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(60, 9)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(260, 69)
-        Me.ListBox1.TabIndex = 2
+        Me.cb_fnframe.AutoSize = True
+        Me.cb_fnframe.Location = New System.Drawing.Point(9, 19)
+        Me.cb_fnframe.Name = "cb_fnframe"
+        Me.cb_fnframe.Size = New System.Drawing.Size(101, 17)
+        Me.cb_fnframe.TabIndex = 0
+        Me.cb_fnframe.Tag = "FRM"
+        Me.cb_fnframe.Text = "Bingkai / Frame"
+        Me.cb_fnframe.UseVisualStyleBackColor = True
         '
-        'Label14
+        'grp_laminasilf
         '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(6, 9)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(48, 13)
-        Me.Label14.TabIndex = 1
-        Me.Label14.Text = "Finishing"
+        Me.grp_laminasilf.Controls.Add(Me.rb_nonelf)
+        Me.grp_laminasilf.Controls.Add(Me.rb_doff)
+        Me.grp_laminasilf.Controls.Add(Me.rb_glossy)
+        Me.grp_laminasilf.Location = New System.Drawing.Point(295, 7)
+        Me.grp_laminasilf.Name = "grp_laminasilf"
+        Me.grp_laminasilf.Size = New System.Drawing.Size(239, 46)
+        Me.grp_laminasilf.TabIndex = 1
+        Me.grp_laminasilf.TabStop = False
+        Me.grp_laminasilf.Text = "Laminasi"
+        '
+        'rb_nonelf
+        '
+        Me.rb_nonelf.AutoSize = True
+        Me.rb_nonelf.Checked = True
+        Me.rb_nonelf.Location = New System.Drawing.Point(140, 19)
+        Me.rb_nonelf.Name = "rb_nonelf"
+        Me.rb_nonelf.Size = New System.Drawing.Size(96, 17)
+        Me.rb_nonelf.TabIndex = 2
+        Me.rb_nonelf.TabStop = True
+        Me.rb_nonelf.Text = "Tidak Laminasi"
+        Me.rb_nonelf.UseVisualStyleBackColor = True
+        '
+        'rb_doff
+        '
+        Me.rb_doff.AutoSize = True
+        Me.rb_doff.Location = New System.Drawing.Point(83, 20)
+        Me.rb_doff.Name = "rb_doff"
+        Me.rb_doff.Size = New System.Drawing.Size(45, 17)
+        Me.rb_doff.TabIndex = 1
+        Me.rb_doff.Tag = "LD"
+        Me.rb_doff.Text = "Doff"
+        Me.rb_doff.UseVisualStyleBackColor = True
+        '
+        'rb_glossy
+        '
+        Me.rb_glossy.AutoSize = True
+        Me.rb_glossy.Location = New System.Drawing.Point(9, 19)
+        Me.rb_glossy.Name = "rb_glossy"
+        Me.rb_glossy.Size = New System.Drawing.Size(56, 17)
+        Me.rb_glossy.TabIndex = 0
+        Me.rb_glossy.Tag = "LG"
+        Me.rb_glossy.Text = "Glossy"
+        Me.rb_glossy.UseVisualStyleBackColor = True
         '
         'tb_finishingbw
         '
@@ -787,7 +833,11 @@ Partial Class MainForm
         Me.tb_finishingkn.ResumeLayout(False)
         Me.tb_finishingbr.ResumeLayout(False)
         Me.tb_finishinglf.ResumeLayout(False)
-        Me.tb_finishinglf.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
+        Me.grp_laminasilf.ResumeLayout(False)
+        Me.grp_laminasilf.PerformLayout()
         Me.tb_finishingbw.ResumeLayout(False)
         Me.g_preview.ResumeLayout(False)
         Me.g_preview.PerformLayout()
@@ -850,11 +900,6 @@ Partial Class MainForm
     Friend WithEvents tb_finishingbw As System.Windows.Forms.TabPage
     Friend WithEvents bt_OK As System.Windows.Forms.Button
     Friend WithEvents t_satuanqty As System.Windows.Forms.Label
-    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
-    Friend WithEvents Label15 As System.Windows.Forms.Label
-    Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
-    Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents pn_finishinga3 As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents statuslabel As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents StatusStrip As System.Windows.Forms.StatusStrip
@@ -863,4 +908,12 @@ Partial Class MainForm
     Friend WithEvents pn_finishingbr As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents pn_finishingbw As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents t_jmlpage As System.Windows.Forms.Label
+    Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
+    Friend WithEvents lst_finishingfn As System.Windows.Forms.ListBox
+    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
+    Friend WithEvents cb_fnframe As System.Windows.Forms.CheckBox
+    Friend WithEvents grp_laminasilf As System.Windows.Forms.GroupBox
+    Friend WithEvents rb_nonelf As System.Windows.Forms.RadioButton
+    Friend WithEvents rb_doff As System.Windows.Forms.RadioButton
+    Friend WithEvents rb_glossy As System.Windows.Forms.RadioButton
 End Class

@@ -37,4 +37,10 @@ Public Class ClsJsonManager
         cb.DisplayMember = display
         cb.DataSource = json
     End Sub
+
+    Public Sub FillListFromJson(ByVal lst As ListBox, json As Object, Optional ByVal value As String = "", Optional display As String = "")
+        lst.ValueMember = value
+        lst.DisplayMember = display
+        lst.DataSource = json
+    End Sub
 End Class

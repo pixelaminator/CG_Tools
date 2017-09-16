@@ -24,6 +24,7 @@ Partial Class MainForm
         InitJenisOrder()
         InitFinishingA3()
         InitFinishingA3bw()
+        InitFinishingLF()
         InitFinishingBR()
         InitFinishingKN()
         InitLayoutList()
@@ -61,6 +62,10 @@ Partial Class MainForm
 
     Private Sub InitFinishingKN()
         jhandler.FillTabwithCB(Me, DirectCast(Globals.JsonObj("cgFinishing")("kartunama"), JArray), 7, 7, 5, pn_finishingkn)
+    End Sub
+
+    Private Sub InitFinishingLF()
+        jhandler.FillListFromJson(lst_finishingfn, DirectCast(Globals.JsonObj("cgFinishing")("largeformat"), JArray), "kode", "type")
     End Sub
 
     Private Sub InitFinishingBR()

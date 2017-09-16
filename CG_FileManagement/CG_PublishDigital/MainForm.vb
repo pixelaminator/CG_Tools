@@ -17,6 +17,7 @@ Public Class MainForm
     Dim TabFinishing As New List(Of TabPage)
     Dim ActivePanelFinishing As Control
     Dim _SelectedJenisOrderIndex As Integer = -1
+    Dim _LaminasiLF As String
     'Dim _ActivePanelFinishing As Control
 
 #Region "Form Load"
@@ -233,20 +234,30 @@ Public Class MainForm
     End Sub
 
     Private Sub GenerateCodeFinishing()
-        Dim i As Integer
-        ReDim CodeFinishing(ActivePanelFinishing.Controls.Count - 1)
-        For Each ctrl As CheckBox In ActivePanelFinishing.Controls
-            Dim cbchk As CheckBox = DirectCast(ActivePanelFinishing.Controls("cb" + CStr(i)), CheckBox)
-            If cbchk.Checked = True Then
-                Dim chk As String = cbchk.Name
-                'Gets an integer from a string (in this case "cb10" will return "10")
-                Dim chkname As Integer = CInt(System.Text.RegularExpressions.Regex.Match(chk, "\d+").Value)
-                'TODO: Try not to get dependent on jenisorder.
-                Dim chkdata As String = Globals.JsonObj("cgFinishing")(cb_jenisorder.SelectedValue.ToString)(chkname)("kode").ToString
-                CodeFinishing(chkname) = chkdata
-            End If
-            i += 1
-        Next
+        'This approach should be temporary..unless I find better method to generate controls for Finishing LF.
+        If cb_jenisorder.SelectedValue.ToString = "largeformat" Then
+            Dim Bingkai As String
+            If cb_fnframe.Checked = True Then Bingkai = "FRM" Else Bingkai = ""
+            ReDim CodeFinishing(3) 'cuman 3 karena elemen finishing large format cuman segitu
+            CodeFinishing(0) = lst_finishingfn.SelectedValue.ToString
+            CodeFinishing(1) = _LaminasiLF
+            CodeFinishing(2) = Bingkai
+        Else
+            Dim i As Integer
+            ReDim CodeFinishing(ActivePanelFinishing.Controls.Count - 1)
+            For Each ctrl As CheckBox In ActivePanelFinishing.Controls
+                Dim cbchk As CheckBox = DirectCast(ActivePanelFinishing.Controls("cb" + CStr(i)), CheckBox)
+                If cbchk.Checked = True Then
+                    Dim chk As String = cbchk.Name
+                    'Gets an integer from a string (in this case "cb10" will return "10")
+                    Dim chkname As Integer = CInt(System.Text.RegularExpressions.Regex.Match(chk, "\d+").Value)
+                    'TODO: Try not to get dependent on jenisorder.
+                    Dim chkdata As String = Globals.JsonObj("cgFinishing")(cb_jenisorder.SelectedValue.ToString)(chkname)("kode").ToString
+                    CodeFinishing(chkname) = chkdata
+                End If
+                i += 1
+            Next
+        End If
         Dim FilteredNamaFile = From ar In CodeFinishing Where ar <> "" Select ar
         Dim result As String = String.Join(",", FilteredNamaFile.ToArray)
         ClsFileName.KodeFinishing = result
@@ -278,4 +289,30 @@ Public Class MainForm
     Private Sub GeneratePreview()
         t_preview.Text = ClsFileName.DoFileName()
     End Sub
+
+#Region "Dirty Finishing LF Code"
+    'TODO: These finishing LF code should be improved someday.
+    Private Sub lst_finishingfn_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lst_finishingfn.SelectedIndexChanged
+        GenerateCodeFinishing()
+    End Sub
+
+    Private Sub rb_glossy_CheckedChanged(sender As Object, e As EventArgs) Handles rb_glossy.CheckedChanged
+        _LaminasiLF = "LG"
+        GenerateCodeFinishing()
+    End Sub
+
+    Private Sub rb_doff_CheckedChanged(sender As Object, e As EventArgs) Handles rb_doff.CheckedChanged
+        _LaminasiLF = "LD"
+        GenerateCodeFinishing()
+    End Sub
+
+    Private Sub rb_nonelf_CheckedChanged(sender As Object, e As EventArgs) Handles rb_nonelf.CheckedChanged
+        _LaminasiLF = ""
+        If init = True Then GenerateCodeFinishing()
+    End Sub
+
+    Private Sub cb_fnframe_CheckedChanged(sender As Object, e As EventArgs) Handles cb_fnframe.CheckedChanged
+        GenerateCodeFinishing()
+    End Sub
+#End Region
 End Class
