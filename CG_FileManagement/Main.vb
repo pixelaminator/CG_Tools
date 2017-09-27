@@ -4,6 +4,7 @@ Imports System.Reflection
 Imports System.Windows.Forms
 Imports Newtonsoft.Json.Linq
 Imports RGiesecke.DllExport
+
 Module Main
     Public WithEvents cdraw As Corel.Interop.VGCore.Application = NewCDRApp.AppDraw
     Public AssemblyLoadError As Boolean

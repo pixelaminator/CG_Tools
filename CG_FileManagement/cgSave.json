@@ -1,7 +1,8 @@
 {
   "cgConfig": {
     "PDFExport": true,
-    "BaseURL": "\\\\10.10.0.10\\cgdigital",
+    "___BaseURL": "\\\\10.10.0.10\\cgdigital",
+    "BaseURL": "D:\\",
     "BaseURLOutsourcing": "\\\\10.10.0.10\\graha\\Setting\\Outsourching",
     "BaseURLLocalNonPermanent": "D:\\NON PERMANENT",
     "BaseURLFileKonsumen": "D:\\FILE KONSUMEN",

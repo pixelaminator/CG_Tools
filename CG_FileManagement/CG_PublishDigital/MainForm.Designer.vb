@@ -55,7 +55,7 @@ Partial Class MainForm
         Me.rb_convbitmap = New System.Windows.Forms.RadioButton()
         Me.rb_convcurve = New System.Windows.Forms.RadioButton()
         Me.g_pdf = New System.Windows.Forms.GroupBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.pgNumRange = New System.Windows.Forms.TextBox()
         Me.rb_setpage = New System.Windows.Forms.RadioButton()
         Me.rb_currpage = New System.Windows.Forms.RadioButton()
         Me.rb_allpage = New System.Windows.Forms.RadioButton()
@@ -90,7 +90,9 @@ Partial Class MainForm
         Me.bt_OK = New System.Windows.Forms.Button()
         Me.statuslabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
-        Me.ToolStripProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
+        Me.tsProgBar = New System.Windows.Forms.ToolStripProgressBar()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.bWorker = New System.ComponentModel.BackgroundWorker()
         Me.gr_basefolder.SuspendLayout()
         Me.gr_datacustomer.SuspendLayout()
         Me.g_datasetting.SuspendLayout()
@@ -427,7 +429,7 @@ Partial Class MainForm
         '
         'g_pdf
         '
-        Me.g_pdf.Controls.Add(Me.TextBox5)
+        Me.g_pdf.Controls.Add(Me.pgNumRange)
         Me.g_pdf.Controls.Add(Me.rb_setpage)
         Me.g_pdf.Controls.Add(Me.rb_currpage)
         Me.g_pdf.Controls.Add(Me.rb_allpage)
@@ -438,12 +440,12 @@ Partial Class MainForm
         Me.g_pdf.TabStop = False
         Me.g_pdf.Text = "Pengaturan PDF"
         '
-        'TextBox5
+        'pgNumRange
         '
-        Me.TextBox5.Location = New System.Drawing.Point(56, 67)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(52, 20)
-        Me.TextBox5.TabIndex = 3
+        Me.pgNumRange.Location = New System.Drawing.Point(56, 67)
+        Me.pgNumRange.Name = "pgNumRange"
+        Me.pgNumRange.Size = New System.Drawing.Size(52, 20)
+        Me.pgNumRange.TabIndex = 3
         '
         'rb_setpage
         '
@@ -770,7 +772,8 @@ Partial Class MainForm
         '
         'StatusStrip
         '
-        Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripProgressBar1, Me.statuslabel})
+        Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.statuslabel, Me.tsProgBar})
+        Me.StatusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
         Me.StatusStrip.Location = New System.Drawing.Point(0, 635)
         Me.StatusStrip.Name = "StatusStrip"
         Me.StatusStrip.Size = New System.Drawing.Size(570, 22)
@@ -778,16 +781,33 @@ Partial Class MainForm
         Me.StatusStrip.TabIndex = 11
         Me.StatusStrip.Text = "StatusStrip1"
         '
-        'ToolStripProgressBar1
+        'tsProgBar
         '
-        Me.ToolStripProgressBar1.Name = "ToolStripProgressBar1"
-        Me.ToolStripProgressBar1.Size = New System.Drawing.Size(200, 16)
+        Me.tsProgBar.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
+        Me.tsProgBar.Name = "tsProgBar"
+        Me.tsProgBar.Size = New System.Drawing.Size(200, 16)
+        Me.tsProgBar.Visible = False
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(13, 603)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 12
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'bWorker
+        '
+        Me.bWorker.WorkerReportsProgress = True
+        Me.bWorker.WorkerSupportsCancellation = True
         '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(570, 657)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.StatusStrip)
         Me.Controls.Add(Me.bt_OK)
         Me.Controls.Add(Me.bt_cancel)
@@ -864,7 +884,7 @@ Partial Class MainForm
     Friend WithEvents rb_convbitmap As System.Windows.Forms.RadioButton
     Friend WithEvents rb_convcurve As System.Windows.Forms.RadioButton
     Friend WithEvents g_pdf As System.Windows.Forms.GroupBox
-    Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
+    Friend WithEvents pgNumRange As System.Windows.Forms.TextBox
     Friend WithEvents rb_setpage As System.Windows.Forms.RadioButton
     Friend WithEvents rb_currpage As System.Windows.Forms.RadioButton
     Friend WithEvents rb_allpage As System.Windows.Forms.RadioButton
@@ -893,7 +913,7 @@ Partial Class MainForm
     Friend WithEvents pn_finishinga3 As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents statuslabel As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents StatusStrip As System.Windows.Forms.StatusStrip
-    Friend WithEvents ToolStripProgressBar1 As System.Windows.Forms.ToolStripProgressBar
+    Friend WithEvents tsProgBar As System.Windows.Forms.ToolStripProgressBar
     Friend WithEvents pn_finishingkn As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents pn_finishingbr As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents pn_finishingbw As System.Windows.Forms.FlowLayoutPanel
@@ -906,4 +926,6 @@ Partial Class MainForm
     Friend WithEvents rb_nonelf As System.Windows.Forms.RadioButton
     Friend WithEvents rb_doff As System.Windows.Forms.RadioButton
     Friend WithEvents rb_glossy As System.Windows.Forms.RadioButton
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents bWorker As System.ComponentModel.BackgroundWorker
 End Class

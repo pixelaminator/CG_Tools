@@ -2,6 +2,7 @@
 Imports System.Collections.Generic
 Imports System.Windows.Forms
 Imports System.Linq
+Imports System.ComponentModel
 
 Public Class MainForm
     Dim IsFormInitialized As Boolean
@@ -9,6 +10,7 @@ Public Class MainForm
     Dim jhandler As New ClsJsonManager
     Dim ClsTabMgr As New ClsTabManager
     Dim ClsFileName As New ClsFileNaming
+    Dim ClsCDraw As New ClsCDraw
     Dim TabFinishing As New List(Of TabPage)
     Dim ActivePanelFinishing As Control
     Dim _SelectedJenisOrderIndex As Integer = -1
@@ -117,8 +119,8 @@ Public Class MainForm
         GeneratePreview()
     End Sub
 
-    Private Sub cb_presetcustomer_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_presetcustomer.SelectedIndexChanged
-        t_customer.Text = cb_presetcustomer.SelectedValue.ToString
+    Private Sub cb_presetcustomer_SelectedValueChanged(sender As Object, e As EventArgs) Handles cb_presetcustomer.SelectedValueChanged
+        If IsFormInitialized = True Then t_customer.Text = cb_presetcustomer.SelectedValue.ToString
     End Sub
 
     Private Sub cb_layout_TextChanged(sender As Object, e As EventArgs) Handles cb_layout.TextChanged
@@ -270,5 +272,105 @@ Public Class MainForm
 
     Private Sub GeneratePreview()
         t_preview.Text = ClsFileName.DoFileName()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Try
+            MessageBox.Show(String.Join(",", parsePageNumbers(pgNumRange.Text)))
+        Catch ex As Exception
+            MessageBox.Show(ex.Message.ToString, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+        'If bWorker.IsBusy = False Then
+        '    For Each ctl As Control In Controls
+        '        If TypeOf ctl IsNot StatusStrip Then
+        '            ctl.Enabled = False
+        '        End If
+        '    Next
+        '    'StatusStrip.Enabled = True
+        '    tsProgBar.Visible = True
+        '    bWorker.RunWorkerAsync()
+        'End If
+    End Sub
+
+    '------------------ Parse Publish PDF Range --------------------------
+    Public Function parsePageNumbers(input As String) As List(Of Integer)
+        If String.IsNullOrEmpty(input) Then
+            Throw New InvalidOperationException("Tolong isi nomor Page yang hendak dipublish.")
+        End If
+
+        Dim pageNos = input.Split(","c)
+
+        Dim ret = New List(Of Integer)()
+        For Each pageString As String In pageNos
+            If pageString.Contains("-") Then
+                parsePageRange(ret, pageString)
+            Else
+                ret.Add(parsePageNumber(pageString))
+            End If
+        Next
+
+        ret.Sort()
+        Return ret.Distinct().ToList()
+    End Function
+
+    Private Function parsePageNumber(pageString As String) As Integer
+        Dim ret As Integer
+
+        If Not Integer.TryParse(pageString, ret) Then
+            Throw New InvalidOperationException(String.Format("Nomor Page '{0}' tidak valid.", pageString))
+        End If
+
+        Return ret
+    End Function
+
+    Private Sub parsePageRange(pageNumbers As List(Of Integer), pageNo As String)
+        Dim pageRange = pageNo.Split("-"c)
+
+        If pageRange.Length <> 2 Then
+            Throw New InvalidOperationException(String.Format("Rentang Page '{0}' tidak valid.", pageNo))
+        End If
+
+        Dim startPage As Integer = parsePageNumber(pageRange(0)), endPage As Integer = parsePageNumber(pageRange(1))
+
+        If startPage > endPage Then
+            Throw New InvalidOperationException(String.Format("Nomor Page {0} tidak bisa lebih besar dari {1}" + " di rentang Page '{2}'", startPage, endPage, pageNo))
+        End If
+
+        pageNumbers.AddRange(Enumerable.Range(startPage, endPage - startPage + 1))
+    End Sub
+    '--------------------- END PDF Parse Range --------------------------------
+
+    '====================== Background Worker =============================
+    'Do saving here
+
+    Private Sub bWorker_DoWork(ByVal sender As Object, e As DoWorkEventArgs) Handles bWorker.DoWork
+        If ClsCDraw.ConvertText(CType(sender, BackgroundWorker)) = 0 Then 'cek apabila ConvertText Gagal.
+            MessageBox.Show("Ada kesalahan dalam proses convert ke teks. Mohon informasikan kesalahan ini ke staff IT.", "Kesalahan Fatal", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+    End Sub
+
+    Private Sub bWorker_ProgressChanged() Handles bWorker.ProgressChanged
+
+    End Sub
+
+    Private Sub bWorker_ReportProgress(ByVal sender As Object, e As ProgressChangedEventArgs) Handles bWorker.ProgressChanged
+        Dim i As Integer
+        tsProgBar.Maximum = 100
+        For i = 0 To ClsCDraw.ProgressNumberMax
+            tsProgBar.Value = e.ProgressPercentage
+            statuslabel.Text = "Convert semua teks... (Page " + CStr(ClsCDraw.PageNumber) + "/" + CStr(ClsCDraw.PageNumberMax) + ")"
+        Next
+    End Sub
+
+    Private Sub bWorker_ProgressComplete() Handles bWorker.RunWorkerCompleted
+        tsProgBar.Value = 0
+        tsProgBar.Visible = False
+        statuslabel.Text = "Ready"
+        For Each ctl As Control In Controls
+            If TypeOf ctl IsNot StatusStrip Then
+                ctl.Enabled = True
+            End If
+        Next
     End Sub
 End Class
