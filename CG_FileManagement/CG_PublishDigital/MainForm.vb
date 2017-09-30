@@ -6,6 +6,7 @@ Imports System.ComponentModel
 
 Public Class MainForm
     Dim IsFormInitialized As Boolean
+    Dim DocHasMultiplePages As Boolean
     Dim CodeFinishing() As String
     Dim jhandler As New ClsJsonManager
     Dim ClsTabMgr As New ClsTabManager
@@ -37,7 +38,7 @@ Public Class MainForm
             GenerateCodeFinishing()
             CekBahanSendiri()
             CekLayoutSize()
-            CekImposition()
+            If DocHasMultiplePages Then CekImposition()
             InitQtyPages()
             InitLayoutList()
         End If
@@ -61,7 +62,7 @@ Public Class MainForm
 
     Private Sub Cb_bahan_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_bahan.SelectedIndexChanged
         If c_bahan.Checked = False Then
-            CekDuaMuka()
+            If DocHasMultiplePages Then CekDuaMuka()
             ClsFileName.Bahan = cb_bahan.SelectedValue.ToString
             GeneratePreview()
         End If
@@ -275,22 +276,62 @@ Public Class MainForm
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Try
-            MessageBox.Show(String.Join(",", parsePageNumbers(pgNumRange.Text)))
-        Catch ex As Exception
-            MessageBox.Show(ex.Message.ToString, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-        'If bWorker.IsBusy = False Then
-        '    For Each ctl As Control In Controls
-        '        If TypeOf ctl IsNot StatusStrip Then
-        '            ctl.Enabled = False
-        '        End If
-        '    Next
-        '    'StatusStrip.Enabled = True
-        '    tsProgBar.Visible = True
-        '    bWorker.RunWorkerAsync()
-        'End If
+        errProvider.Clear()
+        If Me.ValidateChildren() Then
+            Try
+                If GetGroupBoxCheckedButton(g_pdf) Is rb_setpage Then MessageBox.Show(String.Join(",", parsePageNumbers(pgNumRange.Text)))
+            Catch ex As Exception
+                showTooltip(ex.Message.ToString, ToolTipIcon.Error, "Kesalahan", pgNumRange)
+                Exit Sub
+            End Try
+            '------------------------------
+            If bWorker.IsBusy = False Then
+                'Disable controls when saving
+                For Each ctl As Control In Controls
+                    If TypeOf ctl IsNot StatusStrip Then
+                        ctl.Enabled = False
+                    End If
+                Next
+                tsProgBar.Visible = True
+                bWorker.RunWorkerAsync()
+            End If
+        End If
     End Sub
+
+    Private Sub showTooltip(message As String, icon As ToolTipIcon, title As String, obj As IWin32Window)
+        Dim tooltp As New ToolTip
+        tooltp.IsBalloon = True
+        tooltp.ToolTipIcon = icon
+        tooltp.ToolTipTitle = title
+        tooltp.Show(String.Empty, obj)
+        tooltp.Show(message, obj, 3000)
+    End Sub
+
+    Private Sub CheckEmptyFields(sender As Object, e As CancelEventArgs) Handles t_customer.Validating, t_judulfile.Validating, t_harga.Validating, cb_bahan.Validating, pgNumRange.Validating
+        Dim ctl As Control = CType(sender, Control)
+        If ctl.Text = "" Then
+            e.Cancel = True
+            errProvider.SetIconPadding(ctl, -20)
+            errProvider.SetError(ctl, "Kolom ini tidak boleh dikosongkan.")
+            showTooltip("Kolom ini tidak boleh dikosongkan.", ToolTipIcon.Warning, "Kesalahan", ctl)
+        End If
+    End Sub
+
+    Private Sub PDFOption(sender As Object, e As EventArgs) Handles rb_allpage.Click, rb_currpage.Click, rb_setpage.Click
+        Dim rButton As RadioButton = GetGroupBoxCheckedButton(g_pdf)
+
+        If rButton Is rb_setpage Then
+            pgNumRange.Enabled = True
+            pgNumRange.CausesValidation = True
+        Else
+            pgNumRange.Enabled = False
+            pgNumRange.CausesValidation = False
+        End If
+    End Sub
+
+    Private Function GetGroupBoxCheckedButton(grp As GroupBox) As RadioButton
+        Return grp.Controls.OfType(Of RadioButton).FirstOrDefault(Function(r) r.Checked = True)
+    End Function
 
     '------------------ Parse Publish PDF Range --------------------------
     Public Function parsePageNumbers(input As String) As List(Of Integer)
@@ -344,8 +385,8 @@ Public Class MainForm
     'Do saving here
 
     Private Sub bWorker_DoWork(ByVal sender As Object, e As DoWorkEventArgs) Handles bWorker.DoWork
-        If ClsCDraw.ConvertText(CType(sender, BackgroundWorker)) = 0 Then 'cek apabila ConvertText Gagal.
-            MessageBox.Show("Ada kesalahan dalam proses convert ke teks. Mohon informasikan kesalahan ini ke staff IT.", "Kesalahan Fatal", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        If ClsCDraw.ConvertBitmap(CType(sender, BackgroundWorker)) = 0 Then 'cek apabila ConvertText Gagal.
+            MessageBox.Show("Ada kesalahan dalam proses convert. Mohon informasikan kesalahan ini ke staff IT.", "Kesalahan Fatal", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
     End Sub

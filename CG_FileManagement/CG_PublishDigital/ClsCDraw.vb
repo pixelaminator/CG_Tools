@@ -22,7 +22,7 @@ Public Class ClsCDraw
 
                 pg.Activate()
                 'NOTE: This may be implemented in future updates for right now it's kind of unstable (proses convert nya jadi lebih lama)
-                'Set shRange = FindAllPCShapes.Shapes.FindShapes(Query:="@type='text:artistic' or @type='text:paragraph' or @outline[.scalewithobject='false']")
+                'shRange = FindAllPCShapes.Shapes.FindShapes(Query:="@type='text:artistic' or @type='text:paragraph' or @outline[.scalewithobject='false']")
                 shRange = FindAllPCShapes.Shapes.FindShapes(Query:="@type='text:artistic' or @type='text:paragraph'")
                 shRange.UngroupAll()
 

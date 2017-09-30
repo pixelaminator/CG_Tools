@@ -17,12 +17,21 @@ Partial Class MainForm
         InitImposition()
         InitFolder()
         InitQtyPages()
+        InitCheckMultiplePages()
         AddChkHandler(pn_finishinga3)
         AddChkHandler(pn_finishingbw)
         AddChkHandler(pn_finishingkn)
         AddChkHandler(pn_finishingbr)
         IsFormInitialized = True
         InitControlState()
+    End Sub
+
+    Private Sub InitCheckMultiplePages()
+        If cdraw.ActiveDocument.Pages.Count > 1 Then
+            DocHasMultiplePages = True
+            cb_sisimuka.Enabled = True
+            cb_imposition.Enabled = True
+        End If
     End Sub
 
     Private Sub InitPresetCustomer()

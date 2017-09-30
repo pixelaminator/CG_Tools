@@ -22,6 +22,7 @@ Partial Class MainForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.gr_basefolder = New System.Windows.Forms.GroupBox()
         Me.bt_bukafolder = New System.Windows.Forms.Button()
         Me.cb_grouporder = New System.Windows.Forms.ComboBox()
@@ -93,6 +94,7 @@ Partial Class MainForm
         Me.tsProgBar = New System.Windows.Forms.ToolStripProgressBar()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.bWorker = New System.ComponentModel.BackgroundWorker()
+        Me.errProvider = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.gr_basefolder.SuspendLayout()
         Me.gr_datacustomer.SuspendLayout()
         Me.g_datasetting.SuspendLayout()
@@ -112,6 +114,7 @@ Partial Class MainForm
         Me.tb_finishingbw.SuspendLayout()
         Me.g_preview.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
+        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'gr_basefolder
@@ -495,6 +498,7 @@ Partial Class MainForm
         'cb_imposition
         '
         Me.cb_imposition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cb_imposition.Enabled = False
         Me.cb_imposition.FormattingEnabled = True
         Me.cb_imposition.Location = New System.Drawing.Point(97, 73)
         Me.cb_imposition.Name = "cb_imposition"
@@ -513,6 +517,7 @@ Partial Class MainForm
         'cb_sisimuka
         '
         Me.cb_sisimuka.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cb_sisimuka.Enabled = False
         Me.cb_sisimuka.FormattingEnabled = True
         Me.cb_sisimuka.Location = New System.Drawing.Point(97, 46)
         Me.cb_sisimuka.Name = "cb_sisimuka"
@@ -802,10 +807,17 @@ Partial Class MainForm
         Me.bWorker.WorkerReportsProgress = True
         Me.bWorker.WorkerSupportsCancellation = True
         '
+        'errProvider
+        '
+        Me.errProvider.BlinkRate = 0
+        Me.errProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
+        Me.errProvider.ContainerControl = Me
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoValidate = System.Windows.Forms.AutoValidate.Disable
         Me.ClientSize = New System.Drawing.Size(570, 657)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.StatusStrip)
@@ -853,6 +865,7 @@ Partial Class MainForm
         Me.g_preview.PerformLayout()
         Me.StatusStrip.ResumeLayout(False)
         Me.StatusStrip.PerformLayout()
+        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -884,7 +897,6 @@ Partial Class MainForm
     Friend WithEvents rb_convbitmap As System.Windows.Forms.RadioButton
     Friend WithEvents rb_convcurve As System.Windows.Forms.RadioButton
     Friend WithEvents g_pdf As System.Windows.Forms.GroupBox
-    Friend WithEvents pgNumRange As System.Windows.Forms.TextBox
     Friend WithEvents rb_setpage As System.Windows.Forms.RadioButton
     Friend WithEvents rb_currpage As System.Windows.Forms.RadioButton
     Friend WithEvents rb_allpage As System.Windows.Forms.RadioButton
@@ -928,4 +940,6 @@ Partial Class MainForm
     Friend WithEvents rb_glossy As System.Windows.Forms.RadioButton
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents bWorker As System.ComponentModel.BackgroundWorker
+    Friend WithEvents pgNumRange As System.Windows.Forms.TextBox
+    Friend WithEvents errProvider As System.Windows.Forms.ErrorProvider
 End Class

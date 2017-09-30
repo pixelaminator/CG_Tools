@@ -18,7 +18,7 @@
     </NuGetPackageImportStamp>
     <!--<TargetFrameworkVersion>v4.5</TargetFrameworkVersion>-->
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X7 Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
@@ -27,68 +27,66 @@
     <OutDir>bin\Debug\$(SolutionName)</OutDir>
     <DocumentationFile>
     </DocumentationFile>
-    <NoWarn>
-    </NoWarn>
-    <RegisterForComInterop>false</RegisterForComInterop>
-    <PlatformTarget>x64</PlatformTarget>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DefineConstants>X7</DefineConstants>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X7|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <DefineDebug>true</DefineDebug>
-    <DefineTrace>true</DefineTrace>
-    <OutputPath>bin\X7\</OutputPath>
-    <OutDir>bin\X7\$(SolutionName)</OutDir>
-    <DocumentationFile>
-    </DocumentationFile>
-    <NoWarn>
-    </NoWarn>
-    <RegisterForComInterop>false</RegisterForComInterop>
-    <PlatformTarget>x64</PlatformTarget>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X8|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <DefineDebug>true</DefineDebug>
-    <DefineTrace>true</DefineTrace>
-    <OutputPath>bin\X8\</OutputPath>
-    <OutDir>bin\X8\$(SolutionName)</OutDir>
-    <DocumentationFile>
-    </DocumentationFile>
-    <NoWarn>
-    </NoWarn>
-    <RegisterForComInterop>false</RegisterForComInterop>
-    <PlatformTarget>x64</PlatformTarget>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == '2017|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <DefineDebug>true</DefineDebug>
-    <DefineTrace>true</DefineTrace>
-    <OutputPath>bin\2017\</OutputPath>
-    <OutDir>bin\2017\$(SolutionName)</OutDir>
-    <DocumentationFile>
-    </DocumentationFile>
-    <NoWarn>
-    </NoWarn>
-    <RegisterForComInterop>false</RegisterForComInterop>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X7 Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <OutDir>bin\Release\$(SolutionName)</OutDir>
-    <DocumentationFile>CG_FileManagement.xml</DocumentationFile>
-    <NoWarn>
-    </NoWarn>
-    <RegisterForComInterop>false</RegisterForComInterop>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <OutputPath>bin\Release\X7\</OutputPath>
+    <OutDir>bin\Release\X7\$(SolutionName)</OutDir>
+    <DocumentationFile>DockerTemplateVB1.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DefineConstants>X7</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X8 Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <OutDir>bin\Debug\$(SolutionName)</OutDir>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DefineConstants>X8</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X8 Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\X8\</OutputPath>
+    <OutDir>bin\Release\X8\$(SolutionName)</OutDir>
+    <DocumentationFile>DockerTemplateVB1.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DefineConstants>X8</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == '2017 Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <OutDir>bin\Debug\$(SolutionName)</OutDir>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DefineConstants>X9</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == '2017 Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\2017\</OutputPath>
+    <OutDir>bin\Release\2017\$(SolutionName)</OutDir>
+    <DocumentationFile>DockerTemplateVB1.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DefineConstants>X9</DefineConstants>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -131,29 +129,42 @@
    
   </ItemGroup>-->
   <ItemGroup>
-    <Reference Include="Corel.Interop.VGCore, Version=17.6.0.1021, Culture=neutral, PublicKeyToken=e4835428e22ad6f9, processorArchitecture=MSIL" Condition="'$(Configuration)'=='X7'">
-      <HintPath>C:\Program Files\Corel\CorelDRAW Graphics Suite X7\Programs64\Assemblies\Corel.Interop.VGCore.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+    <!--<Import Include="$CorelProgramPath$Assemblies\Corel.Interop.VGCore.dll" />-->
+    <Import Include="c:\program files\corel\coreldraw graphics suite x7\programs64\Assemblies\Corel.Interop.VGCore.dll" />
+    <Import Include="c:\program files\corel\coreldraw graphics suite x8\programs64\Assemblies\Corel.Interop.VGCore.dll" />
+    <Import Include="c:\program files\corel\coreldraw graphics suite 2017\programs64\Assemblies\Corel.Interop.VGCore.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="c:\program files\corel\coreldraw graphics suite x7\programs64\Assemblies\Corel.Interop.VGCore.dll" Condition="'$(Configuration)'=='X7 Debug'">
+      <Name>Corel.Interop.VGCore</Name>
+      <Private>False</Private>
     </Reference>
-    <Reference Include="Corel.Interop.VGCore, Version=18.1.0.661, Culture=neutral, PublicKeyToken=e4835428e22ad6f9, processorArchitecture=MSIL" Condition="'$(Configuration)'=='X8'">
-      <HintPath>C:\Program Files\Corel\CorelDRAW Graphics Suite X8\Programs64\Assemblies\Corel.Interop.VGCore.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+    <Reference Include="c:\program files\corel\coreldraw graphics suite x8\programs64\Assemblies\Corel.Interop.VGCore.dll" Condition="'$(Configuration)'=='X8 Debug'">
+      <Name>Corel.Interop.VGCore</Name>
+      <Private>False</Private>
     </Reference>
-    <Reference Include="Corel.Interop.VGCore, Version=19.1.0.419, Culture=neutral, PublicKeyToken=e4835428e22ad6f9, processorArchitecture=MSIL" Condition="'$(Configuration)'=='2017'">
-      <HintPath>C:\Program Files\Corel\CorelDRAW Graphics Suite 2017\Programs64\Assemblies\Corel.Interop.VGCore.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+    <Reference Include="c:\program files\corel\coreldraw graphics suite 2017\programs64\Assemblies\Corel.Interop.VGCore.dll" Condition="'$(Configuration)'=='2017 Debug'">
+      <Name>Corel.Interop.VGCore</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="c:\program files\corel\coreldraw graphics suite x7\programs64\Assemblies\Corel.Interop.VGCore.dll" Condition="'$(Configuration)'=='X7 Release'">
+      <Name>Corel.Interop.VGCore</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="c:\program files\corel\coreldraw graphics suite x8\programs64\Assemblies\Corel.Interop.VGCore.dll" Condition="'$(Configuration)'=='X8 Release'">
+      <Name>Corel.Interop.VGCore</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="c:\program files\corel\coreldraw graphics suite 2017\programs64\Assemblies\Corel.Interop.VGCore.dll" Condition="'$(Configuration)'=='2017 Release'">
+      <Name>Corel.Interop.VGCore</Name>
+      <Private>False</Private>
     </Reference>
     <Reference Include="DllExport, Version=1.6.0.40687, Culture=neutral, PublicKeyToken=8337224c9ad9e356">
       <HintPath>..\packages\DllExport.1.6.0-beta2\gcache\metalib\RGiesecke.DllExport\DllExport.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -195,6 +206,7 @@
     <Compile Include="CG_PublishDigital\MainForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <None Include="packages.config" />
     <Page Include="DockerUI.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -252,13 +264,14 @@
     <EmbeddedResource Include="CG_PublishDigital\MainForm.resx">
       <DependentUpon>MainForm.vb</DependentUpon>
     </EmbeddedResource>
-    <None Include="CG_Tools.gms" />
+    <None Include="CG_Tools.gms">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <AppDesigner Include="My Project\" />
-    <None Include="packages.config" />
   </ItemGroup>
   <!--<ItemGroup>
    
@@ -318,21 +331,68 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='X7 Debug'">
     <PostBuildEvent>
-      if not exist "c:\program files\corel\coreldraw graphics suite $(ConfigurationName)\programs64\addons\$(SolutionName)" md "c:\program files\corel\coreldraw graphics suite $(ConfigurationName)\programs64\addons\$(SolutionName)"
-
-      xcopy "$(ProjectDir)\bin\$(ConfigurationName)\$(SolutionName)" "c:\program files\corel\coreldraw graphics suite $(ConfigurationName)\programs64\addons\$(SolutionName)" /O /X /E /H /K /Y
-
-      if $(ConfigurationName) == Debug copy "$(TargetDir)\$(TargetName).pdb" "c:\program files\corel\coreldraw graphics suite $(ConfigurationName)\programs64\addons\$(SolutionName)\$(TargetName).pdb"
+      if not exist "c:\program files\corel\coreldraw graphics suite x7\programs64\addons\$(SolutionName)" md "c:\program files\corel\coreldraw graphics suite x7\programs64\addons\$(SolutionName)"
+      xcopy "$(ProjectDir)bin\Debug\$(SolutionName)" "c:\program files\corel\coreldraw graphics suite X7\programs64\addons\$(SolutionName)" /O /X /E /H /K /Y
     </PostBuildEvent>
   </PropertyGroup>
-  <PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='X7 Release'">
+    <PostBuildEvent>
+      if not exist "c:\program files\corel\coreldraw graphics suite x7\programs64\addons\$(SolutionName)" md "c:\program files\corel\coreldraw graphics suite x7\programs64\addons\$(SolutionName)"
+      xcopy "$(ProjectDir)bin\Debug\$(SolutionName)" "c:\program files\corel\coreldraw graphics suite X7\programs64\addons\$(SolutionName)" /O /X /E /H /K /Y
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='X8 Debug'">
+    <PostBuildEvent>
+      if not exist "c:\program files\corel\coreldraw graphics suite x8\programs64\addons\$(SolutionName)" md "c:\program files\corel\coreldraw graphics suite x8\programs64\addons\$(SolutionName)"
+      xcopy "$(ProjectDir)bin\Debug\$(SolutionName)" "c:\program files\corel\coreldraw graphics suite X8\programs64\addons\$(SolutionName)" /O /X /E /H /K /Y
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='X8 Release'">
+    <PostBuildEvent>
+      if not exist "c:\program files\corel\coreldraw graphics suite x8\programs64\addons\$(SolutionName)" md "c:\program files\corel\coreldraw graphics suite x8\programs64\addons\$(SolutionName)"
+      xcopy "$(ProjectDir)bin\Debug\$(SolutionName)" "c:\program files\corel\coreldraw graphics suite X8\programs64\addons\$(SolutionName)" /O /X /E /H /K /Y
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='2017 Debug'">
+    <PostBuildEvent>
+      if not exist "c:\program files\corel\coreldraw graphics suite 2017\programs64\addons\$(SolutionName)" md "c:\program files\corel\coreldraw graphics suite 2017\programs64\addons\$(SolutionName)"
+      xcopy "$(ProjectDir)bin\Debug\$(SolutionName)" "c:\program files\corel\coreldraw graphics suite 2017\programs64\addons\$(SolutionName)" /O /X /E /H /K /Y
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='2017 Release'">
+    <PostBuildEvent>
+      if not exist "c:\program files\corel\coreldraw graphics suite 2017\programs64\addons\$(SolutionName)" md "c:\program files\corel\coreldraw graphics suite 2017\programs64\addons\$(SolutionName)"
+      xcopy "$(ProjectDir)bin\Debug\$(SolutionName)" "c:\program files\corel\coreldraw graphics suite 2017\programs64\addons\$(SolutionName)" /O /X /E /H /K /Y
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='X7 Debug'">
     <StartAction>Program</StartAction>
-    <StartProgram>c:\program files\corel\coreldraw graphics suite $(ConfigurationName)\programs64\CorelDRW.exe</StartProgram>
+    <StartProgram>c:\program files\corel\coreldraw graphics suite x7\programs64\CorelDRW.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='X7 Release'">
+    <StartAction>Program</StartAction>
+    <StartProgram>c:\program files\corel\coreldraw graphics suite x7\programs64\CorelDRW.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='X8 Debug'">
+    <StartAction>Program</StartAction>
+    <StartProgram>c:\program files\corel\coreldraw graphics suite x8\programs64\CorelDRW.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='X8 Release'">
+    <StartAction>Program</StartAction>
+    <StartProgram>c:\program files\corel\coreldraw graphics suite x8\programs64\CorelDRW.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='2017 Debug'">
+    <StartAction>Program</StartAction>
+    <StartProgram>c:\program files\corel\coreldraw graphics suite 2017\programs64\CorelDRW.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='2017 Release'">
+    <StartAction>Program</StartAction>
+    <StartProgram>c:\program files\corel\coreldraw graphics suite 2017\programs64\CorelDRW.exe</StartProgram>
   </PropertyGroup>
   <PropertyGroup>
-    <DllExportIdent>03D354EF-24BC-49CD-A48F-5C764B974071</DllExportIdent>
+    <DllExportIdent>18830B20-A637-4AA3-86E5-41E770AC1583</DllExportIdent>
     <DllExportNamespace>RGiesecke.DllExport</DllExportNamespace>
     <DllExportDDNSCecil>true</DllExportDDNSCecil>
     <PlatformTarget>x64</PlatformTarget>

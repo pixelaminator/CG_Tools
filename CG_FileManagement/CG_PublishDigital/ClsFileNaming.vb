@@ -4,7 +4,7 @@ Public Class ClsFileNaming
     Private NamaFile() As String
 
     Public NamaCustomer As String = ""
-    Public Tanggal As String = ""
+    Public Tanggal As String = Date.Today.Year.ToString + Date.Today.Month.ToString + Date.Today.Day.ToString
     Public JudulFile As String = ""
     Public NamaSetter As String = ""
     Public NoOrder As String = ""
@@ -33,6 +33,7 @@ Public Class ClsFileNaming
         NamaFile(10) = TypeImposition
         NamaFile(11) = KodeFinishing
         NamaFile(12) = Harga
+
         'LINQ syntax to filter out empty elements from array
         Dim FilteredNamaFile = From ar In NamaFile Where ar <> "" Select ar
         Dim result As String = String.Join("_", FilteredNamaFile.ToArray)

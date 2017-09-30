@@ -1,4 +1,17 @@
-﻿Imports System
+﻿' =======================================
+'  _____ _____   _______          _     
+' / ____/ ____| |__   __|        | |    
+'| |   | |  __     | | ___   ___ | |___ 
+'| |   | | |_ |    | |/ _ \ / _ \| / __|
+'| |___| |__| |    | | (_) | (_) | \__ \
+' \_____\_____|    |_|\___/ \___/|_|___/
+'
+' oleh M. Aditya Firmansyah
+' Cipta Grafika Karawang, 2017
+' E-mail: afansyah.dg@gmail.com
+' =======================================
+
+Imports System
 Imports System.IO
 Imports System.Reflection
 Imports System.Windows.Forms
@@ -6,7 +19,6 @@ Imports Newtonsoft.Json.Linq
 Imports RGiesecke.DllExport
 
 Module Main
-    Public WithEvents cdraw As Corel.Interop.VGCore.Application = NewCDRApp.AppDraw
     Public AssemblyLoadError As Boolean
     Dim jsonPath As String
     Dim jsonTxt As String
@@ -19,6 +31,7 @@ Module Main
     <DllExport("CGPublish")>
     Public Sub CG_Publish()
         Dim count As Integer
+
         count = cdraw.Documents.Count
         If count = 0 Then
             MessageBox.Show("Tidak ada dokumen yang terbuka.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error)
