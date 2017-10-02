@@ -15,7 +15,7 @@ Partial Class MainForm
         InitLayoutList()
         InitSisiMuka()
         InitImposition()
-        InitFolder()
+        'InitFolder()
         InitQtyPages()
         InitCheckMultiplePages()
         AddChkHandler(pn_finishinga3)
@@ -84,11 +84,11 @@ Partial Class MainForm
         jhandler.FillCBfromJson(cb_imposition, Globals.JsonObj("cgLayout")("imposition"), "kode", "type")
     End Sub
 
-    Private Sub InitFolder()
-        cb_folder.Items.AddRange(Globals.TypeFolder.ToArray)
-        cb_folder.SelectedIndex = 0
-        jhandler.FillCBfromJson(cb_grouporder, Globals.JsonObj("cgPermanent")("kategori"))
-    End Sub
+    'Private Sub InitFolder()
+    '    cb_folder.Items.AddRange(Globals.TypeFolder.ToArray)
+    '    cb_folder.SelectedIndex = 0
+    '    jhandler.FillCBfromJson(cb_grouporder, Globals.JsonObj("cgPermanent")("kategori"))
+    'End Sub
 
     Private Sub InitTabFinishing()
         For i As Integer = 0 To tb_Finishing.TabPages.Count - 1

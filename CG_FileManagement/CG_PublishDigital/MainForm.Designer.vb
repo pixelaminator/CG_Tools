@@ -23,12 +23,6 @@ Partial Class MainForm
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.gr_basefolder = New System.Windows.Forms.GroupBox()
-        Me.bt_bukafolder = New System.Windows.Forms.Button()
-        Me.cb_grouporder = New System.Windows.Forms.ComboBox()
-        Me.cb_folder = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.gr_datacustomer = New System.Windows.Forms.GroupBox()
         Me.cb_presetcustomer = New System.Windows.Forms.ComboBox()
         Me.t_judulfile = New System.Windows.Forms.TextBox()
@@ -95,7 +89,7 @@ Partial Class MainForm
         Me.Button1 = New System.Windows.Forms.Button()
         Me.bWorker = New System.ComponentModel.BackgroundWorker()
         Me.errProvider = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.gr_basefolder.SuspendLayout()
+        Me.pb_header = New System.Windows.Forms.PictureBox()
         Me.gr_datacustomer.SuspendLayout()
         Me.g_datasetting.SuspendLayout()
         CType(Me.n_qtycetak, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -115,66 +109,8 @@ Partial Class MainForm
         Me.g_preview.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         CType(Me.errProvider, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pb_header, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'gr_basefolder
-        '
-        Me.gr_basefolder.Controls.Add(Me.bt_bukafolder)
-        Me.gr_basefolder.Controls.Add(Me.cb_grouporder)
-        Me.gr_basefolder.Controls.Add(Me.cb_folder)
-        Me.gr_basefolder.Controls.Add(Me.Label2)
-        Me.gr_basefolder.Controls.Add(Me.Label1)
-        Me.gr_basefolder.Location = New System.Drawing.Point(12, 12)
-        Me.gr_basefolder.Name = "gr_basefolder"
-        Me.gr_basefolder.Size = New System.Drawing.Size(549, 55)
-        Me.gr_basefolder.TabIndex = 0
-        Me.gr_basefolder.TabStop = False
-        Me.gr_basefolder.Text = "Base Folder"
-        '
-        'bt_bukafolder
-        '
-        Me.bt_bukafolder.Location = New System.Drawing.Point(434, 21)
-        Me.bt_bukafolder.Name = "bt_bukafolder"
-        Me.bt_bukafolder.Size = New System.Drawing.Size(108, 23)
-        Me.bt_bukafolder.TabIndex = 3
-        Me.bt_bukafolder.Text = "Buka folder >>"
-        Me.bt_bukafolder.UseVisualStyleBackColor = True
-        '
-        'cb_grouporder
-        '
-        Me.cb_grouporder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cb_grouporder.FormattingEnabled = True
-        Me.cb_grouporder.Location = New System.Drawing.Point(266, 23)
-        Me.cb_grouporder.Name = "cb_grouporder"
-        Me.cb_grouporder.Size = New System.Drawing.Size(162, 21)
-        Me.cb_grouporder.TabIndex = 2
-        '
-        'cb_folder
-        '
-        Me.cb_folder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cb_folder.FormattingEnabled = True
-        Me.cb_folder.Location = New System.Drawing.Point(59, 23)
-        Me.cb_folder.Name = "cb_folder"
-        Me.cb_folder.Size = New System.Drawing.Size(130, 21)
-        Me.cb_folder.TabIndex = 1
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(195, 26)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(65, 13)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Group Order"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(7, 26)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(36, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Folder"
         '
         'gr_datacustomer
         '
@@ -183,7 +119,7 @@ Partial Class MainForm
         Me.gr_datacustomer.Controls.Add(Me.t_customer)
         Me.gr_datacustomer.Controls.Add(Me.Label4)
         Me.gr_datacustomer.Controls.Add(Me.Label3)
-        Me.gr_datacustomer.Location = New System.Drawing.Point(12, 73)
+        Me.gr_datacustomer.Location = New System.Drawing.Point(12, 65)
         Me.gr_datacustomer.Name = "gr_datacustomer"
         Me.gr_datacustomer.Size = New System.Drawing.Size(549, 86)
         Me.gr_datacustomer.TabIndex = 1
@@ -249,7 +185,7 @@ Partial Class MainForm
         Me.g_datasetting.Controls.Add(Me.Label7)
         Me.g_datasetting.Controls.Add(Me.Label6)
         Me.g_datasetting.Controls.Add(Me.Label5)
-        Me.g_datasetting.Location = New System.Drawing.Point(12, 166)
+        Me.g_datasetting.Location = New System.Drawing.Point(12, 158)
         Me.g_datasetting.Name = "g_datasetting"
         Me.g_datasetting.Size = New System.Drawing.Size(299, 206)
         Me.g_datasetting.TabIndex = 2
@@ -393,7 +329,7 @@ Partial Class MainForm
         Me.g_cdr.Controls.Add(Me.rb_noconv)
         Me.g_cdr.Controls.Add(Me.rb_convbitmap)
         Me.g_cdr.Controls.Add(Me.rb_convcurve)
-        Me.g_cdr.Location = New System.Drawing.Point(317, 166)
+        Me.g_cdr.Location = New System.Drawing.Point(317, 158)
         Me.g_cdr.Name = "g_cdr"
         Me.g_cdr.Size = New System.Drawing.Size(123, 97)
         Me.g_cdr.TabIndex = 3
@@ -436,7 +372,7 @@ Partial Class MainForm
         Me.g_pdf.Controls.Add(Me.rb_setpage)
         Me.g_pdf.Controls.Add(Me.rb_currpage)
         Me.g_pdf.Controls.Add(Me.rb_allpage)
-        Me.g_pdf.Location = New System.Drawing.Point(446, 167)
+        Me.g_pdf.Location = New System.Drawing.Point(446, 159)
         Me.g_pdf.Name = "g_pdf"
         Me.g_pdf.Size = New System.Drawing.Size(115, 97)
         Me.g_pdf.TabIndex = 4
@@ -488,7 +424,7 @@ Partial Class MainForm
         Me.GroupBox6.Controls.Add(Me.Label11)
         Me.GroupBox6.Controls.Add(Me.cb_layout)
         Me.GroupBox6.Controls.Add(Me.Label10)
-        Me.GroupBox6.Location = New System.Drawing.Point(318, 269)
+        Me.GroupBox6.Location = New System.Drawing.Point(318, 261)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Size = New System.Drawing.Size(243, 104)
         Me.GroupBox6.TabIndex = 5
@@ -558,7 +494,7 @@ Partial Class MainForm
         Me.tb_Finishing.Controls.Add(Me.tb_finishingbr)
         Me.tb_Finishing.Controls.Add(Me.tb_finishinglf)
         Me.tb_Finishing.Controls.Add(Me.tb_finishingbw)
-        Me.tb_Finishing.Location = New System.Drawing.Point(13, 379)
+        Me.tb_Finishing.Location = New System.Drawing.Point(13, 371)
         Me.tb_Finishing.Name = "tb_Finishing"
         Me.tb_Finishing.SelectedIndex = 0
         Me.tb_Finishing.Size = New System.Drawing.Size(548, 174)
@@ -735,7 +671,7 @@ Partial Class MainForm
         'g_preview
         '
         Me.g_preview.Controls.Add(Me.t_preview)
-        Me.g_preview.Location = New System.Drawing.Point(13, 555)
+        Me.g_preview.Location = New System.Drawing.Point(13, 547)
         Me.g_preview.Name = "g_preview"
         Me.g_preview.Size = New System.Drawing.Size(548, 42)
         Me.g_preview.TabIndex = 7
@@ -753,7 +689,7 @@ Partial Class MainForm
         '
         'bt_cancel
         '
-        Me.bt_cancel.Location = New System.Drawing.Point(486, 603)
+        Me.bt_cancel.Location = New System.Drawing.Point(486, 595)
         Me.bt_cancel.Name = "bt_cancel"
         Me.bt_cancel.Size = New System.Drawing.Size(75, 23)
         Me.bt_cancel.TabIndex = 0
@@ -762,7 +698,7 @@ Partial Class MainForm
         '
         'bt_OK
         '
-        Me.bt_OK.Location = New System.Drawing.Point(405, 603)
+        Me.bt_OK.Location = New System.Drawing.Point(405, 595)
         Me.bt_OK.Name = "bt_OK"
         Me.bt_OK.Size = New System.Drawing.Size(75, 23)
         Me.bt_OK.TabIndex = 9
@@ -779,7 +715,7 @@ Partial Class MainForm
         '
         Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.statuslabel, Me.tsProgBar})
         Me.StatusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
-        Me.StatusStrip.Location = New System.Drawing.Point(0, 635)
+        Me.StatusStrip.Location = New System.Drawing.Point(0, 630)
         Me.StatusStrip.Name = "StatusStrip"
         Me.StatusStrip.Size = New System.Drawing.Size(570, 22)
         Me.StatusStrip.SizingGrip = False
@@ -795,11 +731,11 @@ Partial Class MainForm
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(13, 603)
+        Me.Button1.Location = New System.Drawing.Point(13, 595)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 12
-        Me.Button1.Text = "                                                                                "
+        Me.Button1.Text = "Button1"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'bWorker
@@ -813,12 +749,23 @@ Partial Class MainForm
         Me.errProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink
         Me.errProvider.ContainerControl = Me
         '
+        'pb_header
+        '
+        Me.pb_header.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.pb_header.Image = Global.CG_FileManagement.My.Resources.Resources.FileSiapPrint
+        Me.pb_header.Location = New System.Drawing.Point(12, 12)
+        Me.pb_header.Name = "pb_header"
+        Me.pb_header.Size = New System.Drawing.Size(549, 47)
+        Me.pb_header.TabIndex = 13
+        Me.pb_header.TabStop = False
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoValidate = System.Windows.Forms.AutoValidate.Disable
-        Me.ClientSize = New System.Drawing.Size(570, 657)
+        Me.ClientSize = New System.Drawing.Size(570, 652)
+        Me.Controls.Add(Me.pb_header)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.StatusStrip)
         Me.Controls.Add(Me.bt_OK)
@@ -830,14 +777,11 @@ Partial Class MainForm
         Me.Controls.Add(Me.g_cdr)
         Me.Controls.Add(Me.g_datasetting)
         Me.Controls.Add(Me.gr_datacustomer)
-        Me.Controls.Add(Me.gr_basefolder)
         Me.MaximizeBox = False
         Me.Name = "MainForm"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Publish CG Digital"
-        Me.gr_basefolder.ResumeLayout(False)
-        Me.gr_basefolder.PerformLayout()
         Me.gr_datacustomer.ResumeLayout(False)
         Me.gr_datacustomer.PerformLayout()
         Me.g_datasetting.ResumeLayout(False)
@@ -866,16 +810,11 @@ Partial Class MainForm
         Me.StatusStrip.ResumeLayout(False)
         Me.StatusStrip.PerformLayout()
         CType(Me.errProvider, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pb_header, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents gr_basefolder As System.Windows.Forms.GroupBox
-    Friend WithEvents bt_bukafolder As System.Windows.Forms.Button
-    Friend WithEvents cb_grouporder As System.Windows.Forms.ComboBox
-    Friend WithEvents cb_folder As System.Windows.Forms.ComboBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents gr_datacustomer As System.Windows.Forms.GroupBox
     Friend WithEvents cb_presetcustomer As System.Windows.Forms.ComboBox
     Friend WithEvents t_judulfile As System.Windows.Forms.TextBox
@@ -942,4 +881,5 @@ Partial Class MainForm
     Friend WithEvents bWorker As System.ComponentModel.BackgroundWorker
     Friend WithEvents pgNumRange As System.Windows.Forms.TextBox
     Friend WithEvents errProvider As System.Windows.Forms.ErrorProvider
+    Friend WithEvents pb_header As System.Windows.Forms.PictureBox
 End Class
