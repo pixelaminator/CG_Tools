@@ -82,7 +82,6 @@ Public Class ClsCDraw
         End If
     End Function
 
-    '------------ This code causes problem with DLLExport. ----------------
     Public Function ConvertBitmap(bw As BackgroundWorker) As Integer
         Try
             'Declare Document and Shape Object
@@ -101,9 +100,13 @@ Public Class ClsCDraw
                 pg.Activate()
                 pg.GetBoundingBox(X, Y, w, h)
                 sh = pg.SelectShapesFromRectangle(X, Y + h, X + w, Y, False)
-                sh.ConvertToBitmapEx(cdrImageType.cdrCMYKColorImage, True, True, 300, cdrAntiAliasingType.cdrNormalAntiAliasing, True, True)
-
-                bw.ReportProgress(CInt((PageNumber / PageNumberMax) * 100))
+                If sh.Shapes.Count <> 0 Then
+                    sh.ConvertToBitmapEx(cdrImageType.cdrCMYKColorImage, True, True, 300, cdrAntiAliasingType.cdrNormalAntiAliasing, True, True)
+                    bw.ReportProgress(CInt((PageNumber / PageNumberMax) * 100))
+                Else
+                    Return -1 'Return if no data to convert
+                    Exit Function
+                End If
             Next pg
             cdraw.ActiveDocument.EndCommandGroup()
             Return 1 'Success

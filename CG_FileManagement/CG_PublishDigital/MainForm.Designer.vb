@@ -799,7 +799,7 @@ Partial Class MainForm
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 12
-        Me.Button1.Text = "Button1"
+        Me.Button1.Text = "                                                                                "
         Me.Button1.UseVisualStyleBackColor = True
         '
         'bWorker

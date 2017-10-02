@@ -385,10 +385,14 @@ Public Class MainForm
     'Do saving here
 
     Private Sub bWorker_DoWork(ByVal sender As Object, e As DoWorkEventArgs) Handles bWorker.DoWork
-        If ClsCDraw.ConvertBitmap(CType(sender, BackgroundWorker)) = 0 Then 'cek apabila ConvertText Gagal.
-            MessageBox.Show("Ada kesalahan dalam proses convert. Mohon informasikan kesalahan ini ke staff IT.", "Kesalahan Fatal", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Exit Sub
-        End If
+        Select Case ClsCDraw.ConvertBitmap(CType(sender, BackgroundWorker))
+            Case 0
+                MessageBox.Show("Ada kesalahan dalam proses convert. Mohon informasikan kesalahan ini ke staff IT.", "Kesalahan Fatal", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            Case -1
+                MessageBox.Show("Tidak ada objek yang diconvert.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                Exit Sub
+        End Select
     End Sub
 
     Private Sub bWorker_ProgressChanged() Handles bWorker.ProgressChanged
