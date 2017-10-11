@@ -328,6 +328,8 @@
     <EmbeddedResource Include="Resources\CGToolsFileManagementSystem.jpg" />
     <EmbeddedResource Include="Resources\FileCustomerIcon.png" />
     <None Include="Resources\FileSettingIcon.png" />
+    <None Include="Resources\FileDesainCG.jpg" />
+    <None Include="Resources\FileSiapPrint.jpg" />
     <Content Include="UserUI.xslt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -43,6 +43,7 @@ Module Main
         Dim FileIO As New ClsFileIO
         If FileIO.BaseURLValid = False Then Exit Sub
 
+        Globals.SaveOption = 0
         Dim start As New StartForm
         start.ShowDialog()
 

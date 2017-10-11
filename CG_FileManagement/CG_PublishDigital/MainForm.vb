@@ -16,6 +16,7 @@ Public Class MainForm
     Dim ActivePanelFinishing As Control
     Dim _SelectedJenisOrderIndex As Integer = -1
     Dim _LaminasiLF As String
+    Dim _TooltipShown As Boolean
     'Dim _ActivePanelFinishing As Control
 
 #Region "Form Load"
@@ -51,7 +52,7 @@ Public Class MainForm
             If cb_bahan.DropDownStyle = ComboBoxStyle.DropDownList Then
                 cb_bahan.SelectedValue = ""
                 cb_bahan.DropDownStyle = ComboBoxStyle.Simple
-                cb_sisimuka.Enabled = True
+                If DocHasMultiplePages Then cb_sisimuka.Enabled = True
             Else
                 cb_bahan.DropDownStyle = ComboBoxStyle.DropDownList
                 cb_bahan.SelectedIndex = 0
@@ -276,6 +277,7 @@ Public Class MainForm
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        _TooltipShown = False
         errProvider.Clear()
         If Me.ValidateChildren() Then
             Try
@@ -305,6 +307,7 @@ Public Class MainForm
         tooltp.ToolTipTitle = title
         tooltp.Show(String.Empty, obj)
         tooltp.Show(message, obj, 3000)
+        _TooltipShown = True
     End Sub
 
     Private Sub CheckEmptyFields(sender As Object, e As CancelEventArgs) Handles t_customer.Validating, t_judulfile.Validating, t_harga.Validating, cb_bahan.Validating, pgNumRange.Validating
@@ -313,7 +316,7 @@ Public Class MainForm
             e.Cancel = True
             errProvider.SetIconPadding(ctl, -20)
             errProvider.SetError(ctl, "Kolom ini tidak boleh dikosongkan.")
-            showTooltip("Kolom ini tidak boleh dikosongkan.", ToolTipIcon.Warning, "Kesalahan", ctl)
+            If _TooltipShown = False Then showTooltip("Kolom ini tidak boleh dikosongkan.", ToolTipIcon.Warning, "Kesalahan", ctl)
         End If
     End Sub
 

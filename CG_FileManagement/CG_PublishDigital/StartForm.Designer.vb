@@ -25,12 +25,12 @@ Partial Class StartForm
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Bt_FileCustomer = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Bt_FileSetting = New System.Windows.Forms.Button()
         Me.ImageLogo = New System.Windows.Forms.PictureBox()
+        Me.Bt_FileSetting = New System.Windows.Forms.Button()
+        Me.Bt_FileCustomer = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.ImageLogo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -50,11 +50,12 @@ Partial Class StartForm
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(45, 295)
+        Me.Label3.Location = New System.Drawing.Point(38, 295)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(194, 13)
+        Me.Label3.Size = New System.Drawing.Size(210, 26)
         Me.Label3.TabIndex = 2
-        Me.Label3.Text = "File hanya akan dipublish ke folder PDF"
+        Me.Label3.Text = "Pilih opsi ini untuk file yang dibawa " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "dari konsumen dengan MINIMAL EDITING"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label1
         '
@@ -65,16 +66,6 @@ Partial Class StartForm
         Me.Label1.Size = New System.Drawing.Size(178, 29)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "File Siap Print"
-        '
-        'Bt_FileCustomer
-        '
-        Me.Bt_FileCustomer.Image = Global.CG_FileManagement.My.Resources.Resources.FileCustomerIcon
-        Me.Bt_FileCustomer.Location = New System.Drawing.Point(6, 50)
-        Me.Bt_FileCustomer.Name = "Bt_FileCustomer"
-        Me.Bt_FileCustomer.Size = New System.Drawing.Size(272, 238)
-        Me.Bt_FileCustomer.TabIndex = 0
-        Me.Bt_FileCustomer.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        Me.Bt_FileCustomer.UseVisualStyleBackColor = True
         '
         'GroupBox2
         '
@@ -92,9 +83,9 @@ Partial Class StartForm
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(40, 295)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(206, 26)
+        Me.Label4.Size = New System.Drawing.Size(211, 26)
         Me.Label4.TabIndex = 3
-        Me.Label4.Text = "File akan disimpan ke folder Permanent di " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Datacenter dan Publish ke PDF"
+        Me.Label4.Text = "Pilih opsi ini apabila SETTING DARI AWAL" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "atau ada PROSES EDITING"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label2
@@ -107,15 +98,6 @@ Partial Class StartForm
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "File Desain CG"
         '
-        'Bt_FileSetting
-        '
-        Me.Bt_FileSetting.Image = Global.CG_FileManagement.My.Resources.Resources.FileSettingIcon
-        Me.Bt_FileSetting.Location = New System.Drawing.Point(7, 50)
-        Me.Bt_FileSetting.Name = "Bt_FileSetting"
-        Me.Bt_FileSetting.Size = New System.Drawing.Size(272, 238)
-        Me.Bt_FileSetting.TabIndex = 0
-        Me.Bt_FileSetting.UseVisualStyleBackColor = True
-        '
         'ImageLogo
         '
         Me.ImageLogo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
@@ -126,6 +108,25 @@ Partial Class StartForm
         Me.ImageLogo.Size = New System.Drawing.Size(584, 57)
         Me.ImageLogo.TabIndex = 2
         Me.ImageLogo.TabStop = False
+        '
+        'Bt_FileSetting
+        '
+        Me.Bt_FileSetting.Image = Global.CG_FileManagement.My.Resources.Resources.FileSettingIcon
+        Me.Bt_FileSetting.Location = New System.Drawing.Point(7, 50)
+        Me.Bt_FileSetting.Name = "Bt_FileSetting"
+        Me.Bt_FileSetting.Size = New System.Drawing.Size(272, 238)
+        Me.Bt_FileSetting.TabIndex = 0
+        Me.Bt_FileSetting.UseVisualStyleBackColor = True
+        '
+        'Bt_FileCustomer
+        '
+        Me.Bt_FileCustomer.Image = Global.CG_FileManagement.My.Resources.Resources.FileCustomerIcon
+        Me.Bt_FileCustomer.Location = New System.Drawing.Point(6, 50)
+        Me.Bt_FileCustomer.Name = "Bt_FileCustomer"
+        Me.Bt_FileCustomer.Size = New System.Drawing.Size(272, 238)
+        Me.Bt_FileCustomer.TabIndex = 0
+        Me.Bt_FileCustomer.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.Bt_FileCustomer.UseVisualStyleBackColor = True
         '
         'StartForm
         '

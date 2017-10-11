@@ -4,6 +4,7 @@ Partial Class MainForm
     Dim FileIO As New ClsFileIO
     Private Sub InitForm()
         InitTabFinishing() '<== Harus paling dulu!
+        InitCheckMultiplePages()
         InitSetter()
         InitPresetCustomer()
         InitJenisOrder()
@@ -13,11 +14,11 @@ Partial Class MainForm
         InitFinishingBR()
         InitFinishingKN()
         InitLayoutList()
-        InitSisiMuka()
-        InitImposition()
+        InitHeaderDisplay()
+        If DocHasMultiplePages Then InitSisiMuka()
+        If DocHasMultiplePages Then InitImposition()
         'InitFolder()
         InitQtyPages()
-        InitCheckMultiplePages()
         AddChkHandler(pn_finishinga3)
         AddChkHandler(pn_finishingbw)
         AddChkHandler(pn_finishingkn)
@@ -100,7 +101,11 @@ Partial Class MainForm
         Dim JmlPage = cdraw.ActiveDocument.Pages.Count.ToString
         t_jmlpage.Text = "Jumlah Page: " + JmlPage
         t_satuanqty.Text = Globals.JsonObj("cgJenisOrder")("katJenisOrder")(cb_jenisorder.SelectedIndex)("satuan").ToString
-        ClsFileName.JmlPageQty = JmlPage + "pg@" + n_qtycetak.Value.ToString + t_satuanqty.Text
+        If DocHasMultiplePages Then
+            ClsFileName.JmlPageQty = JmlPage + "pg@" + n_qtycetak.Value.ToString + t_satuanqty.Text
+        Else
+            ClsFileName.JmlPageQty = n_qtycetak.Value.ToString + t_satuanqty.Text
+        End If
         GeneratePreview()
     End Sub
 
@@ -112,5 +117,14 @@ Partial Class MainForm
         n_qtycetak.Minimum = 1
         n_noorder.Value = 1
         n_noorder.Minimum = 1
+    End Sub
+
+    Private Sub InitHeaderDisplay()
+        Select Case Globals.SaveOption
+            Case 1
+                pb_header.Image = My.Resources.FileSiapPrint
+            Case 2
+                pb_header.Image = My.Resources.FileDesainCG
+        End Select
     End Sub
 End Class
