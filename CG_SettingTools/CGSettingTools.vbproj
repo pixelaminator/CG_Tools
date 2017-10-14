@@ -24,12 +24,18 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
+<<<<<<< HEAD
     <OutDir>bin\Debug\$(SolutionName)</OutDir>
+=======
+>>>>>>> parent of c0fde6d... Header fix, first folder test
     <DocumentationFile>
     </DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DefineConstants>X7</DefineConstants>
+<<<<<<< HEAD
     <PlatformTarget>AnyCPU</PlatformTarget>
+=======
+>>>>>>> parent of c0fde6d... Header fix, first folder test
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X7 Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
