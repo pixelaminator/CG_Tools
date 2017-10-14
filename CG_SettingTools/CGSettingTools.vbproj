@@ -24,12 +24,12 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-	<OutDir>bin\Debug\$(SolutionName)</OutDir>										  
+    <OutDir>bin\Debug\$(SolutionName)</OutDir>
     <DocumentationFile>
     </DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DefineConstants>X7</DefineConstants>
-	<PlatformTarget>AnyCPU</PlatformTarget>									   
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X7 Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -220,6 +220,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="NewCDRApp.vb" />
     <EmbeddedResource Include="CG_SpellChecker\MainForm.resx">
       <DependentUpon>MainForm.vb</DependentUpon>
     </EmbeddedResource>
