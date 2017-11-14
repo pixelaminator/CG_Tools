@@ -200,12 +200,6 @@
     <Import Include="System.Windows.Navigation" />
   </ItemGroup>-->
   <ItemGroup>
-    <Compile Include="CG_SpellChecker\MainForm.Designer.vb">
-      <DependentUpon>MainForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="CG_SpellChecker\MainForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Main.vb" />
     <Compile Include="My Project\AssemblyInfo.vb">
       <SubType>Code</SubType>
@@ -221,9 +215,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="NewCDRApp.vb" />
-    <EmbeddedResource Include="CG_SpellChecker\MainForm.resx">
-      <DependentUpon>MainForm.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -234,12 +225,6 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <AppDesigner Include="My Project\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\i00_SpellCheck_20140111\i00SpellCheck\i00SpellCheck.vbproj">
-      <Project>{27d0d9b3-719c-46b7-9f03-3f91e82e7436}</Project>
-      <Name>i00SpellCheck</Name>
-    </ProjectReference>
   </ItemGroup>
   <!--<ItemGroup>
    
