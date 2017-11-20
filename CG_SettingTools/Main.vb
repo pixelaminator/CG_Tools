@@ -11,11 +11,6 @@ Public Module Main
         'Loads 3rd party assembly from addon folder
         AddHandler AppDomain.CurrentDomain.AssemblyResolve, AddressOf AssemblyLoadHandler
     End Sub
-    <DllExport("CGSpellCheck")>
-    Public Sub CG_SpellCheck()
-        Dim frm As New MainForm
-        frm.ShowDialog()
-    End Sub
 
     Function AssemblyLoadHandler(ByVal sender As Object,
                    ByVal args As ResolveEventArgs) As [Assembly]

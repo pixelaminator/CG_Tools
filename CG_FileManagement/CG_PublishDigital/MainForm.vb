@@ -277,27 +277,29 @@ Public Class MainForm
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        _TooltipShown = False
-        errProvider.Clear()
-        If Me.ValidateChildren() Then
-            Try
-                If GetGroupBoxCheckedButton(g_pdf) Is rb_setpage Then MessageBox.Show(String.Join(",", parsePageNumbers(pgNumRange.Text)))
-            Catch ex As Exception
-                showTooltip(ex.Message.ToString, ToolTipIcon.Error, "Kesalahan", pgNumRange)
-                Exit Sub
-            End Try
-            '------------------------------
-            If bWorker.IsBusy = False Then
-                'Disable controls when saving
-                For Each ctl As Control In Controls
-                    If TypeOf ctl IsNot StatusStrip Then
-                        ctl.Enabled = False
-                    End If
-                Next
-                tsProgBar.Visible = True
-                bWorker.RunWorkerAsync()
-            End If
-        End If
+        '_TooltipShown = False
+        'errProvider.Clear()
+        'If Me.ValidateChildren() Then
+        '    Try
+        '        If GetGroupBoxCheckedButton(g_pdf) Is rb_setpage Then MessageBox.Show(String.Join(",", parsePageNumbers(pgNumRange.Text)))
+        '    Catch ex As Exception
+        '        showTooltip(ex.Message.ToString, ToolTipIcon.Error, "Kesalahan", pgNumRange)
+        '        Exit Sub
+        '    End Try
+        '    '------------------------------
+        '    If bWorker.IsBusy = False Then
+        '        'Disable controls when saving
+        '        For Each ctl As Control In Controls
+        '            If TypeOf ctl IsNot StatusStrip Then
+        '                ctl.Enabled = False
+        '            End If
+        '        Next
+        '        tsProgBar.Visible = True
+        '        bWorker.RunWorkerAsync()
+        '    End If
+        'End If
+        Dim JOForm As New JobOrderForm(Me)
+        JOForm.ShowDialog()
     End Sub
 
     Private Sub showTooltip(message As String, icon As ToolTipIcon, title As String, obj As IWin32Window)

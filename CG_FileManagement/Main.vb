@@ -15,6 +15,7 @@ Imports System
 Imports System.IO
 Imports System.Reflection
 Imports System.Windows.Forms
+Imports iTextSharp
 Imports Newtonsoft.Json.Linq
 Imports RGiesecke.DllExport
 
