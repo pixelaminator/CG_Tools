@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CGFileManagement", "CG_FileManagement\CGFileManagement.vbproj", "{588768EB-CAB0-4C31-ABB4-433D7670A384}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CGSettingTools", "CG_SettingTools\CGSettingTools.vbproj", "{6F2E85DE-3CB0-4CE9-BCA5-A1E92B04DC5E}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CGUndangan", "CG_Undangan\CGUndangan.vbproj", "{5E57F7F0-4D59-463A-BD65-3DACA25C4BF3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		2017 Debug|Any CPU = 2017 Debug|Any CPU
+		2017 Release|Any CPU = 2017 Release|Any CPU
+		X7 Debug|Any CPU = X7 Debug|Any CPU
+		X7 Release|Any CPU = X7 Release|Any CPU
+		X8 Debug|Any CPU = X8 Debug|Any CPU
+		X8 Release|Any CPU = X8 Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{588768EB-CAB0-4C31-ABB4-433D7670A384}.2017 Debug|Any CPU.ActiveCfg = 2017 Debug|Any CPU
+		{588768EB-CAB0-4C31-ABB4-433D7670A384}.2017 Debug|Any CPU.Build.0 = 2017 Debug|Any CPU
+		{588768EB-CAB0-4C31-ABB4-433D7670A384}.2017 Release|Any CPU.ActiveCfg = 2017 Release|Any CPU
+		{588768EB-CAB0-4C31-ABB4-433D7670A384}.2017 Release|Any CPU.Build.0 = 2017 Release|Any CPU
+		{588768EB-CAB0-4C31-ABB4-433D7670A384}.X7 Debug|Any CPU.ActiveCfg = X7 Debug|Any CPU
+		{588768EB-CAB0-4C31-ABB4-433D7670A384}.X7 Debug|Any CPU.Build.0 = X7 Debug|Any CPU
+		{588768EB-CAB0-4C31-ABB4-433D7670A384}.X7 Release|Any CPU.ActiveCfg = X7 Release|Any CPU
+		{588768EB-CAB0-4C31-ABB4-433D7670A384}.X7 Release|Any CPU.Build.0 = X7 Release|Any CPU
+		{588768EB-CAB0-4C31-ABB4-433D7670A384}.X8 Debug|Any CPU.ActiveCfg = X8 Debug|Any CPU
+		{588768EB-CAB0-4C31-ABB4-433D7670A384}.X8 Debug|Any CPU.Build.0 = X8 Debug|Any CPU
+		{588768EB-CAB0-4C31-ABB4-433D7670A384}.X8 Release|Any CPU.ActiveCfg = X8 Release|Any CPU
+		{588768EB-CAB0-4C31-ABB4-433D7670A384}.X8 Release|Any CPU.Build.0 = X8 Release|Any CPU
+		{6F2E85DE-3CB0-4CE9-BCA5-A1E92B04DC5E}.2017 Debug|Any CPU.ActiveCfg = 2017 Debug|Any CPU
+		{6F2E85DE-3CB0-4CE9-BCA5-A1E92B04DC5E}.2017 Debug|Any CPU.Build.0 = 2017 Debug|Any CPU
+		{6F2E85DE-3CB0-4CE9-BCA5-A1E92B04DC5E}.2017 Release|Any CPU.ActiveCfg = 2017 Release|Any CPU
+		{6F2E85DE-3CB0-4CE9-BCA5-A1E92B04DC5E}.2017 Release|Any CPU.Build.0 = 2017 Release|Any CPU
+		{6F2E85DE-3CB0-4CE9-BCA5-A1E92B04DC5E}.X7 Debug|Any CPU.ActiveCfg = X7 Debug|Any CPU
+		{6F2E85DE-3CB0-4CE9-BCA5-A1E92B04DC5E}.X7 Debug|Any CPU.Build.0 = X7 Debug|Any CPU
+		{6F2E85DE-3CB0-4CE9-BCA5-A1E92B04DC5E}.X7 Release|Any CPU.ActiveCfg = X7 Release|Any CPU
+		{6F2E85DE-3CB0-4CE9-BCA5-A1E92B04DC5E}.X7 Release|Any CPU.Build.0 = X7 Release|Any CPU
+		{6F2E85DE-3CB0-4CE9-BCA5-A1E92B04DC5E}.X8 Debug|Any CPU.ActiveCfg = X8 Debug|Any CPU
+		{6F2E85DE-3CB0-4CE9-BCA5-A1E92B04DC5E}.X8 Debug|Any CPU.Build.0 = X8 Debug|Any CPU
+		{6F2E85DE-3CB0-4CE9-BCA5-A1E92B04DC5E}.X8 Release|Any CPU.ActiveCfg = X8 Release|Any CPU
+		{6F2E85DE-3CB0-4CE9-BCA5-A1E92B04DC5E}.X8 Release|Any CPU.Build.0 = X8 Release|Any CPU
+		{5E57F7F0-4D59-463A-BD65-3DACA25C4BF3}.2017 Debug|Any CPU.ActiveCfg = 2017 Debug|Any CPU
+		{5E57F7F0-4D59-463A-BD65-3DACA25C4BF3}.2017 Debug|Any CPU.Build.0 = 2017 Debug|Any CPU
+		{5E57F7F0-4D59-463A-BD65-3DACA25C4BF3}.2017 Release|Any CPU.ActiveCfg = 2017 Release|Any CPU
+		{5E57F7F0-4D59-463A-BD65-3DACA25C4BF3}.2017 Release|Any CPU.Build.0 = 2017 Release|Any CPU
+		{5E57F7F0-4D59-463A-BD65-3DACA25C4BF3}.X7 Debug|Any CPU.ActiveCfg = X7 Debug|Any CPU
+		{5E57F7F0-4D59-463A-BD65-3DACA25C4BF3}.X7 Debug|Any CPU.Build.0 = X7 Debug|Any CPU
+		{5E57F7F0-4D59-463A-BD65-3DACA25C4BF3}.X7 Release|Any CPU.ActiveCfg = X7 Release|Any CPU
+		{5E57F7F0-4D59-463A-BD65-3DACA25C4BF3}.X7 Release|Any CPU.Build.0 = X7 Release|Any CPU
+		{5E57F7F0-4D59-463A-BD65-3DACA25C4BF3}.X8 Debug|Any CPU.ActiveCfg = X8 Debug|Any CPU
+		{5E57F7F0-4D59-463A-BD65-3DACA25C4BF3}.X8 Debug|Any CPU.Build.0 = X8 Debug|Any CPU
+		{5E57F7F0-4D59-463A-BD65-3DACA25C4BF3}.X8 Release|Any CPU.ActiveCfg = X8 Release|Any CPU
+		{5E57F7F0-4D59-463A-BD65-3DACA25C4BF3}.X8 Release|Any CPU.Build.0 = X8 Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {019C5BBC-7699-4DA7-956E-A58E54D72FBC}
+	EndGlobalSection
+EndGlobal
