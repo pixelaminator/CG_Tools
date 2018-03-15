@@ -121,6 +121,9 @@
     <Reference Include="ComponentFactory.Krypton.Design">
       <HintPath>..\..\Krypton-master\build\bin\Release\ComponentFactory.Krypton.Design.dll</HintPath>
     </Reference>
+    <Reference Include="ComponentFactory.Krypton.Docking">
+      <HintPath>..\..\Krypton-master\build\bin\Release\ComponentFactory.Krypton.Docking.dll</HintPath>
+    </Reference>
     <Reference Include="ComponentFactory.Krypton.Navigator">
       <HintPath>..\..\Krypton-master\build\bin\Release\ComponentFactory.Krypton.Navigator.dll</HintPath>
     </Reference>
