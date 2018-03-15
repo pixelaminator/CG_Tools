@@ -118,6 +118,18 @@
     <Import Include="c:\program files\corel\coreldraw graphics suite 2017\programs64\Assemblies\Corel.Interop.VGCore.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="ComponentFactory.Krypton.Design">
+      <HintPath>..\..\Krypton-master\build\bin\Release\ComponentFactory.Krypton.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Navigator">
+      <HintPath>..\..\Krypton-master\build\bin\Release\ComponentFactory.Krypton.Navigator.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Ribbon">
+      <HintPath>..\..\Krypton-master\build\bin\Release\ComponentFactory.Krypton.Ribbon.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Toolkit">
+      <HintPath>..\..\Krypton-master\build\bin\Release\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="DllExport, Version=1.6.0.40687, Culture=neutral, PublicKeyToken=8337224c9ad9e356">
       <HintPath>..\packages\DllExport.1.6.0-beta2\gcache\metalib\RGiesecke.DllExport\DllExport.dll</HintPath>
       <Private>False</Private>
@@ -164,6 +176,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.vb" />
+    <Compile Include="MainForm.Designer.vb">
+      <DependentUpon>MainForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb">
       <SubDocker>Code</SubDocker>
     </Compile>
@@ -184,6 +202,9 @@
     <Compile Include="StartForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>

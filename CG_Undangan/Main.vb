@@ -14,7 +14,7 @@ Public Module Main
 
     <DllExport("CGUndangan")>
     Public Sub CG_Undangan()
-        Dim undangan As New StartForm
+        Dim undangan As New MainForm
         undangan.ShowDialog()
     End Sub
 
