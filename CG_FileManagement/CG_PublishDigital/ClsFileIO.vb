@@ -3,15 +3,19 @@ Imports System.IO
 Imports System.Windows.Forms
 Imports System.Collections.Generic
 Imports System.Runtime.InteropServices
+Imports Newtonsoft.Json.Linq
 
 Public Class ClsFileIO
+    Dim jhandler As ClsJsonManager
     Dim BaseURL As String = Globals.JsonObj("cgConfig")("BaseURL").ToString
     Dim Tahun As String = Date.Today.Year.ToString
     Dim Bulan As String = Date.Today.Month.ToString
     Dim BulanNama As String
     Dim Tanggal As String = Date.Today.Day.ToString
-    Dim FolderTipe() As String = {"CDR", "PDF"}
-    Dim FolderDivisi() As String = {"GRAHA"}
+    'Dim RootDir As Dictionary(Of String, JArray) = jhandler.ParseJsonToDictionary(Globals.JsonObj("cgConfig")("TopDirectory"))
+    'Dim FolderTipe As Dictionary(Of String, JArray) = jhandler.ParseJsonToDictionary(Globals.JsonObj("cgConfig")("FolderTipeFile"))
+    'Dim FolderDivisi As Dictionary(Of String, JArray) = jhandler.ParseJsonToDictionary(Globals.JsonObj("cgConfig")("FolderDivisi"))
+    'Dim FolderJenisOrder As Dictionary(Of String, JArray) = jhandler.ParseJsonToDictionary(Globals.JsonObj("cgConfig")("FolderJenisOrder"))
 
     Private Function GetEnglishMonth() As String
         Dim monthNames As New List(Of String) From {"", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
@@ -36,7 +40,7 @@ Public Class ClsFileIO
     Public Function BaseURLValid() As Boolean
         Do
             Try
-                CreateFolders(BaseURL + "\NON PERMANENT\" + Tahun + "\" + GetEnglishMonth() + "\" + Tanggal)
+                Directory.Exists(BaseURL)
                 Return True
                 Exit Do
             Catch ex As Exception

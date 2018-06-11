@@ -9,7 +9,6 @@ Imports System.Windows.Forms
 Imports System.Collections
 
 Public Class ClsFunctions
-    Dim WithEvents cdraw As Corel.Interop.VGCore.Application = NewCDRApp.cdraw
     Dim lastAppliedIndex As Integer
     Dim CurrPageIndex As Integer = 1
     Dim TotalPages As Integer
@@ -18,6 +17,7 @@ Public Class ClsFunctions
     Public ProgressNumber As Integer = 0
     Public ProgressNumberMax As Integer
     Public ProgressMessage As String
+    Dim WithEvents cdraw As Corel.Interop.VGCore.Application = NewCDRApp.cdraw
 
     Public Sub InitPolaroid(folderPath As String, setborder As Boolean, bworker As BackgroundWorker)
         cdraw.ActiveDocument.ReferencePoint = cdrReferencePoint.cdrCenter

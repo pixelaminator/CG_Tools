@@ -75,6 +75,36 @@
           Dg4ODg4ODg5LDg4O8PDwAKCgoADw8PAAAAAAAA==
         </userSmallBitmap>
       </itemData>
+      
+      <!-- Define the button which shows the docker -->
+      <itemData guid="6360775d-e94c-460b-b842-2726a6350c3e" noBmpOnMenu="true"
+                type="checkButton"
+                check="*Docker('1fadc043-5c4b-4b05-b36c-9fdb6fd86626')"
+                dynamicCategory="2cc24a3e-fe24-4708-9a74-9c75406eebcd"
+                userCaption="CG Polaroid"
+                enable="true"/>
+      <!-- Define the web control which will be placed on our docker -->
+      <itemData guid="bffe3f94-0261-4de5-81f5-c96a08a7ec95"
+                type="wpfhost"
+                hostedType="Addons\CGPolaroid\CGPolaroid.dll,CGPolaroid.DockerUI"
+                enable="true"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template match="uiConfig/dockers">
+    <xsl:copy>
+      <xsl:apply-templates select="node()|@*"/>
+
+      <!-- Define the web docker -->
+      <dockerData guid="1fadc043-5c4b-4b05-b36c-9fdb6fd86626"
+                  userCaption="CG Polaroid"
+                  wantReturn="true"
+                  focusStyle="noThrow">
+        <container>
+          <!-- add the webpage control to the docker -->
+          <item dock="fill" margin="0,0,0,0" guidRef="bffe3f94-0261-4de5-81f5-c96a08a7ec95"/>
+        </container>
+      </dockerData>
     </xsl:copy>
   </xsl:template>
 
