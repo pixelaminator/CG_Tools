@@ -8,6 +8,9 @@ Public Class DockerUI
     Private corelApp As Corel.Interop.VGCore.Application
     Private WithEvents bWorker As New BackgroundWorker
     Private ClsFunc As New ClsFunctions()
+    Private _PolaroidProgressMessage As String
+    Private _PolaroidProgressPage As Integer
+    Private _PolaroidProgressTotal As Integer
 
     Sub New(ByVal corelApp As Corel.Interop.VGCore.Application)
         InitializeComponent()
@@ -56,15 +59,39 @@ Public Class DockerUI
     End Sub
 
     Private Sub bWorker_ReportProgress(ByVal sender As Object, e As ProgressChangedEventArgs) Handles bWorker.ProgressChanged
-        'Dim i As Integer
-        'ts_progress.Maximum = 100
-        'For i = 0 To ClsFunc.ProgressNumberMax
-        'ts_progress.Value = e.ProgressPercentage
-        't_status.Text = ClsFunc.ProgressMessage
-        cdraw.Status.SetProgressMessage(ClsFunc.ProgressMessage)
-        cdraw.Status.UpdateProgress(e.ProgressPercentage)
-        'Next
+        Dim i As Integer
+        For i = 0 To ClsFunc.ProgressNumberMax
+            PolaroidProgressPage = e.ProgressPercentage
+            PolaroidProgressMessage = ClsFunc.ProgressMessage
+        Next
     End Sub
+
+    Public Property PolaroidProgressMessage As String
+        Get
+            Return _PolaroidProgressMessage
+        End Get
+        Set(value As String)
+            _PolaroidProgressMessage = value
+        End Set
+    End Property
+
+    Public Property PolaroidProgressPage As Integer
+        Get
+            Return _PolaroidProgressPage
+        End Get
+        Set(value As Integer)
+            _PolaroidProgressPage = value
+        End Set
+    End Property
+
+    Public Property PolaroidProgressTotal As Integer
+        Get
+            Return _PolaroidProgressTotal
+        End Get
+        Set(value As Integer)
+            _PolaroidProgressTotal = value
+        End Set
+    End Property
 
     Private Sub bWorker_ProgressComplete() Handles bWorker.RunWorkerCompleted
         'ts_progress.Value = 0
@@ -75,6 +102,22 @@ Public Class DockerUI
         cdraw.Status.EndProgress()
         'TODO: Look for workaround about CrossThreading issue
         'bt_CreatePolaroid.Enabled = False
+    End Sub
+
+    Private Sub bt_rotateleft_Click(sender As Object, e As System.Windows.RoutedEventArgs) Handles bt_rotateleft.Click
+        ClsFunc.PhotoRotate(-90)
+    End Sub
+
+    Private Sub bt_rotateright_Click(sender As Object, e As System.Windows.RoutedEventArgs) Handles bt_rotateright.Click
+        ClsFunc.PhotoRotate(90)
+    End Sub
+
+    Private Sub bt_fittoframe_Click(sender As Object, e As System.Windows.RoutedEventArgs) Handles bt_fittoframe.Click
+        ClsFunc.PhotoFit()
+    End Sub
+
+    Private Sub bt_delete_Click(sender As Object, e As System.Windows.RoutedEventArgs) Handles bt_delete.Click
+        ClsFunc.PhotoDelete()
     End Sub
 End Class
 

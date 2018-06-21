@@ -193,6 +193,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NewCDRApp.vb" />
+    <Compile Include="ProgressWindow.xaml.vb">
+      <DependentUpon>ProgressWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="DockerPolaroid.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -202,6 +205,10 @@
       <DependentUpon>DockerPolaroid.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ProgressWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="My Project\AssemblyInfo.vb">
@@ -227,6 +234,18 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <AppDesigner Include="My Project\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\accept.png" />
+    <Resource Include="Resources\arrow_in.png" />
+    <Resource Include="Resources\arrow_out.png" />
+    <Resource Include="Resources\arrow_redo.png" />
+    <Resource Include="Resources\arrow_rotate_anticlockwise.png" />
+    <Resource Include="Resources\arrow_rotate_clockwise.png" />
+    <Resource Include="Resources\arrow_undo.png" />
+    <Resource Include="Resources\cancel.png" />
+    <Resource Include="Resources\image_delete.png" />
+    <Resource Include="Resources\shape_rotate_anticlockwise.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

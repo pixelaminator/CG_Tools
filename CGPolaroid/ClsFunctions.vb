@@ -20,6 +20,8 @@ Public Class ClsFunctions
     Dim WithEvents cdraw As Corel.Interop.VGCore.Application = NewCDRApp.cdraw
 
     Public Sub InitPolaroid(folderPath As String, setborder As Boolean, bworker As BackgroundWorker)
+        cdraw.CreateDocument()
+
         cdraw.ActiveDocument.ReferencePoint = cdrReferencePoint.cdrCenter
         cdraw.ActiveDocument.Unit = cdrUnit.cdrMillimeter
 
@@ -215,7 +217,11 @@ Public Class ClsFunctions
         Dim shRange As ShapeRange
         shRange = FindAllPCShapes.Shapes.FindShapes(, cdrShapeType.cdrBitmapShape)
 
-        GetPowerclipPhoto = shRange.Item(1)
+        If shRange.Count <> 0 Then
+            GetPowerclipPhoto = shRange.Item(1)
+        Else
+            Return Nothing
+        End If
     End Function
 
     Public Sub PhotoRotate(Angle As Integer)
@@ -226,7 +232,7 @@ Public Class ClsFunctions
             Dim sh As Shape
             sh = GetPowerclipPhoto()
 
-            sh.Rotate(Angle)
+            If sh IsNot Nothing Then sh.Rotate(Angle)
         End If
     End Sub
 
@@ -238,7 +244,7 @@ Public Class ClsFunctions
             Dim sh As Shape
             sh = GetPowerclipPhoto()
 
-            sh.Delete()
+            If sh IsNot Nothing Then sh.Delete()
         End If
     End Sub
 
@@ -250,7 +256,7 @@ Public Class ClsFunctions
             Dim sh As Shape
             sh = GetPowerclipPhoto()
 
-            ScaleImage(sh, 70, 50)
+            If sh IsNot Nothing Then ScaleImage(sh, 70, 50)
         End If
     End Sub
 
