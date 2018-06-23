@@ -1,16 +1,24 @@
 ﻿Imports Corel.Interop.VGCore
 Imports System
 Imports System.ComponentModel
+Imports System.IO
+Imports System.Linq
 Imports System.Windows.Forms
+Imports System.Windows.Window
 
 Public Class DockerUI
     'Dim WithEvents cdraw As Corel.Interop.VGCore.Application = NewCDRApp.cdraw
     Private corelApp As Corel.Interop.VGCore.Application
     Private WithEvents bWorker As New BackgroundWorker
     Private ClsFunc As New ClsFunctions()
-    Private _PolaroidProgressMessage As String
-    Private _PolaroidProgressPage As Integer
-    Private _PolaroidProgressTotal As Integer
+    Private ProgBarWindow As New ProgressWindow
+    Private progWindow As System.Windows.Window = New System.Windows.Window With {
+                .Title = "Membuat Polaroid...",
+                .Content = ProgBarWindow,
+                .SizeToContent = System.Windows.SizeToContent.WidthAndHeight,
+                .ResizeMode = System.Windows.ResizeMode.NoResize,
+                .Topmost = True,
+                .WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen}
 
     Sub New(ByVal corelApp As Corel.Interop.VGCore.Application)
         InitializeComponent()
@@ -32,9 +40,10 @@ Public Class DockerUI
                                               .SupportMultiDottedExtensions = True,
                                               .Title = "Pilih folder yang berisi foto",
                                               .ValidateNames = True}
-            If dlg.ShowDialog = DialogResult.OK Then
+            If dlg.ShowDialog = System.Windows.Forms.DialogResult.OK Then
                 Dim strFilename As String = dlg.FileName
                 t_alamat.Text = System.IO.Path.GetDirectoryName(strFilename)
+                t_photocount.Content = "Jumlah Photo: " + CStr(ClsFunc.CountPhotosInADirectory(System.IO.Path.GetDirectoryName(strFilename)))
             End If
         End Using
     End Sub
@@ -46,9 +55,10 @@ Public Class DockerUI
             WorkerArgs.giveBorder = cb_garisoutline.IsChecked
             bWorker.WorkerReportsProgress = True
             bWorker.RunWorkerAsync(WorkerArgs)
-            cdraw.Status.BeginProgress()
+            ProgBarWindow.ProgressMessageStatus = "Mohon Tunggu..."
+            progWindow.Show()
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Kesalahan", MessageBoxButtons.OK)
+            MessageBox.Show(ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error)
             bWorker.Dispose()
         End Try
     End Sub
@@ -61,47 +71,14 @@ Public Class DockerUI
     Private Sub bWorker_ReportProgress(ByVal sender As Object, e As ProgressChangedEventArgs) Handles bWorker.ProgressChanged
         Dim i As Integer
         For i = 0 To ClsFunc.ProgressNumberMax
-            PolaroidProgressPage = e.ProgressPercentage
-            PolaroidProgressMessage = ClsFunc.ProgressMessage
+            ProgBarWindow.ProgressBarPage = e.ProgressPercentage
+            ProgBarWindow.ProgressBarTotal = ClsFunc.ProgressAllFiles
+            ProgBarWindow.ProgressMessageStatus = ClsFunc.ProgressMessage
         Next
     End Sub
 
-    Public Property PolaroidProgressMessage As String
-        Get
-            Return _PolaroidProgressMessage
-        End Get
-        Set(value As String)
-            _PolaroidProgressMessage = value
-        End Set
-    End Property
-
-    Public Property PolaroidProgressPage As Integer
-        Get
-            Return _PolaroidProgressPage
-        End Get
-        Set(value As Integer)
-            _PolaroidProgressPage = value
-        End Set
-    End Property
-
-    Public Property PolaroidProgressTotal As Integer
-        Get
-            Return _PolaroidProgressTotal
-        End Get
-        Set(value As Integer)
-            _PolaroidProgressTotal = value
-        End Set
-    End Property
-
     Private Sub bWorker_ProgressComplete() Handles bWorker.RunWorkerCompleted
-        'ts_progress.Value = 0
-        't_status.Text = "Ready"
-        'For Each ctl As Control In Controls
-        '    ctl.Enabled = True
-        'Next
-        cdraw.Status.EndProgress()
-        'TODO: Look for workaround about CrossThreading issue
-        'bt_CreatePolaroid.Enabled = False
+        progWindow.Hide()
     End Sub
 
     Private Sub bt_rotateleft_Click(sender As Object, e As System.Windows.RoutedEventArgs) Handles bt_rotateleft.Click

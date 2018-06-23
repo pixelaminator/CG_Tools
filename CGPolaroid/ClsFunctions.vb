@@ -10,13 +10,17 @@ Imports System.Collections
 
 Public Class ClsFunctions
     Dim lastAppliedIndex As Integer
-    Dim CurrPageIndex As Integer = 1
+    Dim CurrPageIndex As Integer
     Dim TotalPages As Integer
+    Dim TotalFiles As Integer
     Dim MaxFiles As Integer = 500
-    Const TotalTiles As Integer = 24
+    Dim ProcessedFiles As Integer
+    Const TotalTiles As Integer = 24 'change this when dynamic generator implemented
+    Dim TilesCountInAPage As Integer
     Public ProgressNumber As Integer = 0
     Public ProgressNumberMax As Integer
     Public ProgressMessage As String
+    Public ProgressAllFiles As Integer
     Dim WithEvents cdraw As Corel.Interop.VGCore.Application = NewCDRApp.cdraw
 
     Public Sub InitPolaroid(folderPath As String, setborder As Boolean, bworker As BackgroundWorker)
@@ -28,12 +32,24 @@ Public Class ClsFunctions
         Dim files() As String
         files = getFiles(folderPath, "*.gif|*.jpg|*.jpeg|*.png|*.bmp", SearchOption.TopDirectoryOnly)
 
-        If files.Length > MaxFiles Then
+        TotalFiles = files.Length
+        CurrPageIndex = 1
+        ProcessedFiles = 0
+
+        If TotalFiles <= TotalTiles + 1 Then
+            TilesCountInAPage = TotalFiles
+            ProgressNumberMax = TotalFiles
+        Else
+            ProgressNumberMax = TotalTiles + 1
+            TilesCountInAPage = TotalTiles + 1
+        End If
+
+        If TotalFiles > MaxFiles Then
             MessageBox.Show("Maksimal jumlah foto yang bisa disusun dalam satu file adalah " & MaxFiles.ToString & " foto." + Environment.NewLine + "Jumlah foto yang ada di dalam folder yang dipilih: " & files.Length.ToString & " foto.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
             Exit Sub
         End If
 
-        TotalPages = CInt(Math.Ceiling(files.Length / TotalTiles))
+        TotalPages = CInt(Math.Ceiling(files.Length / (TotalTiles + 1)))
 
         Dim i As Integer
         Dim index As Integer
@@ -45,6 +61,10 @@ Public Class ClsFunctions
                     cdraw.ActiveDocument.AddPages(1)
                     CurrPageIndex += 1
                     index = lastAppliedIndex
+                    If TotalFiles - ProcessedFiles < TotalTiles Then
+                        TilesCountInAPage = TotalFiles - ProcessedFiles
+                        ProgressNumberMax = TilesCountInAPage
+                    End If
                 End If
             Else
                 Exit For
@@ -60,6 +80,7 @@ Public Class ClsFunctions
         Dim XMaxTile As Integer
         Dim currTile, prevTile As Integer
         Dim photo As Shape
+
         XMaxTile = 5
         currTile = 1
         prevTile = 0
@@ -73,12 +94,12 @@ Public Class ClsFunctions
 
         Dim boxes As IList(Of ShapeRange) = New List(Of ShapeRange)()
         Dim i As Integer
+
         ProgressNumber = 0
-        ProgressNumberMax = TotalTiles + 1
 
         For i = 0 To TotalTiles
             If bw.CancellationPending <> True AndAlso startIndex < files.Length Then
-                AddProgress(bw, "Membuat bingkai " & i + 1 & "/" & TotalTiles + 1 & " (Page " & CurrPageIndex & "/" & TotalPages & ")")
+                AddProgress(bw, "Membuat bingkai " & i + 1 & "/" & TilesCountInAPage & " (Page " & CurrPageIndex & "/" & TotalPages & ")")
                 boxes.Add(CreatePolaroidBox(setborder))
                 photo = getImportImage(files(startIndex))
                 If photo.SizeWidth > photo.SizeHeight Then
@@ -117,8 +138,10 @@ Public Class ClsFunctions
 
     Sub AddProgress(bw As BackgroundWorker, msg As String)
         ProgressNumber += 1
+        ProcessedFiles += 1
         bw.ReportProgress(CInt((ProgressNumber / ProgressNumberMax) * 100))
         ProgressMessage = msg
+        ProgressAllFiles = CInt((ProcessedFiles / TotalFiles) * 100)
     End Sub
 
     Function CreatePolaroidBox(setborder As Boolean) As ShapeRange
@@ -225,38 +248,79 @@ Public Class ClsFunctions
     End Function
 
     Public Sub PhotoRotate(Angle As Integer)
+        If cdraw.Documents.Count = 0 Then Exit Sub
+
+        cdraw.Application.Optimization = True
+
         If cdraw.ActiveSelection.Shapes.Count = 0 Then
             MessageBox.Show("Mohon pilih salah satu foto.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
             Exit Sub
         Else
-            Dim sh As Shape
-            sh = GetPowerclipPhoto()
+            Dim shRange As ShapeRange
+            Dim S As Shape
 
-            If sh IsNot Nothing Then sh.Rotate(Angle)
+            shRange = cdraw.ActiveSelectionRange
+
+            For Each S In shRange
+                S.CreateSelection()
+                Dim photo As Shape
+                photo = GetPowerclipPhoto()
+                If photo IsNot Nothing Then photo.Rotate(Angle)
+            Next
+            shRange.CreateSelection()
+            cdraw.Application.Optimization = False
+            cdraw.Application.Refresh()
         End If
     End Sub
 
     Public Sub PhotoDelete()
+        If cdraw.Documents.Count = 0 Then Exit Sub
+
+        cdraw.Application.Optimization = True
+
         If cdraw.ActiveSelection.Shapes.Count = 0 Then
             MessageBox.Show("Mohon pilih salah satu foto.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
             Exit Sub
         Else
-            Dim sh As Shape
-            sh = GetPowerclipPhoto()
+            Dim shRange As ShapeRange
+            Dim S As Shape
 
-            If sh IsNot Nothing Then sh.Delete()
+            shRange = cdraw.ActiveSelectionRange
+
+            For Each S In shRange
+                S.CreateSelection()
+                Dim photo As Shape
+                photo = GetPowerclipPhoto()
+                If photo IsNot Nothing Then photo.Delete()
+            Next
+            shRange.CreateSelection()
+            cdraw.Application.Optimization = False
+            cdraw.Application.Refresh()
         End If
     End Sub
 
     Public Sub PhotoFit()
+        If cdraw.Documents.Count = 0 Then Exit Sub
+
+        cdraw.Application.Optimization = True
         If cdraw.ActiveSelection.Shapes.Count = 0 Then
             MessageBox.Show("Mohon pilih salah satu foto.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
             Exit Sub
         Else
-            Dim sh As Shape
-            sh = GetPowerclipPhoto()
+            Dim shRange As ShapeRange
+            Dim S As Shape
 
-            If sh IsNot Nothing Then ScaleImage(sh, 70, 50)
+            shRange = cdraw.ActiveSelectionRange
+
+            For Each S In shRange
+                S.CreateSelection()
+                Dim photo As Shape
+                photo = GetPowerclipPhoto()
+                If photo IsNot Nothing Then ScaleImage(photo, 70, 50)
+            Next
+            shRange.CreateSelection()
+            cdraw.Application.Optimization = False
+            cdraw.Application.Refresh()
         End If
     End Sub
 
@@ -278,11 +342,9 @@ Public Class ClsFunctions
         Return CType(alFiles.ToArray(Type.GetType("System.String")), String())
     End Function
 
-    Public Sub DocUndo()
-        cdraw.ActiveDocument.Undo()
-    End Sub
-
-    Public Sub DocRedo()
-        cdraw.ActiveDocument.Redo()
-    End Sub
+    Public Function CountPhotosInADirectory(ByVal folderPath As String) As Integer
+        Dim files() As String
+        files = getFiles(folderPath, "*.gif|*.jpg|*.jpeg|*.png|*.bmp", SearchOption.TopDirectoryOnly)
+        CountPhotosInADirectory = files.Length
+    End Function
 End Class
