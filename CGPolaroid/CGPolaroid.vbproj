@@ -192,6 +192,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bWorkerArgs.vb" />
     <Compile Include="NewCDRApp.vb" />
     <Compile Include="ProgressWindow.xaml.vb">
       <DependentUpon>ProgressWindow.xaml</DependentUpon>

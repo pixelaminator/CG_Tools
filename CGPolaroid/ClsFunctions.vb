@@ -1,6 +1,4 @@
-﻿Imports vgApp = Corel.Interop.VGCore
-Imports Doc = Corel.Interop.VGCore.Document
-Imports Corel.Interop.VGCore
+﻿Imports Corel.Interop.VGCore
 Imports System
 Imports System.IO
 Imports System.Collections.Generic
@@ -9,12 +7,24 @@ Imports System.Windows.Forms
 Imports System.Collections
 
 Public Class ClsFunctions
+    Public Class PolaroidProperties
+        Public PageWidth As Integer
+        Public PageHeight As Integer
+        Public OuterFrameWidth As Integer
+        Public OuterFrameHeight As Integer
+        Public InnerFrameWidth As Integer
+        Public InnerFrameHeight As Integer
+        Public InnerFrameMarginX As Integer
+        Public InnerFrameMarginY As Integer
+    End Class
+
     Dim lastAppliedIndex As Integer
     Dim CurrPageIndex As Integer
     Dim TotalPages As Integer
     Dim TotalFiles As Integer
-    Dim MaxFiles As Integer = 500
     Dim ProcessedFiles As Integer
+    Dim PageOrientation As Integer
+    Dim polproperties As New PolaroidProperties
     Const TotalTiles As Integer = 24 'change this when dynamic generator implemented
     Dim TilesCountInAPage As Integer
     Public ProgressNumber As Integer = 0
@@ -23,18 +33,47 @@ Public Class ClsFunctions
     Public ProgressAllFiles As Integer
     Dim WithEvents cdraw As Corel.Interop.VGCore.Application = NewCDRApp.cdraw
 
-    Public Sub InitPolaroid(folderPath As String, setborder As Boolean, bworker As BackgroundWorker)
+    Public Enum PhotoActions
+        PhotoRotate = 0
+        PhotoFit = 1
+        PhotoFill = 2
+        PhotoDelete = 3
+    End Enum
+
+    Private Sub SetPolaroidProperties(args As bWorkerArgs)
+        If args.PolaroidOrientation = 0 Then
+            polproperties.PageWidth = 330
+            polproperties.PageHeight = 483
+            polproperties.OuterFrameWidth = 60
+            polproperties.OuterFrameHeight = 90
+            polproperties.InnerFrameWidth = 50
+            polproperties.InnerFrameHeight = 70
+            polproperties.InnerFrameMarginX = 5
+            polproperties.InnerFrameMarginY = -5
+        ElseIf args.PolaroidOrientation = 1 Then
+            polproperties.PageWidth = 483
+            polproperties.PageHeight = 330
+            polproperties.OuterFrameWidth = 90
+            polproperties.OuterFrameHeight = 60
+            polproperties.InnerFrameWidth = 80
+            polproperties.InnerFrameHeight = 40
+            polproperties.InnerFrameMarginX = 5
+            polproperties.InnerFrameMarginY = -5
+        End If
+    End Sub
+
+    'Public Sub InitPolaroid(folderPath As String, setborder As Boolean, bworker As BackgroundWorker)
+    Public Sub InitPolaroid(args As bWorkerArgs, bworker As BackgroundWorker)
+        SetPolaroidProperties(args)
         cdraw.CreateDocument()
 
         cdraw.ActiveDocument.ReferencePoint = cdrReferencePoint.cdrCenter
         cdraw.ActiveDocument.Unit = cdrUnit.cdrMillimeter
 
-        Dim files() As String
-        files = getFiles(folderPath, "*.gif|*.jpg|*.jpeg|*.png|*.bmp", SearchOption.TopDirectoryOnly)
-
-        TotalFiles = files.Length
+        TotalFiles = FileList(args.path).Length
         CurrPageIndex = 1
         ProcessedFiles = 0
+        PageOrientation = args.PolaroidOrientation
 
         If TotalFiles <= TotalTiles + 1 Then
             TilesCountInAPage = TotalFiles
@@ -44,19 +83,14 @@ Public Class ClsFunctions
             TilesCountInAPage = TotalTiles + 1
         End If
 
-        If TotalFiles > MaxFiles Then
-            MessageBox.Show("Maksimal jumlah foto yang bisa disusun dalam satu file adalah " & MaxFiles.ToString & " foto." + Environment.NewLine + "Jumlah foto yang ada di dalam folder yang dipilih: " & files.Length.ToString & " foto.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
-            Exit Sub
-        End If
-
-        TotalPages = CInt(Math.Ceiling(files.Length / (TotalTiles + 1)))
+        TotalPages = CInt(Math.Ceiling(TotalFiles / (TotalTiles + 1)))
 
         Dim i As Integer
         Dim index As Integer
         index = 0
         For i = 1 To TotalPages
             If bworker.CancellationPending <> True Then
-                DoPolaroid(files, index, setborder, bworker)
+                DoPolaroid(FileList(args.path), index, args.giveBorder, args.FrameFit, args.autoRotate, bworker)
                 If bworker.CancellationPending <> True AndAlso cdraw.ActiveDocument.Pages.Count < TotalPages Then
                     cdraw.ActiveDocument.AddPages(1)
                     CurrPageIndex += 1
@@ -76,7 +110,7 @@ Public Class ClsFunctions
         cdraw.Application.Refresh()
     End Sub
 
-    Sub DoPolaroid(files() As String, startIndex As Integer, setborder As Boolean, bw As BackgroundWorker)
+    Sub DoPolaroid(files() As String, startIndex As Integer, setborder As Boolean, fitframeopt As Integer, autorotate As Boolean, bw As BackgroundWorker)
         Dim XMaxTile As Integer
         Dim currTile, prevTile As Integer
         Dim photo As Shape
@@ -90,7 +124,7 @@ Public Class ClsFunctions
         cdraw.ActiveDocument.ReferencePoint = cdrReferencePoint.cdrCenter
         cdraw.ActiveDocument.Unit = cdrUnit.cdrMillimeter
 
-        cdraw.ActivePage.SetSize(330, 483)
+        cdraw.ActivePage.SetSize(polproperties.PageWidth, polproperties.PageHeight)
 
         Dim boxes As IList(Of ShapeRange) = New List(Of ShapeRange)()
         Dim i As Integer
@@ -99,13 +133,18 @@ Public Class ClsFunctions
 
         For i = 0 To TotalTiles
             If bw.CancellationPending <> True AndAlso startIndex < files.Length Then
-                AddProgress(bw, "Membuat bingkai " & i + 1 & "/" & TilesCountInAPage & " (Page " & CurrPageIndex & "/" & TotalPages & ")")
+                AddProgress(bw, "Memproses foto " & i + 1 & "/" & TilesCountInAPage & " (Page " & CurrPageIndex & "/" & TotalPages & ")")
                 boxes.Add(CreatePolaroidBox(setborder))
                 photo = getImportImage(files(startIndex))
-                If photo.SizeWidth > photo.SizeHeight Then
-                    photo.Rotate(90)
+
+                'If photo.SizeWidth > photo.SizeHeight And fitframeopt = 0 Then
+                If fitframeopt = 0 Then
+                    If photo.SizeWidth > photo.SizeHeight And autorotate Then photo.Rotate(90)
+                    ScaleImage(photo, polproperties.InnerFrameHeight, polproperties.InnerFrameWidth, 0)
+                Else
+                    ScaleImage(photo, polproperties.InnerFrameHeight, polproperties.InnerFrameWidth, 1)
                 End If
-                ScaleImage(photo, 70, 50)
+
                 photo.AddToPowerClip(boxes(i).Item(2), cdrTriState.cdrTrue)
                 If i > 0 Then
                     If currTile <> XMaxTile Then
@@ -151,15 +190,15 @@ Public Class ClsFunctions
         cdraw.ActiveDocument.DrawingOriginY = cdraw.ActivePage.SizeHeight / 2
 
         Dim border As Shape
-        border = cdraw.ActiveLayer.CreateRectangle(0#, 0#, 60, -90)
+        border = cdraw.ActiveLayer.CreateRectangle(0#, 0#, polproperties.OuterFrameWidth, -polproperties.OuterFrameHeight)
         border.Fill.ApplyNoFill()
         If setborder = False Then border.Outline.SetNoOutline()
 
         Dim photoFrame As Shape
-        photoFrame = cdraw.ActiveLayer.CreateRectangle(0#, 0#, 50, -70)
+        photoFrame = cdraw.ActiveLayer.CreateRectangle(0#, 0#, polproperties.InnerFrameWidth, -polproperties.InnerFrameHeight)
         photoFrame.Fill.ApplyNoFill()
         photoFrame.Outline.SetNoOutline()
-        photoFrame.Move(5, -5)
+        photoFrame.Move(polproperties.InnerFrameMarginX, polproperties.InnerFrameMarginY)
 
         Dim s3 As Shape
         s3 = cdraw.ActiveLayer.CreateRectangle(0#, 1, 1, 0#)
@@ -173,19 +212,37 @@ Public Class ClsFunctions
         CreatePolaroidBox = shRange
     End Function
 
-    Private Sub ScaleImage(ByVal OldImage As Shape, TargetHeight As Integer, ByVal TargetWidth As Integer)
+    'KNOWN ISSUES - TODO: In certain frame sizes these method switched
+    Private Sub ScaleImage(ByVal OldImage As Shape, TargetHeight As Integer, TargetWidth As Integer, Opt As Integer)
         Dim NewWidth As Integer
-        NewWidth = TargetWidth
-
         Dim NewHeight As Integer
-        NewHeight = CInt(NewWidth / OldImage.SizeWidth * OldImage.SizeHeight)
 
-        If NewHeight < TargetHeight Then
-            NewHeight = TargetHeight
-            NewWidth = CInt(NewHeight / OldImage.SizeHeight * OldImage.SizeWidth)
-        End If
+        Select Case Opt
+            Case 0 'Fill to Frame
+                If OldImage.SizeWidth >= OldImage.SizeHeight And TargetWidth <= TargetHeight Then
+                    ScaleRetainHeight(OldImage, TargetHeight, NewWidth, NewHeight)
+                Else
+                    ScaleRetainWidth(OldImage, TargetWidth, NewWidth, NewHeight)
+                End If
+            Case 1 'Fit to Frame
+                If OldImage.SizeWidth >= OldImage.SizeHeight And TargetWidth <= TargetHeight Then
+                    ScaleRetainWidth(OldImage, TargetWidth, NewWidth, NewHeight)
+                Else
+                    ScaleRetainHeight(OldImage, TargetHeight, NewWidth, NewHeight)
+                End If
+        End Select
 
         OldImage.SetSize(NewWidth, NewHeight)
+    End Sub
+
+    Private Shared Sub ScaleRetainWidth(OldImage As Shape, TargetWidth As Integer, ByRef NewWidth As Integer, ByRef NewHeight As Integer)
+        NewWidth = TargetWidth
+        NewHeight = CInt(NewWidth / OldImage.SizeWidth * OldImage.SizeHeight)
+    End Sub
+
+    Private Shared Sub ScaleRetainHeight(OldImage As Shape, TargetHeight As Integer, ByRef NewWidth As Integer, ByRef NewHeight As Integer)
+        NewHeight = TargetHeight
+        NewWidth = CInt(NewHeight / OldImage.SizeHeight * OldImage.SizeWidth)
     End Sub
 
     Private Function getImportImage(ByVal lokasiImage As String) As Shape
@@ -247,10 +304,12 @@ Public Class ClsFunctions
         End If
     End Function
 
-    Public Sub PhotoRotate(Angle As Integer)
+    Public Sub PhotoTools(Opt As PhotoActions, Optional Angle As Integer = 0)
         If cdraw.Documents.Count = 0 Then Exit Sub
 
         cdraw.Application.Optimization = True
+        cdraw.ActiveDocument.ReferencePoint = cdrReferencePoint.cdrCenter
+        cdraw.ActiveDocument.Unit = cdrUnit.cdrMillimeter
 
         If cdraw.ActiveSelection.Shapes.Count = 0 Then
             MessageBox.Show("Mohon pilih salah satu foto.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
@@ -265,58 +324,22 @@ Public Class ClsFunctions
                 S.CreateSelection()
                 Dim photo As Shape
                 photo = GetPowerclipPhoto()
-                If photo IsNot Nothing Then photo.Rotate(Angle)
-            Next
-            shRange.CreateSelection()
-            cdraw.Application.Optimization = False
-            cdraw.Application.Refresh()
-        End If
-    End Sub
-
-    Public Sub PhotoDelete()
-        If cdraw.Documents.Count = 0 Then Exit Sub
-
-        cdraw.Application.Optimization = True
-
-        If cdraw.ActiveSelection.Shapes.Count = 0 Then
-            MessageBox.Show("Mohon pilih salah satu foto.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
-            Exit Sub
-        Else
-            Dim shRange As ShapeRange
-            Dim S As Shape
-
-            shRange = cdraw.ActiveSelectionRange
-
-            For Each S In shRange
-                S.CreateSelection()
-                Dim photo As Shape
-                photo = GetPowerclipPhoto()
-                If photo IsNot Nothing Then photo.Delete()
-            Next
-            shRange.CreateSelection()
-            cdraw.Application.Optimization = False
-            cdraw.Application.Refresh()
-        End If
-    End Sub
-
-    Public Sub PhotoFit()
-        If cdraw.Documents.Count = 0 Then Exit Sub
-
-        cdraw.Application.Optimization = True
-        If cdraw.ActiveSelection.Shapes.Count = 0 Then
-            MessageBox.Show("Mohon pilih salah satu foto.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
-            Exit Sub
-        Else
-            Dim shRange As ShapeRange
-            Dim S As Shape
-
-            shRange = cdraw.ActiveSelectionRange
-
-            For Each S In shRange
-                S.CreateSelection()
-                Dim photo As Shape
-                photo = GetPowerclipPhoto()
-                If photo IsNot Nothing Then ScaleImage(photo, 70, 50)
+                If photo IsNot Nothing Then
+                    Select Case Opt
+                        Case PhotoActions.PhotoRotate
+                            photo.Rotate(Angle)
+                        Case PhotoActions.PhotoFill
+                            ScaleImage(photo, S.SizeHeight, S.SizeWidth, 0)
+                            photo.AlignToShape(cdrAlignType.cdrAlignHCenter, S)
+                            photo.AlignToShape(cdrAlignType.cdrAlignVCenter, S)
+                        Case PhotoActions.PhotoFit
+                            ScaleImage(photo, S.SizeHeight, S.SizeWidth, 1)
+                            photo.AlignToShape(cdrAlignType.cdrAlignHCenter, S)
+                            photo.AlignToShape(cdrAlignType.cdrAlignVCenter, S)
+                        Case PhotoActions.PhotoDelete
+                            photo.Delete()
+                    End Select
+                End If
             Next
             shRange.CreateSelection()
             cdraw.Application.Optimization = False
@@ -325,7 +348,7 @@ Public Class ClsFunctions
     End Sub
 
     Public Function getFiles(ByVal SourceFolder As String, ByVal Filter As String,
-     ByVal searchOption As System.IO.SearchOption) As String()
+ ByVal searchOption As System.IO.SearchOption) As String()
         ' ArrayList will hold all file names
         Dim alFiles As ArrayList = New ArrayList()
 
@@ -343,8 +366,10 @@ Public Class ClsFunctions
     End Function
 
     Public Function CountPhotosInADirectory(ByVal folderPath As String) As Integer
-        Dim files() As String
-        files = getFiles(folderPath, "*.gif|*.jpg|*.jpeg|*.png|*.bmp", SearchOption.TopDirectoryOnly)
-        CountPhotosInADirectory = files.Length
+        CountPhotosInADirectory = FileList(folderPath).Length
+    End Function
+
+    Private Function FileList(ByVal folderPath As String) As String()
+        FileList = getFiles(folderPath, "*.gif|*.jpg|*.jpeg|*.png|*.bmp", SearchOption.TopDirectoryOnly)
     End Function
 End Class

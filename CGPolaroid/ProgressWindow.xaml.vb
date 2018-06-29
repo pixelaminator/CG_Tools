@@ -5,6 +5,15 @@
     Private _ProgressBarPage As Integer
     Private _ProgressMessageStatus As String
 
+    Sub New(dUI As DockerUI)
+
+        ' This call is required by the designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+        MainUI = dUI
+    End Sub
+
     Public Property ProgressBarTotal As Integer
         Get
             Return _ProgressBarTotal
@@ -36,5 +45,6 @@
     End Property
 
     Private Sub bt_cancel_Click(sender As Object, e As System.Windows.RoutedEventArgs) Handles bt_cancel.Click
+        MainUI.bWorker_Cancel()
     End Sub
 End Class
