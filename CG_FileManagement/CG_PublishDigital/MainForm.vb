@@ -46,6 +46,14 @@ Public Class MainForm
         GeneratePreview()
     End Sub
 
+    Private Sub c_permanent_Click(sender As Object, e As EventArgs) Handles c_permanent.Click
+        If c_permanent.Checked = True Then
+            cb_grouppermanent.Enabled = True
+        Else
+            cb_grouppermanent.Enabled = False
+        End If
+    End Sub
+
     Private Sub C_bahan_CheckedChanged(sender As Object, e As EventArgs) Handles c_bahan.CheckedChanged
         'Kalau jenis order tidak berganti tidak usah jalanin code
         If cb_jenisorder.SelectedIndex > -1 AndAlso Not cb_jenisorder.Equals(_SelectedJenisOrderIndex) Then
@@ -205,7 +213,7 @@ Public Class MainForm
     End Sub
 
     Private Sub KodeJenisOrder()
-        ClsFileName.JenisOrder = Globals.JsonObj("cgKodeOrder")(cb_jenisorder.SelectedIndex).ToString
+        ClsFileName.JenisOrder = Globals.JsonObj("cgJenisOrder")("katJenisOrder")(cb_jenisorder.SelectedIndex)("kode").ToString
         GeneratePreview()
     End Sub
 
@@ -369,14 +377,14 @@ Public Class MainForm
     'Do saving here
 
     Private Sub bWorker_DoWork(ByVal sender As Object, e As DoWorkEventArgs) Handles bWorker.DoWork
-        Select Case ClsCDraw.ConvertBitmap(CType(sender, BackgroundWorker))
-            Case 0
-                MessageBox.Show("Ada kesalahan dalam proses convert. Mohon informasikan kesalahan ini ke staff IT.", "Kesalahan Fatal", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Exit Sub
-            Case -1
-                MessageBox.Show("Tidak ada objek yang diconvert.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                Exit Sub
-        End Select
+        'Select Case ClsCDraw.ConvertBitmap(CType(sender, BackgroundWorker))
+        '    Case 0
+        '        MessageBox.Show("Ada kesalahan dalam proses convert. Mohon informasikan kesalahan ini ke staff IT.", "Kesalahan Fatal", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        '        Exit Sub
+        '    Case -1
+        '        MessageBox.Show("Tidak ada objek yang diconvert.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        '        Exit Sub
+        'End Select
     End Sub
 
     Private Sub bWorker_ProgressChanged() Handles bWorker.ProgressChanged
@@ -403,7 +411,7 @@ Public Class MainForm
         Next
     End Sub
 
-    Private Sub bt_OK_Click(sender As Object, e As EventArgs)
+    Private Sub bt_OK_Click(sender As Object, e As EventArgs) Handles bt_OK.Click
         _TooltipShown = False
         errProvider.Clear()
         If Me.ValidateChildren() Then

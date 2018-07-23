@@ -158,7 +158,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="WindowsBase" />
-    <Reference Include="c:\program files\corel\coreldraw graphics suite x7\programs64\Assemblies\Corel.Interop.VGCore.dll" Condition="'$(Configuration)'=='X7 Debug'">
+    <Reference Include="c:\program files\corel\coreldraw graphics suite x7\programs64\Assemblies\Corel.Interop.VGCore.491.dll" Condition="'$(Configuration)'=='X7 Debug'">
       <Name>Corel.Interop.VGCore</Name>
       <Private>False</Private>
     </Reference>
@@ -174,7 +174,7 @@
       <Name>Corel.Interop.VGCore</Name>
       <Private>False</Private>
     </Reference>
-    <Reference Include="c:\program files\corel\coreldraw graphics suite x7\programs64\Assemblies\Corel.Interop.VGCore.dll" Condition="'$(Configuration)'=='X7 Release'">
+    <Reference Include="c:\program files\corel\coreldraw graphics suite x7\programs64\Assemblies\Corel.Interop.VGCore.491.dll" Condition="'$(Configuration)'=='X7 Release'">
       <Name>Corel.Interop.VGCore</Name>
       <Private>False</Private>
     </Reference>

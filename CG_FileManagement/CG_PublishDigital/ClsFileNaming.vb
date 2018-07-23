@@ -15,10 +15,12 @@ Public Class ClsFileNaming
     Public SisiMuka As String = ""
     Public TypeImposition As String = ""
     Public LayoutSize As String = ""
-    Public KodeFinishing As String = ""
+    Public KodeFinishing As String = "NF"
 
     Public Function DoFileName() As String
         ReDim NamaFile(13)
+
+        If KodeFinishing = "" Then KodeFinishing = "NF"
 
         NamaFile(0) = NamaSetter
         NamaFile(1) = Tanggal

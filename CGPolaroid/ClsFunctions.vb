@@ -16,6 +16,8 @@ Public Class ClsFunctions
         Public InnerFrameHeight As Integer
         Public InnerFrameMarginX As Integer
         Public InnerFrameMarginY As Integer
+        Public TotalTiles As Integer
+        Public XMaxTilesInPage As Integer
     End Class
 
     Dim lastAppliedIndex As Integer
@@ -25,7 +27,7 @@ Public Class ClsFunctions
     Dim ProcessedFiles As Integer
     Dim PageOrientation As Integer
     Dim polproperties As New PolaroidProperties
-    Const TotalTiles As Integer = 24 'change this when dynamic generator implemented
+    Dim TotalTiles As Integer 'change this when dynamic generator implemented
     Dim TilesCountInAPage As Integer
     Public ProgressNumber As Integer = 0
     Public ProgressNumberMax As Integer
@@ -41,28 +43,32 @@ Public Class ClsFunctions
     End Enum
 
     Private Sub SetPolaroidProperties(args As bWorkerArgs)
-        If args.PolaroidOrientation = 0 Then
-            polproperties.PageWidth = 330
-            polproperties.PageHeight = 483
-            polproperties.OuterFrameWidth = 60
-            polproperties.OuterFrameHeight = 90
-            polproperties.InnerFrameWidth = 50
-            polproperties.InnerFrameHeight = 70
-            polproperties.InnerFrameMarginX = 5
-            polproperties.InnerFrameMarginY = -5
-        ElseIf args.PolaroidOrientation = 1 Then
-            polproperties.PageWidth = 483
-            polproperties.PageHeight = 330
-            polproperties.OuterFrameWidth = 90
-            polproperties.OuterFrameHeight = 60
-            polproperties.InnerFrameWidth = 80
-            polproperties.InnerFrameHeight = 40
-            polproperties.InnerFrameMarginX = 5
-            polproperties.InnerFrameMarginY = -5
-        End If
+        Select Case args.photoOrientation
+            Case 0
+                polproperties.TotalTiles = 24
+                polproperties.XMaxTilesInPage = 5
+                polproperties.PageWidth = 330
+                polproperties.PageHeight = 483
+                polproperties.OuterFrameWidth = 60
+                polproperties.OuterFrameHeight = 90
+                polproperties.InnerFrameWidth = 50
+                polproperties.InnerFrameHeight = 70
+                polproperties.InnerFrameMarginX = 5
+                polproperties.InnerFrameMarginY = -5
+            Case 1
+                polproperties.TotalTiles = 24
+                polproperties.XMaxTilesInPage = 5
+                polproperties.PageWidth = 483
+                polproperties.PageHeight = 330
+                polproperties.OuterFrameWidth = 90
+                polproperties.OuterFrameHeight = 60
+                polproperties.InnerFrameWidth = 80
+                polproperties.InnerFrameHeight = 40
+                polproperties.InnerFrameMarginX = 5
+                polproperties.InnerFrameMarginY = -5
+        End Select
     End Sub
 
-    'Public Sub InitPolaroid(folderPath As String, setborder As Boolean, bworker As BackgroundWorker)
     Public Sub InitPolaroid(args As bWorkerArgs, bworker As BackgroundWorker)
         SetPolaroidProperties(args)
         cdraw.CreateDocument()
@@ -70,10 +76,11 @@ Public Class ClsFunctions
         cdraw.ActiveDocument.ReferencePoint = cdrReferencePoint.cdrCenter
         cdraw.ActiveDocument.Unit = cdrUnit.cdrMillimeter
 
+        TotalTiles = polproperties.TotalTiles
         TotalFiles = FileList(args.path).Length
         CurrPageIndex = 1
         ProcessedFiles = 0
-        PageOrientation = args.PolaroidOrientation
+        PageOrientation = args.photoOrientation
 
         If TotalFiles <= TotalTiles + 1 Then
             TilesCountInAPage = TotalFiles
@@ -115,7 +122,7 @@ Public Class ClsFunctions
         Dim currTile, prevTile As Integer
         Dim photo As Shape
 
-        XMaxTile = 5
+        XMaxTile = polproperties.XMaxTilesInPage
         currTile = 1
         prevTile = 0
 
@@ -156,7 +163,7 @@ Public Class ClsFunctions
                         boxes(currTile).PositionY = boxes(currTile - 4).PositionY - boxes(currTile - 4).SizeHeight
                         currTile = currTile + 1
                         prevTile = prevTile + 1
-                        XMaxTile = XMaxTile + 5
+                        XMaxTile = XMaxTile + polproperties.XMaxTilesInPage
                     End If
                 End If
                 startIndex += 1

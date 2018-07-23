@@ -45,18 +45,16 @@ Module Main
         If FileIO.BaseURLValid = False Then Exit Sub
 
         Globals.SaveOption = 0
-        Dim start As New StartForm
-        start.ShowDialog()
 
         Dim publish As New MainForm
         publish.ShowDialog()
     End Sub
 
-    <DllExport("CGTestSaving")>
-    Public Sub CG_TestSaving()
-        Dim testSave As New SavingTest
-        testSave.Show()
-    End Sub
+    '<DllExport("CGTestSaving")>
+    'Public Sub CG_TestSaving()
+    '    Dim testSave As New SavingTest
+    '    testSave.Show()
+    'End Sub
 
     Private Function SettingJSONLoaded() As Boolean
         jsonPath = Application.StartupPath + "\Addons\CG_Tools\cgSave.json"

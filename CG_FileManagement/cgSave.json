@@ -1,12 +1,12 @@
 {
   "cgConfig": {
-    "PDFExport": true,
     "___BaseURL": "\\\\10.10.0.10\\cgdigital",
     "BaseURL": "D:\\Datacenter\\cgdigital",
     "BaseURLOutsourcing": "\\\\10.10.0.10\\graha\\Setting\\Outsourching",
     "BaseURLLocalNonPermanent": "D:\\NON PERMANENT",
     "BaseURLFileKonsumen": "D:\\FILE KONSUMEN",
-    "folderGraha": false
+    "PDFExport": true,
+    "folderDivisi": ""
   },
   "cgPreset": {
     "customer": [
@@ -18,10 +18,6 @@
     ]
   },
   "cgSetter": [
-    {
-      "nama": "Aditya Nugraha",
-      "kode": "Ad"
-    },
     {
       "nama": "Tubagus Maulana Dzikri",
       "kode": "T"
@@ -39,12 +35,20 @@
       "kode": "An"
     },
     {
-      "nama": "Ika Adhityaning Saputri",
-      "kode": "I"
-    },
-    {
       "nama": "Muhammad Vico Irsandi",
       "kode": "V"
+    },
+    {
+      "nama": "Asep Saipul Hasan",
+      "kode": "As"
+    },
+    {
+      "nama": "Wildan Hadi Nugroho",
+      "kode": "W"
+    },
+    {
+      "nama": "Szalfrendyo Alfarizki H.R.",
+      "kode": "Dy"
     },
     {
       "nama": "Kasir",
@@ -56,7 +60,19 @@
       {
         "nama": "A3 Color",
         "id": "a3color",
+        "kode": "X8",
         "satuan": "LBR",
+        "savedir": "Digital A3",
+        "bahaneditable": true,
+        "useimposition": true,
+        "layouteditable": false
+      },
+      {
+        "nama": "Photo Print",
+        "id": "photo",
+        "kode": "PTP",
+        "satuan": "LBR",
+        "savedir": "Photo Print",
         "bahaneditable": true,
         "useimposition": true,
         "layouteditable": false
@@ -64,7 +80,9 @@
       {
         "nama": "Kartu Nama",
         "id": "kartunama",
+        "kode": "KN",
         "satuan": "BOX",
+        "savedir": "Digital A3",
         "bahaneditable": false,
         "useimposition": true,
         "layouteditable": false
@@ -72,7 +90,9 @@
       {
         "nama": "Brosur",
         "id": "brosur",
+        "kode": "BR",
         "satuan": "RIM",
+        "savedir": "Digital A3",
         "bahaneditable": false,
         "useimposition": true,
         "layouteditable": false
@@ -80,7 +100,9 @@
       {
         "nama": "Large Format (Banner)",
         "id": "largeformat",
+        "kode": "LF",
         "satuan": "PCS",
+        "savedir": "Digital Banner",
         "bahaneditable": false,
         "useimposition": false,
         "layouteditable": true
@@ -88,7 +110,9 @@
       {
         "nama": "A3 Black & White",
         "id": "a3bw",
+        "kode": "X0",
         "satuan": "LBR",
+        "savedir": "Digital A3",
         "bahaneditable": true,
         "useimposition": true,
         "layouteditable": false
@@ -302,6 +326,33 @@
           "duamuka": true
         }
       ],
+      "photo": [
+        {
+          "bahan": "ART CARTON 260",
+          "kode": "AC260",
+          "duamuka": false
+        },
+        {
+          "bahan": "MATTE PAPER",
+          "kode": "MTP",
+          "duamuka": false
+        },
+        {
+          "bahan": "PHOTO PAPER",
+          "kode": "PTP",
+          "duamuka": false
+        },
+        {
+          "bahan": "PYRAMID",
+          "kode": "PYR",
+          "duamuka": false
+        },
+        {
+          "bahan": "CANVAS",
+          "kode": "CNVS",
+          "duamuka": false
+        }
+      ],
       "kartunama": [
         {
           "bahan": "ART CARTON 230",
@@ -489,13 +540,6 @@
       ]
     }
   },
-  "cgKodeOrder": [
-    "X8",
-    "KN",
-    "BR",
-    "LF",
-    "X0"
-  ],
   "cgFinishing": {
     "kategori": [
       {
@@ -607,6 +651,24 @@
       {
         "type": "Mata Itik",
         "kode": "MTIK"
+      }
+    ],
+    "photo": [
+      {
+        "type": "Canvas",
+        "kode": "CVS"
+      },
+      {
+        "type": "Panel",
+        "kode": "PNL"
+      },
+      {
+        "type": "Spanram",
+        "kode": "SPN"
+      },
+      {
+        "type": "Photobook",
+        "kode": "PHB"
       }
     ],
     "largeformat": [
@@ -741,34 +803,37 @@
       "Calendar",
       "Corporate ID",
       "Invitation Card"
-    ],
-    "promoitem": [
-      "A3 COLOR",
-      "BROSUR",
-      "LARGE FORMAT (BANNER)",
-      "A3 BLACK WHITE"
-    ],
-    "formadmin": [
-      "A3 COLOR",
-      "A3 BLACK WHITE"
-    ],
-    "calendar": [
-      "A3 COLOR",
-      "A3 BLACK WHITE"
-    ],
-    "corporateid": [
-      "A3 COLOR",
-      "KARTU NAMA",
-      "LARGE FORMAT (BANNER)"
-    ],
-    "invitationcard": [
-      "A3 COLOR",
-      "A3 BLACK WHITE"
     ]
   },
   "cgLayout": {
     "layoutsize": {
       "a3color": [
+        {
+          "type": "1 UP (1 A3+)",
+          "kode": "1UP"
+        },
+        {
+          "type": "2 UP (1/2 A3+)",
+          "kode": "2UP"
+        },
+        {
+          "type": "4 UP (1/4 A3+)",
+          "kode": "4UP"
+        },
+        {
+          "type": "8 UP (1/8 A3+)",
+          "kode": "8UP"
+        },
+        {
+          "type": "16 UP (1/16 A3+)",
+          "kode": "16UP"
+        },
+        {
+          "type": "MULTIPLE UP",
+          "kode": "MUP"
+        }
+      ],
+      "photo": [
         {
           "type": "1 UP (1 A3+)",
           "kode": "1UP"

@@ -13,13 +13,16 @@ Public Class ClsFileIO
     Dim BulanNama As String
     Dim Tanggal As String = Date.Today.Day.ToString
     'Dim RootDir As Dictionary(Of String, JArray) = jhandler.ParseJsonToDictionary(Globals.JsonObj("cgConfig")("TopDirectory"))
-    'Dim FolderTipe As Dictionary(Of String, JArray) = jhandler.ParseJsonToDictionary(Globals.JsonObj("cgConfig")("FolderTipeFile"))
     'Dim FolderDivisi As Dictionary(Of String, JArray) = jhandler.ParseJsonToDictionary(Globals.JsonObj("cgConfig")("FolderDivisi"))
     'Dim FolderJenisOrder As Dictionary(Of String, JArray) = jhandler.ParseJsonToDictionary(Globals.JsonObj("cgConfig")("FolderJenisOrder"))
 
-    Private Function GetEnglishMonth() As String
-        Dim monthNames As New List(Of String) From {"", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
-        GetEnglishMonth = monthNames(Date.Today.Month)
+    'Private Function GetEnglishMonth() As String
+    '    Dim monthNames As New List(Of String) From {"", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
+    '    GetEnglishMonth = monthNames(Date.Today.Month)
+    'End Function
+
+    Private Function SaveDirectory(ByVal FileType As String, TopDir As String, jenisorder As Integer) As String
+        SaveDirectory = BaseURL + "\" + TopDir + "\" + FileType + "\" + Globals.JsonObj("cgJenisOrder")("katJenisOrder")(jenisorder)("savedir").ToString + "\" + Tahun + "\" + Bulan + "\" + Tanggal
     End Function
 
     Private Function CreateFolders(ByVal Path As String) As Integer
