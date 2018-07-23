@@ -14,12 +14,12 @@ Public Class ClsFunctions
     Dim CurrPageIndex As Integer = 1
     Dim TotalPages As Integer
     Dim MaxFiles As Integer = 500
-    Const TotalTiles As Integer = 14
+    Const TotalTiles As Integer = 24
     Public ProgressNumber As Integer = 0
     Public ProgressNumberMax As Integer
     Public ProgressMessage As String
 
-    Public Sub InitPolaroid(folderPath As String, bworker As BackgroundWorker)
+    Public Sub InitPolaroid(folderPath As String, setborder As Boolean, bworker As BackgroundWorker)
         cdraw.ActiveDocument.ReferencePoint = cdrReferencePoint.cdrCenter
         cdraw.ActiveDocument.Unit = cdrUnit.cdrMillimeter
 
@@ -38,7 +38,7 @@ Public Class ClsFunctions
         index = 0
         For i = 1 To TotalPages
             If bworker.CancellationPending <> True Then
-                DoPolaroid(files, index, bworker)
+                DoPolaroid(files, index, setborder, bworker)
                 If bworker.CancellationPending <> True AndAlso cdraw.ActiveDocument.Pages.Count < TotalPages Then
                     cdraw.ActiveDocument.AddPages(1)
                     CurrPageIndex += 1
@@ -54,7 +54,7 @@ Public Class ClsFunctions
         cdraw.Application.Refresh()
     End Sub
 
-    Sub DoPolaroid(files() As String, startIndex As Integer, bw As BackgroundWorker)
+    Sub DoPolaroid(files() As String, startIndex As Integer, setborder As Boolean, bw As BackgroundWorker)
         Dim XMaxTile As Integer
         Dim currTile, prevTile As Integer
         Dim photo As Shape
@@ -67,7 +67,7 @@ Public Class ClsFunctions
         cdraw.ActiveDocument.ReferencePoint = cdrReferencePoint.cdrCenter
         cdraw.ActiveDocument.Unit = cdrUnit.cdrMillimeter
 
-        cdraw.ActivePage.SetSize(483, 330)
+        cdraw.ActivePage.SetSize(330, 483)
 
         Dim boxes As IList(Of ShapeRange) = New List(Of ShapeRange)()
         Dim i As Integer
@@ -77,12 +77,12 @@ Public Class ClsFunctions
         For i = 0 To TotalTiles
             If bw.CancellationPending <> True AndAlso startIndex < files.Length Then
                 AddProgress(bw, "Membuat bingkai " & i + 1 & "/" & TotalTiles + 1 & " (Page " & CurrPageIndex & "/" & TotalPages & ")")
-                boxes.Add(CreatePolaroidBox)
+                boxes.Add(CreatePolaroidBox(setborder))
                 photo = getImportImage(files(startIndex))
-                'If photo.SizeWidth > photo.SizeHeight Then
-                'photo.Rotate(90)
-                'End If
-                ScaleImage(photo, 80, 80)
+                If photo.SizeWidth > photo.SizeHeight Then
+                    photo.Rotate(90)
+                End If
+                ScaleImage(photo, 70, 50)
                 photo.AddToPowerClip(boxes(i).Item(2), cdrTriState.cdrTrue)
                 If i > 0 Then
                     If currTile <> XMaxTile Then
@@ -119,19 +119,19 @@ Public Class ClsFunctions
         ProgressMessage = msg
     End Sub
 
-    Function CreatePolaroidBox() As ShapeRange
+    Function CreatePolaroidBox(setborder As Boolean) As ShapeRange
         Dim shRange As New ShapeRange
 
         cdraw.ActiveDocument.DrawingOriginX = -cdraw.ActivePage.SizeWidth / 2
         cdraw.ActiveDocument.DrawingOriginY = cdraw.ActivePage.SizeHeight / 2
 
         Dim border As Shape
-        border = cdraw.ActiveLayer.CreateRectangle(0#, 0#, 90, -90)
+        border = cdraw.ActiveLayer.CreateRectangle(0#, 0#, 60, -90)
         border.Fill.ApplyNoFill()
-        border.Outline.SetNoOutline()
+        If setborder = False Then border.Outline.SetNoOutline()
 
         Dim photoFrame As Shape
-        photoFrame = cdraw.ActiveLayer.CreateRectangle(0#, 0#, 80, -80)
+        photoFrame = cdraw.ActiveLayer.CreateRectangle(0#, 0#, 50, -70)
         photoFrame.Fill.ApplyNoFill()
         photoFrame.Outline.SetNoOutline()
         photoFrame.Move(5, -5)

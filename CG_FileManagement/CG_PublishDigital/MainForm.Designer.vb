@@ -24,6 +24,8 @@ Partial Class MainForm
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.gr_datacustomer = New System.Windows.Forms.GroupBox()
+        Me.cb_grouppermanent = New System.Windows.Forms.ComboBox()
+        Me.c_permanent = New System.Windows.Forms.CheckBox()
         Me.cb_presetcustomer = New System.Windows.Forms.ComboBox()
         Me.t_judulfile = New System.Windows.Forms.TextBox()
         Me.t_customer = New System.Windows.Forms.TextBox()
@@ -64,6 +66,8 @@ Partial Class MainForm
         Me.tb_Finishing = New System.Windows.Forms.TabControl()
         Me.tb_finishinga3 = New System.Windows.Forms.TabPage()
         Me.pn_finishinga3 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.tb_finishingptp = New System.Windows.Forms.TabPage()
+        Me.pn_finishingptp = New System.Windows.Forms.FlowLayoutPanel()
         Me.tb_finishingkn = New System.Windows.Forms.TabPage()
         Me.pn_finishingkn = New System.Windows.Forms.FlowLayoutPanel()
         Me.tb_finishingbr = New System.Windows.Forms.TabPage()
@@ -99,6 +103,7 @@ Partial Class MainForm
         Me.GroupBox6.SuspendLayout()
         Me.tb_Finishing.SuspendLayout()
         Me.tb_finishinga3.SuspendLayout()
+        Me.tb_finishingptp.SuspendLayout()
         Me.tb_finishingkn.SuspendLayout()
         Me.tb_finishingbr.SuspendLayout()
         Me.tb_finishinglf.SuspendLayout()
@@ -114,6 +119,8 @@ Partial Class MainForm
         '
         'gr_datacustomer
         '
+        Me.gr_datacustomer.Controls.Add(Me.cb_grouppermanent)
+        Me.gr_datacustomer.Controls.Add(Me.c_permanent)
         Me.gr_datacustomer.Controls.Add(Me.cb_presetcustomer)
         Me.gr_datacustomer.Controls.Add(Me.t_judulfile)
         Me.gr_datacustomer.Controls.Add(Me.t_customer)
@@ -121,10 +128,31 @@ Partial Class MainForm
         Me.gr_datacustomer.Controls.Add(Me.Label3)
         Me.gr_datacustomer.Location = New System.Drawing.Point(12, 65)
         Me.gr_datacustomer.Name = "gr_datacustomer"
-        Me.gr_datacustomer.Size = New System.Drawing.Size(549, 86)
+        Me.gr_datacustomer.Size = New System.Drawing.Size(549, 110)
         Me.gr_datacustomer.TabIndex = 1
         Me.gr_datacustomer.TabStop = False
         Me.gr_datacustomer.Text = "Data Customer"
+        '
+        'cb_grouppermanent
+        '
+        Me.cb_grouppermanent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cb_grouppermanent.Enabled = False
+        Me.cb_grouppermanent.FormattingEnabled = True
+        Me.cb_grouppermanent.Location = New System.Drawing.Point(252, 80)
+        Me.cb_grouppermanent.Name = "cb_grouppermanent"
+        Me.cb_grouppermanent.Size = New System.Drawing.Size(153, 21)
+        Me.cb_grouppermanent.TabIndex = 21
+        '
+        'c_permanent
+        '
+        Me.c_permanent.AutoSize = True
+        Me.c_permanent.Location = New System.Drawing.Point(96, 82)
+        Me.c_permanent.Name = "c_permanent"
+        Me.c_permanent.Size = New System.Drawing.Size(150, 17)
+        Me.c_permanent.TabIndex = 20
+        Me.c_permanent.Text = "Salin ke Folder Permanent"
+        Me.c_permanent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.c_permanent.UseVisualStyleBackColor = True
         '
         'cb_presetcustomer
         '
@@ -138,7 +166,7 @@ Partial Class MainForm
         '
         't_judulfile
         '
-        Me.t_judulfile.Location = New System.Drawing.Point(95, 54)
+        Me.t_judulfile.Location = New System.Drawing.Point(95, 53)
         Me.t_judulfile.Name = "t_judulfile"
         Me.t_judulfile.Size = New System.Drawing.Size(447, 20)
         Me.t_judulfile.TabIndex = 3
@@ -185,7 +213,7 @@ Partial Class MainForm
         Me.g_datasetting.Controls.Add(Me.Label7)
         Me.g_datasetting.Controls.Add(Me.Label6)
         Me.g_datasetting.Controls.Add(Me.Label5)
-        Me.g_datasetting.Location = New System.Drawing.Point(12, 158)
+        Me.g_datasetting.Location = New System.Drawing.Point(12, 180)
         Me.g_datasetting.Name = "g_datasetting"
         Me.g_datasetting.Size = New System.Drawing.Size(299, 206)
         Me.g_datasetting.TabIndex = 2
@@ -329,7 +357,7 @@ Partial Class MainForm
         Me.g_cdr.Controls.Add(Me.rb_noconv)
         Me.g_cdr.Controls.Add(Me.rb_convbitmap)
         Me.g_cdr.Controls.Add(Me.rb_convcurve)
-        Me.g_cdr.Location = New System.Drawing.Point(317, 158)
+        Me.g_cdr.Location = New System.Drawing.Point(317, 180)
         Me.g_cdr.Name = "g_cdr"
         Me.g_cdr.Size = New System.Drawing.Size(123, 97)
         Me.g_cdr.TabIndex = 3
@@ -372,7 +400,7 @@ Partial Class MainForm
         Me.g_pdf.Controls.Add(Me.rb_setpage)
         Me.g_pdf.Controls.Add(Me.rb_currpage)
         Me.g_pdf.Controls.Add(Me.rb_allpage)
-        Me.g_pdf.Location = New System.Drawing.Point(446, 159)
+        Me.g_pdf.Location = New System.Drawing.Point(446, 181)
         Me.g_pdf.Name = "g_pdf"
         Me.g_pdf.Size = New System.Drawing.Size(115, 97)
         Me.g_pdf.TabIndex = 4
@@ -424,7 +452,7 @@ Partial Class MainForm
         Me.GroupBox6.Controls.Add(Me.Label11)
         Me.GroupBox6.Controls.Add(Me.cb_layout)
         Me.GroupBox6.Controls.Add(Me.Label10)
-        Me.GroupBox6.Location = New System.Drawing.Point(318, 261)
+        Me.GroupBox6.Location = New System.Drawing.Point(318, 283)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Size = New System.Drawing.Size(243, 104)
         Me.GroupBox6.TabIndex = 5
@@ -490,11 +518,12 @@ Partial Class MainForm
         'tb_Finishing
         '
         Me.tb_Finishing.Controls.Add(Me.tb_finishinga3)
+        Me.tb_Finishing.Controls.Add(Me.tb_finishingptp)
         Me.tb_Finishing.Controls.Add(Me.tb_finishingkn)
         Me.tb_Finishing.Controls.Add(Me.tb_finishingbr)
         Me.tb_Finishing.Controls.Add(Me.tb_finishinglf)
         Me.tb_Finishing.Controls.Add(Me.tb_finishingbw)
-        Me.tb_Finishing.Location = New System.Drawing.Point(13, 371)
+        Me.tb_Finishing.Location = New System.Drawing.Point(13, 393)
         Me.tb_Finishing.Name = "tb_Finishing"
         Me.tb_Finishing.SelectedIndex = 0
         Me.tb_Finishing.Size = New System.Drawing.Size(548, 174)
@@ -520,6 +549,25 @@ Partial Class MainForm
         Me.pn_finishinga3.Name = "pn_finishinga3"
         Me.pn_finishinga3.Size = New System.Drawing.Size(531, 142)
         Me.pn_finishinga3.TabIndex = 0
+        '
+        'tb_finishingptp
+        '
+        Me.tb_finishingptp.Controls.Add(Me.pn_finishingptp)
+        Me.tb_finishingptp.Location = New System.Drawing.Point(4, 22)
+        Me.tb_finishingptp.Name = "tb_finishingptp"
+        Me.tb_finishingptp.Size = New System.Drawing.Size(540, 148)
+        Me.tb_finishingptp.TabIndex = 5
+        Me.tb_finishingptp.Text = "Finishing Photo Print"
+        Me.tb_finishingptp.UseVisualStyleBackColor = True
+        '
+        'pn_finishingptp
+        '
+        Me.pn_finishingptp.AutoScroll = True
+        Me.pn_finishingptp.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
+        Me.pn_finishingptp.Location = New System.Drawing.Point(5, 3)
+        Me.pn_finishingptp.Name = "pn_finishingptp"
+        Me.pn_finishingptp.Size = New System.Drawing.Size(531, 142)
+        Me.pn_finishingptp.TabIndex = 1
         '
         'tb_finishingkn
         '
@@ -671,7 +719,7 @@ Partial Class MainForm
         'g_preview
         '
         Me.g_preview.Controls.Add(Me.t_preview)
-        Me.g_preview.Location = New System.Drawing.Point(13, 547)
+        Me.g_preview.Location = New System.Drawing.Point(13, 569)
         Me.g_preview.Name = "g_preview"
         Me.g_preview.Size = New System.Drawing.Size(548, 42)
         Me.g_preview.TabIndex = 7
@@ -689,7 +737,7 @@ Partial Class MainForm
         '
         'bt_cancel
         '
-        Me.bt_cancel.Location = New System.Drawing.Point(486, 595)
+        Me.bt_cancel.Location = New System.Drawing.Point(486, 617)
         Me.bt_cancel.Name = "bt_cancel"
         Me.bt_cancel.Size = New System.Drawing.Size(75, 23)
         Me.bt_cancel.TabIndex = 0
@@ -698,7 +746,7 @@ Partial Class MainForm
         '
         'bt_OK
         '
-        Me.bt_OK.Location = New System.Drawing.Point(405, 595)
+        Me.bt_OK.Location = New System.Drawing.Point(405, 617)
         Me.bt_OK.Name = "bt_OK"
         Me.bt_OK.Size = New System.Drawing.Size(75, 23)
         Me.bt_OK.TabIndex = 9
@@ -715,7 +763,7 @@ Partial Class MainForm
         '
         Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.statuslabel, Me.tsProgBar})
         Me.StatusStrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
-        Me.StatusStrip.Location = New System.Drawing.Point(0, 630)
+        Me.StatusStrip.Location = New System.Drawing.Point(0, 655)
         Me.StatusStrip.Name = "StatusStrip"
         Me.StatusStrip.Size = New System.Drawing.Size(570, 22)
         Me.StatusStrip.SizingGrip = False
@@ -731,7 +779,7 @@ Partial Class MainForm
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(13, 595)
+        Me.Button1.Location = New System.Drawing.Point(13, 617)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 12
@@ -764,7 +812,7 @@ Partial Class MainForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoValidate = System.Windows.Forms.AutoValidate.Disable
-        Me.ClientSize = New System.Drawing.Size(570, 652)
+        Me.ClientSize = New System.Drawing.Size(570, 677)
         Me.Controls.Add(Me.pb_header)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.StatusStrip)
@@ -796,6 +844,7 @@ Partial Class MainForm
         Me.GroupBox6.PerformLayout()
         Me.tb_Finishing.ResumeLayout(False)
         Me.tb_finishinga3.ResumeLayout(False)
+        Me.tb_finishingptp.ResumeLayout(False)
         Me.tb_finishingkn.ResumeLayout(False)
         Me.tb_finishingbr.ResumeLayout(False)
         Me.tb_finishinglf.ResumeLayout(False)
@@ -882,4 +931,8 @@ Partial Class MainForm
     Friend WithEvents pgNumRange As System.Windows.Forms.TextBox
     Friend WithEvents errProvider As System.Windows.Forms.ErrorProvider
     Friend WithEvents pb_header As System.Windows.Forms.PictureBox
+    Friend WithEvents tb_finishingptp As System.Windows.Forms.TabPage
+    Friend WithEvents pn_finishingptp As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents c_permanent As System.Windows.Forms.CheckBox
+    Friend WithEvents cb_grouppermanent As System.Windows.Forms.ComboBox
 End Class

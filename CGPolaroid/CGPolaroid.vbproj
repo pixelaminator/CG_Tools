@@ -7,20 +7,21 @@
     </ProductVersion>
     <SchemaVersion>
     </SchemaVersion>
-    <ProjectGuid>{5E57F7F0-4D59-463A-BD65-3DACA25C4BF3}</ProjectGuid>
-    <OutputDocker>Library</OutputDocker>
-    <RootNamespace>CG_Undangan</RootNamespace>
-    <AssemblyName>CG_Undangan</AssemblyName>
+    <ProjectGuid>{94CF5BA2-45C2-4EF6-98CA-638B6DBADAFF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>CG_Polaroid</RootNamespace>
+    <AssemblyName>CG_Polaroid</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyDocker>Custom</MyDocker>
+    <MyType>Custom</MyType>
     <OutputPath>bin\Debug\</OutputPath>
     <OutDir>bin\Debug\$(SolutionName)</OutDir>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
     <!--<TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>-->
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X7 Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugDocker>full</DebugDocker>
+    <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
@@ -29,9 +30,11 @@
     </DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DefineConstants>X7</DefineConstants>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X7 Release|AnyCPU' ">
-    <DebugDocker>none</DebugDocker>
+    <DebugType>none</DebugType>
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
@@ -41,10 +44,11 @@
     </DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DefineConstants>X7</DefineConstants>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X8 Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugDocker>full</DebugDocker>
+    <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
@@ -53,9 +57,10 @@
     </DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DefineConstants>X8</DefineConstants>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X8 Release|AnyCPU' ">
-    <DebugDocker>none</DebugDocker>
+    <DebugType>none</DebugType>
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
@@ -65,10 +70,11 @@
     </DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DefineConstants>X8</DefineConstants>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == '2017 Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugDocker>full</DebugDocker>
+    <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
@@ -77,9 +83,10 @@
     </DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DefineConstants>X9</DefineConstants>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == '2017 Release|AnyCPU' ">
-    <DebugDocker>none</DebugDocker>
+    <DebugType>none</DebugType>
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
@@ -89,6 +96,36 @@
     </DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DefineConstants>X9</DefineConstants>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == '2018 Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <OutDir>bin\Debug\$(SolutionName)</OutDir>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DefineConstants>X10</DefineConstants>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == '2018 Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\2018\</OutputPath>
+    <OutDir>bin\Release\2018\$(SolutionName)</OutDir>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DefineConstants>X10</DefineConstants>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -102,45 +139,16 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
-  <PropertyGroup>
-    <OutputType>Library</OutputType>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
-  <PropertyGroup>
-    <MyType>Windows</MyType>
-  </PropertyGroup>
   <ItemGroup>
     <!--<Import Include="$CorelProgramPath$Assemblies\Corel.Interop.VGCore.dll" />-->
     <Import Include="c:\program files\corel\coreldraw graphics suite x7\programs64\Assemblies\Corel.Interop.VGCore.dll" />
     <Import Include="c:\program files\corel\coreldraw graphics suite x8\programs64\Assemblies\Corel.Interop.VGCore.dll" />
     <Import Include="c:\program files\corel\coreldraw graphics suite 2017\programs64\Assemblies\Corel.Interop.VGCore.dll" />
+    <Import Include="c:\program files\corel\coreldraw graphics suite 2018\programs64\Assemblies\Corel.Interop.VGCore.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="ComponentFactory.Krypton.Design">
-      <HintPath>..\..\Krypton-master\build\bin\Release\ComponentFactory.Krypton.Design.dll</HintPath>
-    </Reference>
-    <Reference Include="ComponentFactory.Krypton.Docking">
-      <HintPath>..\..\Krypton-master\build\bin\Release\ComponentFactory.Krypton.Docking.dll</HintPath>
-    </Reference>
-    <Reference Include="ComponentFactory.Krypton.Navigator">
-      <HintPath>..\..\Krypton-master\build\bin\Release\ComponentFactory.Krypton.Navigator.dll</HintPath>
-    </Reference>
-    <Reference Include="ComponentFactory.Krypton.Ribbon">
-      <HintPath>..\..\Krypton-master\build\bin\Release\ComponentFactory.Krypton.Ribbon.dll</HintPath>
-    </Reference>
-    <Reference Include="ComponentFactory.Krypton.Toolkit">
-      <HintPath>..\..\Krypton-master\build\bin\Release\ComponentFactory.Krypton.Toolkit.dll</HintPath>
-    </Reference>
-    <Reference Include="DllExport, Version=1.6.0.40687, Culture=neutral, PublicKeyToken=8337224c9ad9e356">
-      <HintPath>..\packages\DllExport.1.6.0-beta2\gcache\metalib\RGiesecke.DllExport\DllExport.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -149,9 +157,8 @@
     <Reference Include="System.Xaml" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
-    <Reference Include="c:\program files\corel\coreldraw graphics suite x7\programs64\Assemblies\Corel.Interop.VGCore.dll" Condition="'$(Configuration)'=='X7 Debug'">
+    <Reference Include="c:\program files\corel\coreldraw graphics suite x7\programs64\Assemblies\Corel.Interop.VGCore.491.dll" Condition="'$(Configuration)'=='X7 Debug'">
       <Name>Corel.Interop.VGCore</Name>
       <Private>False</Private>
     </Reference>
@@ -163,7 +170,11 @@
       <Name>Corel.Interop.VGCore</Name>
       <Private>False</Private>
     </Reference>
-    <Reference Include="c:\program files\corel\coreldraw graphics suite x7\programs64\Assemblies\Corel.Interop.VGCore.dll" Condition="'$(Configuration)'=='X7 Release'">
+    <Reference Include="c:\program files\corel\coreldraw graphics suite 2018\programs64\Assemblies\Corel.Interop.VGCore.dll" Condition="'$(Configuration)'=='2018 Debug'">
+      <Name>Corel.Interop.VGCore</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="c:\program files\corel\coreldraw graphics suite x7\programs64\Assemblies\Corel.Interop.VGCore.491.dll" Condition="'$(Configuration)'=='X7 Release'">
       <Name>Corel.Interop.VGCore</Name>
       <Private>False</Private>
     </Reference>
@@ -175,18 +186,34 @@
       <Name>Corel.Interop.VGCore</Name>
       <Private>False</Private>
     </Reference>
-    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="c:\program files\corel\coreldraw graphics suite 2018\programs64\Assemblies\Corel.Interop.VGCore.dll" Condition="'$(Configuration)'=='2018 Release'">
+      <Name>Corel.Interop.VGCore</Name>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main.vb" />
-    <Compile Include="MainForm.Designer.vb">
-      <DependentUpon>MainForm.vb</DependentUpon>
+    <Compile Include="bWorkerArgs.vb" />
+    <Compile Include="NewCDRApp.vb" />
+    <Compile Include="ProgressWindow.xaml.vb">
+      <DependentUpon>ProgressWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.vb">
-      <SubType>Form</SubType>
+    <Page Include="DockerPolaroid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="ClsFunctions.vb" />
+    <Compile Include="DockerPolaroid.xaml.vb">
+      <DependentUpon>DockerPolaroid.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
+    <Page Include="ProgressWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="My Project\AssemblyInfo.vb">
-      <SubDocker>Code</SubDocker>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -198,29 +225,31 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="NewCDRApp.vb" />
-    <Compile Include="StartForm.Designer.vb">
-      <DependentUpon>StartForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="StartForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
-    </EmbeddedResource>
-    <EmbeddedResource Include="StartForm.resx">
-      <DependentUpon>StartForm.vb</DependentUpon>
     </EmbeddedResource>
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <AppDesigner Include="My Project\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\accept.png" />
+    <Resource Include="Resources\arrow_in.png" />
+    <Resource Include="Resources\arrow_out.png" />
+    <Resource Include="Resources\arrow_redo.png" />
+    <Resource Include="Resources\arrow_rotate_anticlockwise.png" />
+    <Resource Include="Resources\arrow_rotate_clockwise.png" />
+    <Resource Include="Resources\arrow_undo.png" />
+    <Resource Include="Resources\cancel.png" />
+    <Resource Include="Resources\image_delete.png" />
+    <Resource Include="Resources\shape_rotate_anticlockwise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\polaroidheader.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -320,18 +349,12 @@
     <StartAction>Program</StartAction>
     <StartProgram>c:\program files\corel\coreldraw graphics suite 2017\programs64\CorelDRW.exe</StartProgram>
   </PropertyGroup>
-  <PropertyGroup>
-    <DllExportIdent>1A4D6497-EBF9-4DF4-8B47-E73543FE6BDF</DllExportIdent>
-    <DllExportNamespace>RGiesecke.DllExport</DllExportNamespace>
-    <DllExportDDNSCecil>true</DllExportDDNSCecil>
-    <PlatformTarget>x64</PlatformTarget>
-    <DllExportOrdinalsBase>1</DllExportOrdinalsBase>
-    <DllExportGenExpLib>false</DllExportGenExpLib>
-    <DllExportOurILAsm>false</DllExportOurILAsm>
+  <PropertyGroup Condition="'$(Configuration)'=='2018 Debug'">
+    <StartAction>Program</StartAction>
+    <StartProgram>c:\program files\corel\coreldraw graphics suite 2018\programs64\CorelDRW.exe</StartProgram>
   </PropertyGroup>
-  <Import Project="..\packages\DllExport.1.6.0-beta2\tools\net.r_eg.DllExport.targets" Condition="Exists('..\packages\DllExport.1.6.0-beta2\tools\net.r_eg.DllExport.targets')" Label="8337224c9ad9e356" />
-  <Target Name="DllExportRestorePkg" BeforeTargets="PrepareForBuild">
-    <Warning Condition="!Exists('$(SolutionDir)DllExport.bat')" Text="We can't find 'DllExport.bat' in '$(SolutionDir)' - https://github.com/3F/DllExport" />
-    <Exec Condition="('$(DllExportModImported)' != 'true' Or !Exists('..\packages\DllExport.1.6.0-beta2\tools\net.r_eg.DllExport.targets')) And Exists('$(SolutionDir)DllExport.bat')" Command="cd &quot;$(SolutionDir)&quot; &amp; DllExport.bat -action Restore" />
-  </Target>
+  <PropertyGroup Condition="'$(Configuration)'=='2018 Release'">
+    <StartAction>Program</StartAction>
+    <StartProgram>c:\program files\corel\coreldraw graphics suite 2018\programs64\CorelDRW.exe</StartProgram>
+  </PropertyGroup>
 </Project>

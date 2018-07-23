@@ -6,9 +6,11 @@ Partial Class MainForm
         InitTabFinishing() '<== Harus paling dulu!
         InitCheckMultiplePages()
         InitSetter()
+        InitPermanent()
         InitPresetCustomer()
         InitJenisOrder()
         InitFinishingA3()
+        InitFinishingPTP()
         InitFinishingA3bw()
         InitFinishingLF()
         InitFinishingBR()
@@ -20,6 +22,7 @@ Partial Class MainForm
         'InitFolder()
         InitQtyPages()
         AddChkHandler(pn_finishinga3)
+        AddChkHandler(pn_finishingptp)
         AddChkHandler(pn_finishingbw)
         AddChkHandler(pn_finishingkn)
         AddChkHandler(pn_finishingbr)
@@ -43,6 +46,10 @@ Partial Class MainForm
         jhandler.FillCBfromJson(cb_operator, Globals.JsonObj("cgSetter"), "kode", "nama")
     End Sub
 
+    Private Sub InitPermanent()
+        jhandler.FillCBfromJson(cb_grouppermanent, Globals.JsonObj("cgPermanent")("kategori"))
+    End Sub
+
     Private Sub InitJenisOrder()
         jhandler.FillCBfromJson(cb_jenisorder, Globals.JsonObj("cgJenisOrder")("katJenisOrder"), "id", "nama")
     End Sub
@@ -54,6 +61,10 @@ Partial Class MainForm
 
     Private Sub InitFinishingA3()
         jhandler.FillTabwithCB(Me, DirectCast(Globals.JsonObj("cgFinishing")("a3color"), JArray), 7, 7, 5, pn_finishinga3)
+    End Sub
+
+    Private Sub InitFinishingPTP()
+        jhandler.FillTabwithCB(Me, DirectCast(Globals.JsonObj("cgFinishing")("photo"), JArray), 7, 7, 5, pn_finishingptp)
     End Sub
 
     Private Sub InitFinishingKN()

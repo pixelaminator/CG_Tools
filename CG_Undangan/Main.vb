@@ -14,7 +14,7 @@ Public Module Main
 
     <DllExport("CGUndangan")>
     Public Sub CG_Undangan()
-        Dim undangan As New StartForm
+        Dim undangan As New MainForm
         undangan.ShowDialog()
     End Sub
 
@@ -37,7 +37,7 @@ Public Module Main
 
                 'Build the path of the assembly from where it has to be loaded.
                 Dim strTempAssmbPath As String
-                strTempAssmbPath = Application.StartupPath + "\Addons\CG_Tools\" & args.Name.Substring(0, args.Name.IndexOf(",")) & ".dll"
+                strTempAssmbPath = Application.StartupPath + "\Addons\CG_Tools\libs\" & args.Name.Substring(0, args.Name.IndexOf(",")) & ".dll"
 
                 'Load the assembly from the specified path. 
                 Try

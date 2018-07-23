@@ -16,6 +16,9 @@
     <OutDir>$(SolutionName)</OutDir>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <!--<TargetFrameworkVersion>v4.5</TargetFrameworkVersion>-->
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X7 Debug|AnyCPU' ">
@@ -30,6 +33,8 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DefineConstants>X7</DefineConstants>
     <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X7 Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -41,6 +46,8 @@
     <DocumentationFile>DockerTemplateVB1.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DefineConstants>X7</DefineConstants>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X8 Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,6 +60,8 @@
     </DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DefineConstants>X8</DefineConstants>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'X8 Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -64,6 +73,8 @@
     <DocumentationFile>DockerTemplateVB1.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DefineConstants>X8</DefineConstants>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == '2017 Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -76,6 +87,8 @@
     </DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DefineConstants>X9</DefineConstants>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == '2017 Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -87,6 +100,8 @@
     <DocumentationFile>DockerTemplateVB1.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DefineConstants>X9</DefineConstants>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -151,7 +166,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="WindowsBase" />
-    <Reference Include="c:\program files\corel\coreldraw graphics suite x7\programs64\Assemblies\Corel.Interop.VGCore.dll" Condition="'$(Configuration)'=='X7 Debug'">
+    <Reference Include="c:\program files\corel\coreldraw graphics suite x7\programs64\Assemblies\Corel.Interop.VGCore.491.dll" Condition="'$(Configuration)'=='X7 Debug'">
       <Name>Corel.Interop.VGCore</Name>
       <Private>False</Private>
     </Reference>
@@ -316,36 +331,66 @@
   <PropertyGroup Condition="'$(Configuration)'=='X7 Debug'">
     <PostBuildEvent>
       if not exist "c:\program files\corel\coreldraw graphics suite x7\programs64\addons\$(SolutionName)" md "c:\program files\corel\coreldraw graphics suite x7\programs64\addons\$(SolutionName)"
+      if not exist "$(ProjectDir)bin\Debug\$(SolutionName)\libs" md "$(ProjectDir)bin\Debug\$(SolutionName)\libs"
+      for /R "$(ProjectDir)bin\Debug\$(SolutionName)" %%f in (*.dll) do move "%%f" "$(ProjectDir)bin\Debug\$(SolutionName)\libs"
+      rmdir "$(ProjectDir)bin\Debug\$(SolutionName)\nl"
+      rmdir "$(ProjectDir)bin\Debug\$(SolutionName)\x64"
+      move "$(ProjectDir)bin\Debug\$(SolutionName)\libs\$(TargetFileName)" "$(ProjectDir)bin\Debug\$(SolutionName)"
       xcopy "$(ProjectDir)bin\Debug\$(SolutionName)" "c:\program files\corel\coreldraw graphics suite X7\programs64\addons\$(SolutionName)" /O /X /E /H /K /Y
     </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='X7 Release'">
     <PostBuildEvent>
       if not exist "c:\program files\corel\coreldraw graphics suite x7\programs64\addons\$(SolutionName)" md "c:\program files\corel\coreldraw graphics suite x7\programs64\addons\$(SolutionName)"
+      if not exist "$(ProjectDir)bin\Debug\$(SolutionName)\libs" md "$(ProjectDir)bin\Debug\$(SolutionName)\libs"
+      for /R "$(ProjectDir)bin\Debug\$(SolutionName)" %%f in (*.dll) do move "%%f" "$(ProjectDir)bin\Debug\$(SolutionName)\libs"
+      rmdir "$(ProjectDir)bin\Debug\$(SolutionName)\nl"
+      rmdir "$(ProjectDir)bin\Debug\$(SolutionName)\x64"
+      move "$(ProjectDir)bin\Debug\$(SolutionName)\libs\$(TargetFileName)" "$(ProjectDir)bin\Debug\$(SolutionName)"
       xcopy "$(ProjectDir)bin\Debug\$(SolutionName)" "c:\program files\corel\coreldraw graphics suite X7\programs64\addons\$(SolutionName)" /O /X /E /H /K /Y
     </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='X8 Debug'">
     <PostBuildEvent>
       if not exist "c:\program files\corel\coreldraw graphics suite x8\programs64\addons\$(SolutionName)" md "c:\program files\corel\coreldraw graphics suite x8\programs64\addons\$(SolutionName)"
+      if not exist "$(ProjectDir)bin\Debug\$(SolutionName)\libs" md "$(ProjectDir)bin\Debug\$(SolutionName)\libs"
+      for /R "$(ProjectDir)bin\Debug\$(SolutionName)" %%f in (*.dll) do move "%%f" "$(ProjectDir)bin\Debug\$(SolutionName)\libs"
+      rmdir "$(ProjectDir)bin\Debug\$(SolutionName)\nl"
+      rmdir "$(ProjectDir)bin\Debug\$(SolutionName)\x64"
+      move "$(ProjectDir)bin\Debug\$(SolutionName)\libs\$(TargetFileName)" "$(ProjectDir)bin\Debug\$(SolutionName)"
       xcopy "$(ProjectDir)bin\Debug\$(SolutionName)" "c:\program files\corel\coreldraw graphics suite X8\programs64\addons\$(SolutionName)" /O /X /E /H /K /Y
     </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='X8 Release'">
     <PostBuildEvent>
       if not exist "c:\program files\corel\coreldraw graphics suite x8\programs64\addons\$(SolutionName)" md "c:\program files\corel\coreldraw graphics suite x8\programs64\addons\$(SolutionName)"
+      if not exist "$(ProjectDir)bin\Debug\$(SolutionName)\libs" md "$(ProjectDir)bin\Debug\$(SolutionName)\libs"
+      for /R "$(ProjectDir)bin\Debug\$(SolutionName)" %%f in (*.dll) do move "%%f" "$(ProjectDir)bin\Debug\$(SolutionName)\libs"
+      rmdir "$(ProjectDir)bin\Debug\$(SolutionName)\nl"
+      rmdir "$(ProjectDir)bin\Debug\$(SolutionName)\x64"
+      move "$(ProjectDir)bin\Debug\$(SolutionName)\libs\$(TargetFileName)" "$(ProjectDir)bin\Debug\$(SolutionName)"
       xcopy "$(ProjectDir)bin\Debug\$(SolutionName)" "c:\program files\corel\coreldraw graphics suite X8\programs64\addons\$(SolutionName)" /O /X /E /H /K /Y
     </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='2017 Debug'">
     <PostBuildEvent>
       if not exist "c:\program files\corel\coreldraw graphics suite 2017\programs64\addons\$(SolutionName)" md "c:\program files\corel\coreldraw graphics suite 2017\programs64\addons\$(SolutionName)"
+      if not exist "$(ProjectDir)bin\Debug\$(SolutionName)\libs" md "$(ProjectDir)bin\Debug\$(SolutionName)\libs"
+      for /R "$(ProjectDir)bin\Debug\$(SolutionName)" %%f in (*.dll) do move "%%f" "$(ProjectDir)bin\Debug\$(SolutionName)\libs"
+      rmdir "$(ProjectDir)bin\Debug\$(SolutionName)\nl"
+      rmdir "$(ProjectDir)bin\Debug\$(SolutionName)\x64"
+      move "$(ProjectDir)bin\Debug\$(SolutionName)\libs\$(TargetFileName)" "$(ProjectDir)bin\Debug\$(SolutionName)"
       xcopy "$(ProjectDir)bin\Debug\$(SolutionName)" "c:\program files\corel\coreldraw graphics suite 2017\programs64\addons\$(SolutionName)" /O /X /E /H /K /Y
     </PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='2017 Release'">
     <PostBuildEvent>
       if not exist "c:\program files\corel\coreldraw graphics suite 2017\programs64\addons\$(SolutionName)" md "c:\program files\corel\coreldraw graphics suite 2017\programs64\addons\$(SolutionName)"
+      if not exist "$(ProjectDir)bin\Debug\$(SolutionName)\libs" md "$(ProjectDir)bin\Debug\$(SolutionName)\libs"
+      for /R "$(ProjectDir)bin\Debug\$(SolutionName)" %%f in (*.dll) do move "%%f" "$(ProjectDir)bin\Debug\$(SolutionName)\libs"
+      rmdir "$(ProjectDir)bin\Debug\$(SolutionName)\nl"
+      rmdir "$(ProjectDir)bin\Debug\$(SolutionName)\x64"
+      move "$(ProjectDir)bin\Debug\$(SolutionName)\libs\$(TargetFileName)" "$(ProjectDir)bin\Debug\$(SolutionName)"
       xcopy "$(ProjectDir)bin\Debug\$(SolutionName)" "c:\program files\corel\coreldraw graphics suite 2017\programs64\addons\$(SolutionName)" /O /X /E /H /K /Y
     </PostBuildEvent>
   </PropertyGroup>

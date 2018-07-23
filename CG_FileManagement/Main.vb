@@ -45,18 +45,16 @@ Module Main
         If FileIO.BaseURLValid = False Then Exit Sub
 
         Globals.SaveOption = 0
-        Dim start As New StartForm
-        start.ShowDialog()
 
         Dim publish As New MainForm
         publish.ShowDialog()
     End Sub
 
-    <DllExport("CGTestSaving")>
-    Public Sub CG_TestSaving()
-        Dim testSave As New SavingTest
-        testSave.Show()
-    End Sub
+    '<DllExport("CGTestSaving")>
+    'Public Sub CG_TestSaving()
+    '    Dim testSave As New SavingTest
+    '    testSave.Show()
+    'End Sub
 
     Private Function SettingJSONLoaded() As Boolean
         jsonPath = Application.StartupPath + "\Addons\CG_Tools\cgSave.json"
@@ -96,7 +94,7 @@ Module Main
 
                 'Build the path of the assembly from where it has to be loaded.
                 Dim strTempAssmbPath As String
-                strTempAssmbPath = Application.StartupPath + "\Addons\CG_Tools\" & args.Name.Substring(0, args.Name.IndexOf(",")) & ".dll"
+                strTempAssmbPath = Application.StartupPath + "\Addons\CG_Tools\libs\" & args.Name.Substring(0, args.Name.IndexOf(",")) & ".dll"
 
                 'Load the assembly from the specified path. 
                 Try

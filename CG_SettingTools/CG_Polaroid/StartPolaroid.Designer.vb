@@ -23,23 +23,23 @@ Partial Class StartPolaroid
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cb_outlineborder = New System.Windows.Forms.CheckBox()
         Me.bt_Browse = New System.Windows.Forms.Button()
         Me.t_alamat = New System.Windows.Forms.TextBox()
         Me.statusstrip = New System.Windows.Forms.StatusStrip()
         Me.ts_progress = New System.Windows.Forms.ToolStripProgressBar()
         Me.t_status = New System.Windows.Forms.ToolStripStatusLabel()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.folderBrowser = New System.Windows.Forms.FolderBrowserDialog()
-        Me.bWorker = New System.ComponentModel.BackgroundWorker()
-        Me.bt_Abort = New System.Windows.Forms.Button()
-        Me.bt_CreatePolaroid = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.btUndo = New System.Windows.Forms.Button()
         Me.btRedo = New System.Windows.Forms.Button()
         Me.btDelete = New System.Windows.Forms.Button()
         Me.bt_FittoFrame = New System.Windows.Forms.Button()
         Me.bt_RotateCounterClockwise = New System.Windows.Forms.Button()
         Me.bt_RotateClockwise = New System.Windows.Forms.Button()
+        Me.folderBrowser = New System.Windows.Forms.FolderBrowserDialog()
+        Me.bWorker = New System.ComponentModel.BackgroundWorker()
+        Me.bt_Abort = New System.Windows.Forms.Button()
+        Me.bt_CreatePolaroid = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.statusstrip.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -47,14 +47,25 @@ Partial Class StartPolaroid
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.cb_outlineborder)
         Me.GroupBox1.Controls.Add(Me.bt_Browse)
         Me.GroupBox1.Controls.Add(Me.t_alamat)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 69)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 9)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(330, 60)
+        Me.GroupBox1.Size = New System.Drawing.Size(330, 76)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Import Photo dari Folder"
+        '
+        'cb_outlineborder
+        '
+        Me.cb_outlineborder.AutoSize = True
+        Me.cb_outlineborder.Location = New System.Drawing.Point(12, 49)
+        Me.cb_outlineborder.Name = "cb_outlineborder"
+        Me.cb_outlineborder.Size = New System.Drawing.Size(116, 17)
+        Me.cb_outlineborder.TabIndex = 6
+        Me.cb_outlineborder.Text = "Pakai Garis Outline"
+        Me.cb_outlineborder.UseVisualStyleBackColor = True
         '
         'bt_Browse
         '
@@ -76,7 +87,7 @@ Partial Class StartPolaroid
         'statusstrip
         '
         Me.statusstrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ts_progress, Me.t_status})
-        Me.statusstrip.Location = New System.Drawing.Point(0, 284)
+        Me.statusstrip.Location = New System.Drawing.Point(0, 251)
         Me.statusstrip.Name = "statusstrip"
         Me.statusstrip.Size = New System.Drawing.Size(354, 22)
         Me.statusstrip.TabIndex = 2
@@ -101,49 +112,12 @@ Partial Class StartPolaroid
         Me.GroupBox2.Controls.Add(Me.bt_FittoFrame)
         Me.GroupBox2.Controls.Add(Me.bt_RotateCounterClockwise)
         Me.GroupBox2.Controls.Add(Me.bt_RotateClockwise)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 212)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 176)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(330, 61)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Tools"
-        '
-        'bWorker
-        '
-        Me.bWorker.WorkerReportsProgress = True
-        Me.bWorker.WorkerSupportsCancellation = True
-        '
-        'bt_Abort
-        '
-        Me.bt_Abort.Enabled = False
-        Me.bt_Abort.Location = New System.Drawing.Point(23, 174)
-        Me.bt_Abort.Name = "bt_Abort"
-        Me.bt_Abort.Size = New System.Drawing.Size(307, 32)
-        Me.bt_Abort.TabIndex = 4
-        Me.bt_Abort.Text = "Batalkan"
-        Me.bt_Abort.UseVisualStyleBackColor = True
-        '
-        'bt_CreatePolaroid
-        '
-        Me.bt_CreatePolaroid.Location = New System.Drawing.Point(24, 136)
-        Me.bt_CreatePolaroid.Name = "bt_CreatePolaroid"
-        Me.bt_CreatePolaroid.Size = New System.Drawing.Size(306, 32)
-        Me.bt_CreatePolaroid.TabIndex = 1
-        Me.bt_CreatePolaroid.Text = "Buat Polaroid"
-        Me.bt_CreatePolaroid.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.bt_CreatePolaroid.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.Red
-        Me.Label1.Location = New System.Drawing.Point(59, 9)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(237, 39)
-        Me.Label1.TabIndex = 5
-        Me.Label1.Text = "=== VERSI PERCOBAAN ===" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "!! SAVE DAN CLOSE PEKERJAAN LAIN " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SEBELUM MEMULAI !!"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'btUndo
         '
@@ -199,12 +173,36 @@ Partial Class StartPolaroid
         Me.bt_RotateClockwise.TabIndex = 0
         Me.bt_RotateClockwise.UseVisualStyleBackColor = True
         '
+        'bWorker
+        '
+        Me.bWorker.WorkerReportsProgress = True
+        Me.bWorker.WorkerSupportsCancellation = True
+        '
+        'bt_Abort
+        '
+        Me.bt_Abort.Enabled = False
+        Me.bt_Abort.Location = New System.Drawing.Point(23, 138)
+        Me.bt_Abort.Name = "bt_Abort"
+        Me.bt_Abort.Size = New System.Drawing.Size(307, 32)
+        Me.bt_Abort.TabIndex = 4
+        Me.bt_Abort.Text = "Batalkan"
+        Me.bt_Abort.UseVisualStyleBackColor = True
+        '
+        'bt_CreatePolaroid
+        '
+        Me.bt_CreatePolaroid.Location = New System.Drawing.Point(24, 100)
+        Me.bt_CreatePolaroid.Name = "bt_CreatePolaroid"
+        Me.bt_CreatePolaroid.Size = New System.Drawing.Size(306, 32)
+        Me.bt_CreatePolaroid.TabIndex = 1
+        Me.bt_CreatePolaroid.Text = "Buat Polaroid"
+        Me.bt_CreatePolaroid.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.bt_CreatePolaroid.UseVisualStyleBackColor = True
+        '
         'StartPolaroid
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(354, 306)
-        Me.Controls.Add(Me.Label1)
+        Me.ClientSize = New System.Drawing.Size(354, 273)
         Me.Controls.Add(Me.bt_Abort)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.statusstrip)
@@ -213,7 +211,7 @@ Partial Class StartPolaroid
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "StartPolaroid"
         Me.ShowIcon = False
-        Me.Text = "CG Photo Square v0.7 - EDISI MERCURE"
+        Me.Text = "CG Polaroid v0.7"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.statusstrip.ResumeLayout(False)
@@ -239,7 +237,7 @@ Partial Class StartPolaroid
     Friend WithEvents bt_RotateClockwise As System.Windows.Forms.Button
     Friend WithEvents bt_FittoFrame As System.Windows.Forms.Button
     Friend WithEvents btDelete As System.Windows.Forms.Button
-    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents btUndo As System.Windows.Forms.Button
     Friend WithEvents btRedo As System.Windows.Forms.Button
+    Friend WithEvents cb_outlineborder As System.Windows.Forms.CheckBox
 End Class

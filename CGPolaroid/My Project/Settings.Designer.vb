@@ -62,9 +62,9 @@ Namespace My
     Friend Module MySettingsProperty
         
         <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
-        Friend ReadOnly Property Settings() As Global.CG_SettingTools.MySettings
+        Friend ReadOnly Property Settings() As Global.CG_Polaroid.MySettings
             Get
-                Return Global.CG_SettingTools.MySettings.Default
+                Return Global.CG_Polaroid.MySettings.Default
             End Get
         End Property
     End Module

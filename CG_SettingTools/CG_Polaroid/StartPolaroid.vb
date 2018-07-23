@@ -34,7 +34,7 @@ Public Class StartPolaroid
     End Sub
 
     Private Sub bWorker_DoWork(ByVal sender As Object, e As DoWorkEventArgs) Handles bWorker.DoWork
-        ClsFunc.InitPolaroid(t_alamat.Text, CType(sender, BackgroundWorker))
+        ClsFunc.InitPolaroid(t_alamat.Text, cb_outlineborder.Checked, CType(sender, BackgroundWorker))
     End Sub
 
     Private Sub bWorker_ReportProgress(ByVal sender As Object, e As ProgressChangedEventArgs) Handles bWorker.ProgressChanged
@@ -53,7 +53,7 @@ Public Class StartPolaroid
             ctl.Enabled = True
         Next
         'TODO: Look for workaround about CrossThreading issue
-        bt_CreatePolaroid.Enabled = False
+        'bt_CreatePolaroid.Enabled = False
         bt_Abort.Enabled = False
     End Sub
 
